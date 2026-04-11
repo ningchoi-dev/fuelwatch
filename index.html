@@ -22,6 +22,7 @@
       --accent: #4f8ef7;
       --green: #22c55e;
       --red: #ef4444;
+      --amber: #f59e0b;
       --text: #e2e8f0;
       --muted: #8892a4;
       --radius: 14px;
@@ -36,43 +37,92 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100dvh;
-      padding: calc(var(--safe-top) + 20px) 16px calc(var(--safe-bottom) + 40px);
+      padding: calc(var(--safe-top) + 20px) 16px calc(var(--safe-bottom) + 48px);
       -webkit-font-smoothing: antialiased;
     }
 
-    header { text-align: center; margin-bottom: 24px; }
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 20px; }
 
-    header h1 {
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      font-weight: 800;
-      letter-spacing: -0.5px;
+    header h1 { font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 800; letter-spacing: -0.5px; }
+    header h1 span { color: var(--accent); }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: all 0.15s;
+      -webkit-appearance: none;
     }
 
-    header h1 span { color: var(--accent); }
-    header p { color: var(--muted); margin-top: 4px; font-size: 0.88rem; }
+    .location-pill:hover, .location-pill:active { border-color: var(--accent); color: var(--text); }
+    .location-pill.locating { color: var(--amber); border-color: var(--amber); }
+    .location-pill.located  { color: var(--green); border-color: var(--green); background: #1a2e1a; }
+    .location-pill.error    { color: var(--red);   border-color: var(--red); }
 
     #last-updated {
-      display: inline-block;
+      display: block;
       margin-top: 8px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--muted);
+    }
+
+    /* ── Day tabs ── */
+    .day-tabs {
+      display: flex;
+      max-width: 600px;
+      margin: 0 auto 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .day-tab {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .day-tab.active {
       background: var(--surface2);
-      padding: 4px 12px;
-      border-radius: 20px;
+      color: var(--text);
     }
 
-    .stale-warning {
-      display: none;
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: var(--red);
+    .day-tab .day-price-hint {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      margin-top: 2px;
+      opacity: 0.7;
     }
 
+    /* ── Fuel tabs ── */
     .fuel-tabs {
       display: flex;
       gap: 8px;
       max-width: 600px;
-      margin: 0 auto 20px;
+      margin: 0 auto 14px;
     }
 
     .fuel-tab {
@@ -93,67 +143,83 @@
     .fuel-tab.active-91 { background: #1d3a6e; border-color: #4f8ef7; color: #93c5fd; }
     .fuel-tab.active-95 { background: #3b1d6e; border-color: #a78bfa; color: #c4b5fd; }
 
+    /* ── Panels ── */
     .fuel-panel { display: none; max-width: 600px; margin: 0 auto; }
     .fuel-panel.visible { display: block; }
 
-    .price-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .price-card {
+    /* ── Summary card ── */
+    .summary-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    .price-card .day-label {
-      font-size: 0.7rem;
+    .summary-main { flex: 1; }
+
+    .summary-label {
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.8px;
       text-transform: uppercase;
+      letter-spacing: 0.8px;
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .price-card .big-price {
-      font-size: clamp(2rem, 8vw, 2.8rem);
+    .summary-price {
+      font-size: clamp(2.4rem, 9vw, 3.2rem);
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -2px;
       line-height: 1;
     }
 
-    .price-card .big-price .unit {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-left: 1px;
-    }
+    .summary-price .unit { font-size: 1rem; font-weight: 600; color: var(--muted); margin-left: 2px; letter-spacing: 0; }
 
-    .price-card .sub-prices {
+    .summary-sub {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
+      gap: 14px;
       margin-top: 8px;
+      flex-wrap: wrap;
     }
 
-    .price-card .sub-item { font-size: 0.75rem; color: var(--muted); }
-    .price-card .sub-item span { color: var(--text); font-weight: 600; }
+    .summary-sub span { font-size: 0.78rem; color: var(--muted); }
+    .summary-sub span b { color: var(--text); font-weight: 600; }
 
-    .price-card .cheapest-name {
-      margin-top: 8px;
-      font-size: 0.75rem;
+    .summary-cheapest {
+      font-size: 0.78rem;
       color: var(--muted);
+      margin-top: 8px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    .price-card .cheapest-name strong { color: var(--text); }
+    .summary-cheapest strong { color: var(--text); }
 
+    /* Tomorrow comparison badge */
+    .tmr-badge {
+      flex-shrink: 0;
+      text-align: center;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      min-width: 80px;
+    }
+
+    .tmr-badge .tmr-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); font-weight: 700; }
+    .tmr-badge .tmr-price { font-size: 1.3rem; font-weight: 800; margin: 4px 0 2px; letter-spacing: -0.5px; }
+    .tmr-badge .tmr-diff { font-size: 0.72rem; font-weight: 700; }
+
+    .up   { color: var(--red); }
+    .down { color: var(--green); }
+    .same { color: var(--muted); }
+
+    /* ── Recommendation ── */
     .rec-banner {
       border-radius: var(--radius);
       padding: 14px 16px;
@@ -166,11 +232,11 @@
     }
 
     .rec-banner .rec-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .rec-wait { background: #1e2d1a; border: 1px solid #2d5c25; color: var(--green); }
-    .rec-fill { background: #2d1a1a; border: 1px solid #5c2525; color: var(--red); }
+    .rec-wait    { background: #1e2d1a; border: 1px solid #2d5c25; color: var(--green); }
+    .rec-fill    { background: #2d1a1a; border: 1px solid #5c2525; color: var(--red); }
     .rec-neutral { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
-    .rec-banner .rec-diff { margin-left: auto; font-size: 1rem; font-weight: 800; white-space: nowrap; }
 
+    /* ── Stations ── */
     .stations-section {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -214,15 +280,14 @@
     .station-row:last-child { border-bottom: none; }
 
     .station-rank { font-size: 0.72rem; color: var(--muted); width: 18px; flex-shrink: 0; text-align: right; }
-
     .station-info { flex: 1; min-width: 0; }
     .station-info .s-name { font-size: 0.88rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .station-info .s-addr { font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
     .station-price { font-size: 1rem; font-weight: 700; flex-shrink: 0; }
     .station-price .cpl { font-size: 0.68rem; color: var(--muted); }
     .station-row:first-of-type .station-price { color: var(--green); }
 
+    /* ── Chart ── */
     .chart-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -243,6 +308,7 @@
     .chart-wrapper { position: relative; height: 160px; }
     .no-history { text-align: center; padding: 28px; color: var(--muted); font-size: 0.85rem; }
 
+    /* ── Loading / Error ── */
     .loading-overlay { display: none; text-align: center; padding: 60px 20px; color: var(--muted); }
 
     .spinner {
@@ -270,49 +336,336 @@
       margin: 0 auto;
       font-size: 0.88rem;
     }
+
+    .inline-spinner {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border: 2px solid currentColor;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>⛽ Fuel<span>Watch</span></h1>
-    <p>Aubin Grove &amp; Cockburn Surrounds</p>
-    <div id="last-updated">Loading…</div>
-    <div class="stale-warning" id="stale-warning">⚠️ Data may be outdated</div>
+    <button class="location-pill" id="loc-btn" onclick="requestLocation()">
+      <span id="loc-icon">📍</span>
+      <span id="loc-label">Use my location</span>
+    </button>
+    <div id="last-updated"></div>
   </header>
 
   <div class="loading-overlay" id="loading">
     <div class="spinner"></div>
-    <div>Loading prices…</div>
+    <div id="loading-msg">Loading prices…</div>
   </div>
 
-  <div class="error-msg" id="error-msg">
-    Could not load prices. Try again later.
-  </div>
+  <div class="error-msg" id="error-msg">Could not load prices. Try again later.</div>
 
   <div id="content">
+    <!-- Day tabs -->
+    <div class="day-tabs" id="day-tabs">
+      <button class="day-tab active" data-day="today" onclick="switchDay('today')">
+        Today
+        <span class="day-price-hint" id="hint-today-91"></span>
+      </button>
+      <button class="day-tab" data-day="tomorrow" onclick="switchDay('tomorrow')">
+        Tomorrow
+        <span class="day-price-hint" id="hint-tomorrow-91"></span>
+      </button>
+    </div>
+
+    <!-- Fuel tabs -->
     <div class="fuel-tabs" id="fuel-tabs"></div>
+
+    <!-- Panels per fuel type -->
     <div id="panels"></div>
   </div>
 
   <script>
-    const charts = {};
-    let allData = null;
-    let activeTab = null;
+    /* ── State ── */
+    let allData    = null;   // prices.json
+    let liveData   = null;   // location-fetched live data
+    let activeTab  = null;
+    let activeDay  = 'today';
+    let detectedSuburb = null;
+    const charts   = {};
     const showAllMap = {};
 
+    /* ── Service worker ── */
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('static/sw.js').catch(() => {});
     }
 
-    function fuelColor(name) { return name.includes('91') ? '#4f8ef7' : '#a78bfa'; }
-    function fmt(p) { return p != null ? p.toFixed(1) : '—'; }
+    /* ─────────────────────────────── helpers ── */
+    const fuelColor = n => n.includes('91') ? '#4f8ef7' : '#a78bfa';
+    const fmt       = p => p != null ? p.toFixed(1) : '—';
+
     function diffLabel(diff) {
-      if (diff == null) return '';
-      return `${diff > 0 ? '+' : ''}${diff.toFixed(1)}¢`;
+      if (diff == null) return { text: '—', cls: 'same' };
+      const sign = diff > 0 ? '+' : '';
+      return {
+        text: `${sign}${diff.toFixed(1)}¢`,
+        cls:  diff > 1 ? 'up' : diff < -1 ? 'down' : 'same'
+      };
     }
 
-    function stationRows(stations, showAll) {
-      return (showAll ? stations : stations.slice(0, 5)).map((s, i) => `
+    function summarise(stations) {
+      if (!stations || !stations.length) return null;
+      const prices = stations.map(s => s.price);
+      return {
+        min:      Math.min(...prices),
+        avg:      +(prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(1),
+        max:      Math.max(...prices),
+        count:    stations.length,
+        cheapest: stations[0],
+        stations: stations.slice(0, 15),
+      };
+    }
+
+    function recommendation(todayMin, tmrMin) {
+      if (todayMin == null || tmrMin == null) return null;
+      const diff = +(tmrMin - todayMin).toFixed(1);
+      if (diff <= -3) return { action: 'wait', diff, icon: '⏳', text: `Wait until tomorrow — prices drop ${Math.abs(diff)}c/L` };
+      if (diff >=  3) return { action: 'fill', diff, icon: '⛽', text: `Fill up today — prices rise ${diff}c/L tomorrow` };
+      return { action: 'neutral', diff, icon: '✓', text: 'Prices are similar — fill up whenever suits you' };
+    }
+
+    /* ─────────────────────────────── CORS proxy fetch ── */
+    const PROXIES = [
+      url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+      url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    ];
+
+    async function proxyFetch(url) {
+      for (const proxy of PROXIES) {
+        try {
+          const r = await fetch(proxy(url), { signal: AbortSignal.timeout(12000) });
+          if (r.ok) return await r.text();
+        } catch { /* try next */ }
+      }
+      throw new Error('All proxies failed');
+    }
+
+    function parseRSS(xml) {
+      const doc = new DOMParser().parseFromString(xml, 'text/xml');
+      const stations = [];
+      doc.querySelectorAll('item').forEach(item => {
+        const g = tag => item.querySelector(tag)?.textContent?.trim() || '';
+        const p = parseFloat(g('price'));
+        if (!isNaN(p)) stations.push({ price: p, name: g('trading-name'), brand: g('brand'), address: g('address'), suburb: g('location') });
+      });
+      return stations.sort((a, b) => a.price - b.price);
+    }
+
+    function fuelWatchURL(product, suburb, day) {
+      return `https://www.fuelwatch.wa.gov.au/fuelwatch/fuelWatchRSS?Product=${product}&Suburb=${encodeURIComponent(suburb.toUpperCase())}&Day=${day}&Surrounding=1`;
+    }
+
+    /* ─────────────────────────────── Location ── */
+    async function requestLocation() {
+      const btn   = document.getElementById('loc-btn');
+      const icon  = document.getElementById('loc-icon');
+      const label = document.getElementById('loc-label');
+
+      btn.className   = 'location-pill locating';
+      icon.textContent = '';
+      label.innerHTML  = '<span class="inline-spinner"></span> Locating…';
+      btn.disabled     = true;
+
+      try {
+        // 1 — Get GPS coords
+        const pos = await new Promise((res, rej) =>
+          navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 }));
+        const { latitude: lat, longitude: lng } = pos.coords;
+
+        // 2 — Reverse geocode with OpenStreetMap Nominatim (free, no key)
+        label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
+        const geo = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
+          { headers: { 'Accept-Language': 'en-AU', 'User-Agent': 'FuelWatch-App/1.0' } }
+        );
+        const geoData = await geo.json();
+        const suburb  = geoData.address?.suburb
+                     || geoData.address?.city_district
+                     || geoData.address?.town
+                     || geoData.address?.village
+                     || geoData.address?.county;
+
+        if (!suburb) throw new Error('Suburb not found');
+        detectedSuburb = suburb;
+
+        // 3 — Fetch live prices for this suburb
+        label.innerHTML = `<span class="inline-spinner"></span> Fetching ${suburb} prices…`;
+
+        const combos = [
+          { code: '1', name: 'Unleaded 91', day: 'today' },
+          { code: '1', name: 'Unleaded 91', day: 'tomorrow' },
+          { code: '2', name: 'Premium 95',  day: 'today' },
+          { code: '2', name: 'Premium 95',  day: 'tomorrow' },
+        ];
+
+        const fetched = await Promise.all(
+          combos.map(async ({ code, name, day }) => {
+            const xml      = await proxyFetch(fuelWatchURL(code, suburb, day));
+            const stations = parseRSS(xml);
+            return { name, day, stations };
+          })
+        );
+
+        // 4 — Build liveData in same shape as allData
+        liveData = {};
+        for (const { name, day, stations } of fetched) {
+          if (!liveData[name]) liveData[name] = { today: null, tomorrow: null, history: [] };
+          liveData[name][day] = summarise(stations);
+        }
+        for (const name of Object.keys(liveData)) {
+          liveData[name].recommendation = recommendation(liveData[name].today?.min, liveData[name].tomorrow?.min);
+          liveData[name].fetched_at     = new Date().toLocaleString('en-AU', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' });
+          // Attach pre-fetched history for the chart
+          liveData[name].history = allData?.[name]?.history || [];
+        }
+
+        // 5 — Render
+        btn.className    = 'location-pill located';
+        icon.textContent = '📍';
+        label.textContent = suburb;
+        document.getElementById('last-updated').textContent =
+          `Live prices · ${new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })}`;
+
+        render(liveData);
+
+      } catch (err) {
+        btn.className     = 'location-pill error';
+        icon.textContent  = '⚠️';
+        label.textContent = err.code === 1 ? 'Location denied' : 'Location failed — tap to retry';
+        btn.disabled      = false;
+      }
+    }
+
+    /* ─────────────────────────────── Render ── */
+    function currentData() { return liveData || allData; }
+
+    function render(data) {
+      if (!data) return;
+      const names   = Object.keys(data);
+      const tabsEl  = document.getElementById('fuel-tabs');
+      const panelsEl = document.getElementById('panels');
+      tabsEl.innerHTML  = '';
+      panelsEl.innerHTML = '';
+
+      names.forEach(name => {
+        // Fuel tab
+        const tab = document.createElement('button');
+        tab.className  = 'fuel-tab';
+        tab.dataset.name = name;
+        tab.textContent  = name;
+        tab.onclick = () => switchFuel(name);
+        tabsEl.appendChild(tab);
+
+        // Panel
+        const panel = document.createElement('div');
+        panel.className = 'fuel-panel';
+        panel.id = `panel-${name.replace(/\s/g, '-')}`;
+        panelsEl.appendChild(panel);
+      });
+
+      updateDayHints(data);
+      switchFuel(activeTab && data[activeTab] ? activeTab : names[0]);
+      document.getElementById('content').style.display = 'block';
+    }
+
+    function updateDayHints(data) {
+      // Show cheapest min price in day tab hints for ULP91
+      const fuel91 = data['Unleaded 91'];
+      if (!fuel91) return;
+      const h91t = document.getElementById('hint-today-91');
+      const h91m = document.getElementById('hint-tomorrow-91');
+      if (h91t && fuel91.today)    h91t.textContent = fmt(fuel91.today.min) + '¢';
+      if (h91m && fuel91.tomorrow) h91m.textContent = fmt(fuel91.tomorrow.min) + '¢';
+    }
+
+    function switchDay(day) {
+      activeDay = day;
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.toggle('active', t.dataset.day === day));
+      // Re-render current fuel panel
+      const data = currentData();
+      if (data && activeTab) renderFuelPanel(activeTab, data[activeTab]);
+    }
+
+    function switchFuel(name) {
+      activeTab = name;
+      document.querySelectorAll('.fuel-tab').forEach(t => {
+        t.classList.remove('active-91', 'active-95');
+      });
+      const tab = document.querySelector(`.fuel-tab[data-name="${name}"]`);
+      if (tab) tab.classList.add(name.includes('91') ? 'active-91' : 'active-95');
+      document.querySelectorAll('.fuel-panel').forEach(p => p.classList.remove('visible'));
+      const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
+      if (panel) {
+        panel.classList.add('visible');
+        renderFuelPanel(name, currentData()[name]);
+      }
+    }
+
+    function toggleStations(name) {
+      showAllMap[name] = !showAllMap[name];
+      renderFuelPanel(name, currentData()[name]);
+    }
+
+    function renderFuelPanel(name, data) {
+      const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
+      if (!panel || !data) return;
+
+      const day  = activeDay;
+      const info = data[day];
+      const other = day === 'today' ? data.tomorrow : data.today;
+      const rec   = data.recommendation;
+      const hist  = data.history || [];
+      const showAll = showAllMap[name] || false;
+
+      // Diff vs the other day
+      const diff    = (info?.min != null && other?.min != null)
+        ? +(other.min - info.min).toFixed(1) : null;
+      const diffObj = diffLabel(diff);
+      const tmrLabel = day === 'today' ? 'Tomorrow' : 'Today';
+
+      // Summary card
+      const summaryHtml = info ? `
+        <div class="summary-card">
+          <div class="summary-main">
+            <div class="summary-label">${day === 'today' ? "Today's" : "Tomorrow's"} cheapest</div>
+            <div class="summary-price">${fmt(info.min)}<span class="unit">¢/L</span></div>
+            <div class="summary-sub">
+              <span>Avg <b>${fmt(info.avg)}¢</b></span>
+              <span>Max <b>${fmt(info.max)}¢</b></span>
+              <span><b>${info.count}</b> stations</span>
+            </div>
+            ${info.cheapest ? `<div class="summary-cheapest">Cheapest: <strong>${info.cheapest.name}</strong>, ${info.cheapest.suburb}</div>` : ''}
+          </div>
+          ${other ? `
+          <div class="tmr-badge">
+            <div class="tmr-label">${tmrLabel}</div>
+            <div class="tmr-price ${diffObj.cls}">${fmt(other.min)}¢</div>
+            <div class="tmr-diff ${diffObj.cls}">${diffObj.text}</div>
+          </div>` : ''}
+        </div>` : `
+        <div class="summary-card" style="color:var(--muted)">No data available for ${day}</div>`;
+
+      // Recommendation
+      const recHtml = rec ? `
+        <div class="rec-banner rec-${rec.action}">
+          <span class="rec-icon">${rec.icon}</span>
+          <span>${rec.text}</span>
+        </div>` : '';
+
+      // Stations list
+      const stations    = info?.stations || [];
+      const visibleList = showAll ? stations : stations.slice(0, 5);
+      const stationRows = visibleList.map((s, i) => `
         <div class="station-row">
           <div class="station-rank">${i + 1}</div>
           <div class="station-info">
@@ -321,56 +674,30 @@
           </div>
           <div class="station-price">${fmt(s.price)}<span class="cpl">¢</span></div>
         </div>`).join('');
-    }
 
-    function renderPanel(name, data) {
-      const td = data.today, tm = data.tomorrow, rec = data.recommendation;
-      const hist = data.history || [], showAll = showAllMap[name] || false;
-      const color = fuelColor(name);
-      const chartId = `chart-${name.replace(/\s/g, '-')}`;
-
-      const card = (label, info) => !info
-        ? `<div class="price-card"><div class="day-label">${label}</div><div style="color:var(--muted);font-size:.85rem;margin-top:8px">No data</div></div>`
-        : `<div class="price-card">
-            <div class="day-label">${label}</div>
-            <div class="big-price">${fmt(info.min)}<span class="unit">¢/L</span></div>
-            <div class="sub-prices">
-              <div class="sub-item">Avg <span>${fmt(info.avg)}¢</span></div>
-              <div class="sub-item">Max <span>${fmt(info.max)}¢</span></div>
-              <div class="sub-item">${info.count} stations</div>
-            </div>
-            ${info.cheapest ? `<div class="cheapest-name">Cheapest: <strong>${info.cheapest.name}</strong></div>` : ''}
-          </div>`;
-
-      const recHtml = rec ? `
-        <div class="rec-banner rec-${rec.action}">
-          <span class="rec-icon">${rec.icon}</span>
-          <span>${rec.text}</span>
-          <span class="rec-diff">${diffLabel(rec.diff)}</span>
-        </div>` : '';
-
-      const todayStations = td ? td.stations : [];
-
-      return `
-        <div class="price-grid">${card('Today', td)}${card('Tomorrow', tm)}</div>
-        ${recHtml}
+      const stationsHtml = `
         <div class="stations-section">
           <div class="stations-header">
-            <span>Today's Cheapest Stations</span>
-            ${todayStations.length > 5 ? `<button class="stations-toggle" onclick="toggleStations('${name}')">${showAll ? 'Show less' : 'Show all ' + todayStations.length}</button>` : ''}
+            <span>${day === 'today' ? "Today's" : "Tomorrow's"} Cheapest Stations</span>
+            ${stations.length > 5
+              ? `<button class="stations-toggle" onclick="toggleStations('${name}')">${showAll ? 'Show less' : 'Show all ' + stations.length}</button>`
+              : ''}
           </div>
-          ${stationRows(todayStations, showAll)}
-        </div>
-        <div class="chart-card">
-          <h3>Price History — Lowest ¢/L</h3>
-          ${hist.length > 1
-            ? `<div class="chart-wrapper"><canvas id="${chartId}"></canvas></div>`
-            : `<div class="no-history">History builds daily — check back tomorrow!</div>`}
+          ${stationRows || '<div style="padding:16px;color:var(--muted);font-size:.85rem">No stations found</div>'}
         </div>`;
+
+      // Chart
+      const chartId   = `chart-${name.replace(/\s/g, '-')}`;
+      const chartHtml = hist.length > 1
+        ? `<div class="chart-card"><h3>Price History — Lowest ¢/L</h3><div class="chart-wrapper"><canvas id="${chartId}"></canvas></div></div>`
+        : `<div class="chart-card"><h3>Price History</h3><div class="no-history">History builds daily — check back tomorrow!</div></div>`;
+
+      panel.innerHTML = summaryHtml + recHtml + stationsHtml + chartHtml;
+
+      if (hist.length > 1) setTimeout(() => buildChart(name, hist), 30);
     }
 
     function buildChart(name, hist) {
-      if (!hist || hist.length < 2) return;
       const chartId = `chart-${name.replace(/\s/g, '-')}`;
       const ctx = document.getElementById(chartId);
       if (!ctx) return;
@@ -399,67 +726,19 @@
       });
     }
 
-    function switchTab(name) {
-      activeTab = name;
-      document.querySelectorAll('.fuel-tab').forEach(t => t.classList.remove('active-91', 'active-95'));
-      const tab = document.querySelector(`.fuel-tab[data-name="${name}"]`);
-      if (tab) tab.classList.add(name.includes('91') ? 'active-91' : 'active-95');
-      document.querySelectorAll('.fuel-panel').forEach(p => p.classList.remove('visible'));
-      const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
-      if (panel) panel.classList.add('visible');
-      if (allData?.[name]) setTimeout(() => buildChart(name, allData[name].history), 50);
-    }
-
-    function toggleStations(name) {
-      showAllMap[name] = !showAllMap[name];
-      if (allData?.[name]) {
-        document.getElementById(`panel-${name.replace(/\s/g, '-')}`).innerHTML = renderPanel(name, allData[name]);
-        setTimeout(() => buildChart(name, allData[name].history), 50);
-      }
-    }
-
+    /* ─────────────────────────────── Initial load ── */
     async function load() {
       document.getElementById('loading').style.display = 'block';
       try {
-        // prices.json is generated by GitHub Actions and committed to the repo
         const resp = await fetch('data/prices.json?t=' + Date.now());
         if (!resp.ok) throw new Error();
         allData = await resp.json();
 
-        const tabsEl = document.getElementById('fuel-tabs');
-        const panelsEl = document.getElementById('panels');
-        tabsEl.innerHTML = '';
-        panelsEl.innerHTML = '';
+        const firstKey = Object.keys(allData)[0];
+        document.getElementById('last-updated').textContent =
+          `Default area · Updated ${allData[firstKey]?.fetched_at || ''}`;
 
-        const names = Object.keys(allData);
-        names.forEach(name => {
-          const tab = document.createElement('button');
-          tab.className = 'fuel-tab';
-          tab.dataset.name = name;
-          tab.textContent = name;
-          tab.onclick = () => switchTab(name);
-          tabsEl.appendChild(tab);
-
-          const panel = document.createElement('div');
-          panel.className = 'fuel-panel';
-          panel.id = `panel-${name.replace(/\s/g, '-')}`;
-          panel.innerHTML = renderPanel(name, allData[name]);
-          panelsEl.appendChild(panel);
-        });
-
-        const firstKey = names[0];
-        const fetchedAt = allData[firstKey]?.fetched_at || '';
-        document.getElementById('last-updated').textContent = `Updated ${fetchedAt}`;
-
-        // Warn if data is older than 8 hours
-        const match = fetchedAt.match(/(\d{2} \w+ \d{4} \d{2}:\d{2}) UTC/);
-        if (match) {
-          const age = (Date.now() - new Date(match[1] + ' UTC')) / 3600000;
-          if (age > 8) document.getElementById('stale-warning').style.display = 'block';
-        }
-
-        document.getElementById('content').style.display = 'block';
-        switchTab(activeTab && allData[activeTab] ? activeTab : names[0]);
+        render(allData);
       } catch {
         document.getElementById('error-msg').style.display = 'block';
       } finally {
