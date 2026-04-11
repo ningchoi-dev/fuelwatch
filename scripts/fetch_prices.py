@@ -250,6 +250,18 @@ def main():
                     'count':    s['count'],
                     'stations': s['stations'],
                 }
+                # Compute centroid from this suburb's own stations (not surrounding)
+                if '_centroid' not in by_suburb[key]:
+                    own = [st for st in s['stations']
+                           if st.get('suburb', '').upper() == suburb.upper()]
+                    ref = own if own else s['stations']
+                    clats = [float(st['lat']) for st in ref if st.get('lat')]
+                    clngs = [float(st['lng']) for st in ref if st.get('lng')]
+                    if clats:
+                        by_suburb[key]['_centroid'] = {
+                            'lat': round(sum(clats) / len(clats), 5),
+                            'lng': round(sum(clngs) / len(clngs), 5),
+                        }
 
     # Also fetch tomorrow for the by_suburb data
     with ThreadPoolExecutor(max_workers=30) as ex:

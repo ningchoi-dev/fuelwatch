@@ -546,6 +546,46 @@
       return hasAnyData ? result : null;
     }
 
+    /* ─────────────────────────────── Nearest suburb helpers ── */
+
+    // Haversine distance in km between two lat/lng points
+    function haversineDist(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLng = (lng2 - lng1) * Math.PI / 180;
+      const a = Math.sin(dLat/2)**2
+              + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLng/2)**2;
+      return R * 2 * Math.asin(Math.sqrt(a));
+    }
+
+    // Find the closest suburb in lookup (by centroid) that has actual price data
+    function findNearestSuburbWithData(refLat, refLng, lookup) {
+      let bestKey = null, bestDist = Infinity;
+      for (const [key, entry] of Object.entries(lookup)) {
+        if (!entry._centroid) continue;
+        const hasData = ['Unleaded 91', 'Premium 95']
+          .some(f => entry[f] || entry[f + '_tomorrow']);
+        if (!hasData) continue;
+        const dist = haversineDist(refLat, refLng, entry._centroid.lat, entry._centroid.lng);
+        if (dist < bestDist) { bestDist = dist; bestKey = key; }
+      }
+      return bestKey;
+    }
+
+    // Geocode a suburb name → {lat, lng} via Nominatim (used for search fallback)
+    async function geocodeSuburb(name) {
+      try {
+        const ctrl = new AbortController();
+        setTimeout(() => ctrl.abort(), 6000);
+        const r = await fetch(
+          `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(name + ', Western Australia, Australia')}&format=json&limit=1`,
+          { signal: ctrl.signal, headers: { 'Accept-Language': 'en-AU' } });
+        const data = await r.json();
+        if (data.length) return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
+      } catch {}
+      return null;
+    }
+
     /* ─────────────────────────────── Location ── */
     async function requestLocation() {
       const btn   = document.getElementById('loc-btn');
@@ -558,19 +598,21 @@
       btn.disabled     = true;
 
       let suburb = null;
+      let userLat = null, userLng = null;
 
       try {
         // 1 — GPS
         const pos = await new Promise((res, rej) =>
           navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 }));
-        const { latitude: lat, longitude: lng } = pos.coords;
+        userLat = pos.coords.latitude;
+        userLng = pos.coords.longitude;
 
         // 2 — Reverse geocode via OpenStreetMap (no API key needed)
         label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
         const ctrl = new AbortController();
         setTimeout(() => ctrl.abort(), 8000);
         const geo     = await fetch(
-          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
+          `https://nominatim.openstreetmap.org/reverse?lat=${userLat}&lon=${userLng}&format=json`,
           { signal: ctrl.signal, headers: { 'Accept-Language': 'en-AU' } });
         const geoData = await geo.json();
         suburb = geoData.address?.suburb
@@ -600,14 +642,28 @@
         const lookup    = await loadSuburbData();
         const key       = findSuburbKey(lookup, suburb);
 
-        if (key) {
-          liveData = buildLiveDataFromLookup(lookup, key);
+        if (key) liveData = buildLiveDataFromLookup(lookup, key);
+
+        // No data for exact suburb — find nearest suburb with data using GPS coords
+        if (!liveData && userLat != null) {
+          const nearestKey = findNearestSuburbWithData(userLat, userLng, lookup);
+          if (nearestKey) {
+            liveData = buildLiveDataFromLookup(lookup, nearestKey);
+            label.textContent = suburb;
+            document.getElementById('last-updated').textContent =
+              `📍 ${suburb} · Nearest prices: ${nearestKey} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
+            render(liveData);
+            btn.disabled = false;
+            return;
+          }
+        }
+
+        if (liveData) {
           label.textContent = suburb;
           document.getElementById('last-updated').textContent =
             `📍 ${suburb} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
           render(liveData);
         } else {
-          // Suburb not in lookup — show default area data with suburb noted
           liveData = null;
           label.textContent = suburb;
           document.getElementById('last-updated').textContent =
@@ -617,7 +673,6 @@
       } catch {
         liveData = null;
         label.textContent = suburb;
-        btn.disabled      = false;
         render(allData);
       }
 
@@ -907,7 +962,7 @@
       items.forEach((li, i) => li.classList.toggle('active', i === searchIndex));
     }
 
-    function selectSuburb(name) {
+    async function selectSuburb(name) {
       const dropdown = document.getElementById('search-dropdown');
       const input    = document.getElementById('search-input');
       dropdown.style.display = 'none';
@@ -918,8 +973,8 @@
       const btn   = document.getElementById('loc-btn');
       const icon  = document.getElementById('loc-icon');
       const label = document.getElementById('loc-label');
-      btn.className    = 'location-pill';
-      icon.textContent = '📍';
+      btn.className     = 'location-pill';
+      icon.textContent  = '📍';
       label.textContent = 'Use my location';
 
       const lookup = suburbData || {};
@@ -930,12 +985,30 @@
         document.getElementById('last-updated').textContent =
           `🔍 ${name} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
         render(liveData);
-      } else {
-        liveData = null;
-        document.getElementById('last-updated').textContent =
-          `🔍 ${name} — no data, showing area prices`;
-        render(allData);
+        return;
       }
+
+      // No data for this suburb — geocode it, then find nearest suburb with data
+      input.value = name + ' · finding nearest…';
+      const coords = await geocodeSuburb(name);
+      input.value  = name;
+
+      if (coords) {
+        const nearestKey = findNearestSuburbWithData(coords.lat, coords.lng, lookup);
+        if (nearestKey) {
+          liveData = buildLiveDataFromLookup(lookup, nearestKey);
+          document.getElementById('last-updated').textContent =
+            `🔍 ${name} · Nearest prices: ${nearestKey} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
+          render(liveData);
+          return;
+        }
+      }
+
+      // Final fallback — show default area prices
+      liveData = null;
+      document.getElementById('last-updated').textContent =
+        `🔍 ${name} — no data found, showing default prices`;
+      render(allData);
     }
 
     // Close dropdown when clicking outside
