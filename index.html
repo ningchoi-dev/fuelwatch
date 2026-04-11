@@ -275,9 +275,13 @@
       padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.12s;
     }
 
     .station-row:last-child { border-bottom: none; }
+    .station-row:hover, .station-row:active { background: var(--surface2); }
 
     .station-rank { font-size: 0.72rem; color: var(--muted); width: 18px; flex-shrink: 0; text-align: right; }
     .station-info { flex: 1; min-width: 0; }
@@ -286,6 +290,7 @@
     .station-price { font-size: 1rem; font-weight: 700; flex-shrink: 0; }
     .station-price .cpl { font-size: 0.68rem; color: var(--muted); }
     .station-row:first-of-type .station-price { color: var(--green); }
+    .station-map-icon { font-size: 1.1rem; color: var(--muted); flex-shrink: 0; }
 
     /* ── Chart ── */
     .chart-card {
@@ -754,15 +759,24 @@
         return '<div style="padding:16px;color:var(--muted);font-size:.85rem">No stations found</div>';
       const showAll    = showAllMap[toggleKey] || false;
       const visible    = showAll ? stations : stations.slice(0, 5);
-      const rows       = visible.map((s, i) => `
-        <div class="station-row">
+      const rows       = visible.map((s, i) => {
+        const mapsQ = encodeURIComponent(
+          [s.name, s.address, s.suburb].filter(Boolean).join(', ')
+        );
+        const mapsUrl = s.lat && s.lng
+          ? `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}`
+          : `https://www.google.com/maps/search/?api=1&query=${mapsQ}`;
+        return `
+        <a class="station-row" href="${mapsUrl}" target="_blank" rel="noopener">
           <div class="station-rank">${i + 1}</div>
           <div class="station-info">
             <div class="s-name">${s.name || '—'}</div>
             <div class="s-addr">${s.suburb}${s.address ? ' · ' + s.address : ''}</div>
           </div>
           <div class="station-price">${fmt(s.price)}<span class="cpl">¢</span></div>
-        </div>`).join('');
+          <div class="station-map-icon">›</div>
+        </a>`;
+      }).join('');
       const toggleBtn  = stations.length > 5
         ? `<button class="stations-toggle" onclick="toggleStations('${toggleKey}')">${showAll ? 'Show less' : 'Show all ' + stations.length}</button>`
         : '';
