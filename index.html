@@ -611,27 +611,48 @@
       }
     }
 
-    function toggleStations(name) {
-      showAllMap[name] = !showAllMap[name];
-      renderFuelPanel(name, currentData()[name]);
+    function toggleStations(key) {
+      showAllMap[key] = !showAllMap[key];
+      renderFuelPanel(activeTab, currentData()[activeTab]);
+    }
+
+    function stationList(stations, toggleKey) {
+      if (!stations || !stations.length)
+        return '<div style="padding:16px;color:var(--muted);font-size:.85rem">No stations found</div>';
+      const showAll    = showAllMap[toggleKey] || false;
+      const visible    = showAll ? stations : stations.slice(0, 5);
+      const rows       = visible.map((s, i) => `
+        <div class="station-row">
+          <div class="station-rank">${i + 1}</div>
+          <div class="station-info">
+            <div class="s-name">${s.name || '—'}</div>
+            <div class="s-addr">${s.suburb}${s.address ? ' · ' + s.address : ''}</div>
+          </div>
+          <div class="station-price">${fmt(s.price)}<span class="cpl">¢</span></div>
+        </div>`).join('');
+      const toggleBtn  = stations.length > 5
+        ? `<button class="stations-toggle" onclick="toggleStations('${toggleKey}')">${showAll ? 'Show less' : 'Show all ' + stations.length}</button>`
+        : '';
+      return rows + (toggleBtn
+        ? `<div style="padding:10px 16px;border-top:1px solid var(--border);text-align:right">${toggleBtn}</div>`
+        : '');
     }
 
     function renderFuelPanel(name, data) {
       const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
       if (!panel || !data) return;
 
-      const day  = activeDay;
-      const info = data[day];
-      const other = day === 'today' ? data.tomorrow : data.today;
-      const rec   = data.recommendation;
-      const hist  = data.history || [];
-      const showAll = showAllMap[name] || false;
+      const day    = activeDay;
+      const info   = data[day];
+      const other  = day === 'today' ? data.tomorrow : data.today;
+      const rec    = data.recommendation;
+      const hist   = data.history || [];
 
-      // Diff vs the other day
+      // Diff badge
       const diff    = (info?.min != null && other?.min != null)
         ? +(other.min - info.min).toFixed(1) : null;
-      const diffObj = diffLabel(diff);
-      const tmrLabel = day === 'today' ? 'Tomorrow' : 'Today';
+      const diffObj  = diffLabel(diff);
+      const otherLabel = day === 'today' ? 'Tomorrow' : 'Today';
 
       // Summary card
       const summaryHtml = info ? `
@@ -648,7 +669,7 @@
           </div>
           ${other ? `
           <div class="tmr-badge">
-            <div class="tmr-label">${tmrLabel}</div>
+            <div class="tmr-label">${otherLabel}</div>
             <div class="tmr-price ${diffObj.cls}">${fmt(other.min)}¢</div>
             <div class="tmr-diff ${diffObj.cls}">${diffObj.text}</div>
           </div>` : ''}
@@ -662,28 +683,18 @@
           <span>${rec.text}</span>
         </div>` : '';
 
-      // Stations list
-      const stations    = info?.stations || [];
-      const visibleList = showAll ? stations : stations.slice(0, 5);
-      const stationRows = visibleList.map((s, i) => `
-        <div class="station-row">
-          <div class="station-rank">${i + 1}</div>
-          <div class="station-info">
-            <div class="s-name">${s.name || '—'}</div>
-            <div class="s-addr">${s.suburb}${s.address ? ' · ' + s.address : ''}</div>
-          </div>
-          <div class="station-price">${fmt(s.price)}<span class="cpl">¢</span></div>
-        </div>`).join('');
-
-      const stationsHtml = `
+      // Today's stations
+      const todayStationsHtml = `
         <div class="stations-section">
-          <div class="stations-header">
-            <span>${day === 'today' ? "Today's" : "Tomorrow's"} Cheapest Stations</span>
-            ${stations.length > 5
-              ? `<button class="stations-toggle" onclick="toggleStations('${name}')">${showAll ? 'Show less' : 'Show all ' + stations.length}</button>`
-              : ''}
-          </div>
-          ${stationRows || '<div style="padding:16px;color:var(--muted);font-size:.85rem">No stations found</div>'}
+          <div class="stations-header"><span>📅 Today's Cheapest Stations</span></div>
+          ${stationList(data.today?.stations || [], `${name}-today`)}
+        </div>`;
+
+      // Tomorrow's stations
+      const tmrStationsHtml = `
+        <div class="stations-section">
+          <div class="stations-header"><span>🔜 Tomorrow's Cheapest Stations</span></div>
+          ${stationList(data.tomorrow?.stations || [], `${name}-tomorrow`)}
         </div>`;
 
       // Chart
@@ -692,7 +703,7 @@
         ? `<div class="chart-card"><h3>Price History — Lowest ¢/L</h3><div class="chart-wrapper"><canvas id="${chartId}"></canvas></div></div>`
         : `<div class="chart-card"><h3>Price History</h3><div class="no-history">History builds daily — check back tomorrow!</div></div>`;
 
-      panel.innerHTML = summaryHtml + recHtml + stationsHtml + chartHtml;
+      panel.innerHTML = summaryHtml + recHtml + todayStationsHtml + tmrStationsHtml + chartHtml;
 
       if (hist.length > 1) setTimeout(() => buildChart(name, hist), 30);
     }
