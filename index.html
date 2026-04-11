@@ -434,47 +434,50 @@
       return { action: 'neutral', diff, icon: '✓', text: 'Prices are similar — fill up whenever suits you' };
     }
 
-    /* ─────────────────────────────── CORS proxy fetch ── */
-    const PROXIES = [
-      url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
-      url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-      url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
-    ];
+    /* ─────────────────────────────── Suburb lookup (no CORS needed) ── */
+    let suburbData = null;  // loaded from data/by_suburb.json
 
-    async function timedFetch(url, ms = 10000) {
-      const ctrl = new AbortController();
-      const id   = setTimeout(() => ctrl.abort(), ms);
-      try { return await fetch(url, { signal: ctrl.signal }); }
-      finally { clearTimeout(id); }
-    }
-
-    async function proxyFetch(url) {
-      for (const proxy of PROXIES) {
-        try {
-          const r    = await timedFetch(proxy(url), 10000);
-          const text = await r.text();
-          // Validate we got actual RSS, not an error page
-          if (r.ok && text.includes('<rss') || text.includes('<item>')) return text;
-        } catch { /* try next proxy */ }
-      }
-      throw new Error('All proxies failed');
-    }
-
-    function parseRSS(xml) {
+    async function loadSuburbData() {
+      if (suburbData) return suburbData;
       try {
-        const doc = new DOMParser().parseFromString(xml, 'text/xml');
-        const stations = [];
-        doc.querySelectorAll('item').forEach(item => {
-          const g = tag => item.querySelector(tag)?.textContent?.trim() || '';
-          const p = parseFloat(g('price'));
-          if (!isNaN(p)) stations.push({ price: p, name: g('trading-name'), brand: g('brand'), address: g('address'), suburb: g('location') });
-        });
-        return stations.sort((a, b) => a.price - b.price);
-      } catch { return []; }
+        const r = await fetch('data/by_suburb.json?t=' + Date.now());
+        if (r.ok) suburbData = await r.json();
+      } catch { suburbData = {}; }
+      return suburbData || {};
     }
 
-    function fuelWatchURL(product, suburb, day) {
-      return `https://www.fuelwatch.wa.gov.au/fuelwatch/fuelWatchRSS?Product=${product}&Suburb=${encodeURIComponent(suburb.toUpperCase())}&Day=${day}&Surrounding=1`;
+    // Find the best matching suburb key in by_suburb.json
+    // Tries exact match, then partial match
+    function findSuburbKey(lookup, detectedName) {
+      const name = detectedName.toLowerCase();
+      // Exact match
+      for (const key of Object.keys(lookup)) {
+        if (key.toLowerCase() === name) return key;
+      }
+      // Partial — detected name starts with a key word
+      for (const key of Object.keys(lookup)) {
+        if (key.toLowerCase().includes(name) || name.includes(key.toLowerCase())) return key;
+      }
+      return null;
+    }
+
+    function buildLiveDataFromLookup(lookup, suburbKey) {
+      const entry = lookup[suburbKey];
+      if (!entry) return null;
+      const result = {};
+      const fuelNames = ['Unleaded 91', 'Premium 95'];
+      for (const name of fuelNames) {
+        const today    = entry[name]           ? { ...entry[name],           stations: entry[name].stations           || [] } : null;
+        const tomorrow = entry[name+'_tomorrow'] ? { ...entry[name+'_tomorrow'], stations: entry[name+'_tomorrow'].stations || [] } : null;
+        result[name] = {
+          today,
+          tomorrow,
+          recommendation: recommendation(today?.min ?? null, tomorrow?.min ?? null),
+          fetched_at:     allData?.[name]?.fetched_at || '',
+          history:        allData?.[name]?.history    || [],
+        };
+      }
+      return result;
     }
 
     /* ─────────────────────────────── Location ── */
@@ -496,10 +499,13 @@
           navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 }));
         const { latitude: lat, longitude: lng } = pos.coords;
 
-        // 2 — Reverse geocode
+        // 2 — Reverse geocode via OpenStreetMap (no API key needed)
         label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
-        const geo     = await timedFetch(
-          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`, 8000);
+        const ctrl = new AbortController();
+        setTimeout(() => ctrl.abort(), 8000);
+        const geo     = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
+          { signal: ctrl.signal, headers: { 'Accept-Language': 'en-AU' } });
         const geoData = await geo.json();
         suburb = geoData.address?.suburb
               || geoData.address?.city_district
@@ -510,69 +516,46 @@
         if (!suburb) throw new Error('Suburb not found');
         detectedSuburb = suburb;
 
-        // Show suburb immediately — prices loading next
         btn.className    = 'location-pill located';
         icon.textContent = '📍';
         label.innerHTML  = `${suburb} <span class="inline-spinner"></span>`;
 
       } catch (err) {
-        btn.className    = 'location-pill error';
-        icon.textContent = '⚠️';
-        label.textContent = err.code === 1 ? 'Location denied' : 'Suburb not found — tap to retry';
-        btn.disabled     = false;
+        btn.className     = 'location-pill error';
+        icon.textContent  = '⚠️';
+        label.textContent = err.code === 1 ? 'Location denied' : 'Location failed — tap to retry';
+        btn.disabled      = false;
         return;
       }
 
-      // 3 — Fetch prices (separate try so suburb stays shown on failure)
+      // 3 — Look up prices from local by_suburb.json (no CORS proxy needed)
       try {
-        const combos = [
-          { code: '1', name: 'Unleaded 91', day: 'today' },
-          { code: '1', name: 'Unleaded 91', day: 'tomorrow' },
-          { code: '2', name: 'Premium 95',  day: 'today' },
-          { code: '2', name: 'Premium 95',  day: 'tomorrow' },
-        ];
+        label.innerHTML = `${suburb} <span class="inline-spinner"></span>`;
+        const lookup    = await loadSuburbData();
+        const key       = findSuburbKey(lookup, suburb);
 
-        const fetched = await Promise.all(
-          combos.map(async ({ code, name, day }) => {
-            try {
-              const xml      = await proxyFetch(fuelWatchURL(code, suburb, day));
-              return { name, day, stations: parseRSS(xml) };
-            } catch {
-              return { name, day, stations: [] };
-            }
-          })
-        );
-
-        // Build liveData
-        liveData = {};
-        for (const { name, day, stations } of fetched) {
-          if (!liveData[name]) liveData[name] = { today: null, tomorrow: null, history: [] };
-          liveData[name][day] = summarise(stations);
+        if (key) {
+          liveData = buildLiveDataFromLookup(lookup, key);
+          label.textContent = suburb;
+          document.getElementById('last-updated').textContent =
+            `📍 ${suburb} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
+          render(liveData);
+        } else {
+          // Suburb not in lookup — show default area data with suburb noted
+          liveData = null;
+          label.textContent = suburb;
+          document.getElementById('last-updated').textContent =
+            `📍 ${suburb} — not in coverage area, showing default prices`;
+          render(allData);
         }
-        for (const name of Object.keys(liveData)) {
-          liveData[name].recommendation = recommendation(liveData[name].today?.min, liveData[name].tomorrow?.min);
-          liveData[name].fetched_at     = new Date().toLocaleString('en-AU', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' });
-          liveData[name].history        = allData?.[name]?.history || [];
-        }
-
-        // Check if we actually got any prices
-        const hasData = Object.values(liveData).some(d => d.today?.count > 0);
-        if (!hasData) throw new Error('No stations found for ' + suburb);
-
-        label.textContent = suburb;
-        document.getElementById('last-updated').textContent =
-          `📍 ${suburb} · Live prices · ${new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })}`;
-        render(liveData);
-
-      } catch (err) {
-        // Keep suburb shown but flag the price issue
+      } catch {
+        liveData = null;
         label.textContent = suburb;
         btn.disabled      = false;
-        document.getElementById('last-updated').textContent =
-          `📍 ${suburb} detected — couldn't fetch live prices, showing area data`;
-        // Fall back to pre-loaded area data
         render(allData);
       }
+
+      btn.disabled = false;
     }
 
     /* ─────────────────────────────── Render ── */

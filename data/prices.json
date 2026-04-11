@@ -10,7 +10,9 @@
         "name": "Vibe Hamilton Hill",
         "brand": "Vibe",
         "address": "114 Rockingham Rd",
-        "suburb": "HAMILTON HILL"
+        "suburb": "HAMILTON HILL",
+        "lat": "-32.08614300",
+        "lng": "115.77723300"
       },
       "stations": [
         {
@@ -18,105 +20,135 @@
           "name": "Vibe Hamilton Hill",
           "brand": "Vibe",
           "address": "114 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
-        },
-        {
-          "price": 209.7,
-          "name": "Vibe Jandakot",
-          "brand": "Vibe",
-          "address": "630 Karel Ave",
-          "suburb": "JANDAKOT"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.08614300",
+          "lng": "115.77723300"
         },
         {
           "price": 209.7,
           "name": "Vibe Spearwood",
           "brand": "Vibe",
           "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.10503300",
+          "lng": "115.78241900"
         },
         {
-          "price": 213.9,
-          "name": "Ampol Foodary South Lake",
-          "brand": "Ampol",
-          "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE"
+          "price": 209.7,
+          "name": "Vibe Jandakot",
+          "brand": "Vibe",
+          "address": "630 Karel Ave",
+          "suburb": "JANDAKOT",
+          "lat": "-32.09075800",
+          "lng": "115.86884600"
         },
         {
           "price": 213.9,
           "name": "Ampol Foodary Cockburn Central",
           "brand": "Ampol",
           "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT"
+          "suburb": "JANDAKOT",
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
+        },
+        {
+          "price": 213.9,
+          "name": "Ampol Foodary South Lake",
+          "brand": "Ampol",
+          "address": "2 Omeo St",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
           "price": 214.9,
           "name": "United South Lake",
           "brand": "United",
           "address": "49 Berrigan Dr",
-          "suburb": "SOUTH LAKE"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Connect Thomsons Lake",
-          "brand": "BP",
-          "address": "810 Beeliar Dr",
-          "suburb": "SUCCESS"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11148100",
+          "lng": "115.83883300"
         },
         {
           "price": 215.9,
           "name": "EG Ampol South Lake",
           "brand": "EG Ampol",
           "address": "752 North Lake Rd",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11517200",
+          "lng": "115.83703200"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Connect Thomsons Lake",
+          "brand": "BP",
+          "address": "810 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12916900",
+          "lng": "115.85372600"
         },
         {
           "price": 217.5,
           "name": "United Hamilton Hill",
           "brand": "United",
           "address": "9 Winterfold Rd",
-          "suburb": "HAMILTON HILL"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Success",
-          "brand": "7-Eleven",
-          "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Beeliar",
-          "brand": "BP",
-          "address": "701 Beeliar Dr",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Cockburn Central",
-          "brand": "7-Eleven",
-          "address": "814 North Lake Rd",
-          "suburb": "COCKBURN CENTRAL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07492600",
+          "lng": "115.78093100"
         },
         {
           "price": 219.9,
           "name": "BP Connect Phoenix",
           "brand": "BP",
           "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.09397500",
+          "lng": "115.78303900"
         },
         {
-          "price": 223.9,
-          "name": "Caltex Munster",
-          "brand": "Caltex",
-          "address": "512 Rockingham Rd",
-          "suburb": "MUNSTER"
+          "price": 219.9,
+          "name": "7-Eleven Success",
+          "brand": "7-Eleven",
+          "address": "660 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Beeliar",
+          "brand": "BP",
+          "address": "701 Beeliar Dr",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12715700",
+          "lng": "115.84335700"
+        },
+        {
+          "price": 219.9,
+          "name": "7-Eleven Cockburn Central",
+          "brand": "7-Eleven",
+          "address": "814 North Lake Rd",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12000100",
+          "lng": "115.84654800"
         },
         {
           "price": 223.9,
           "name": "Caltex Hamilton Hill South",
           "brand": "Caltex",
           "address": "216 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.09315200",
+          "lng": "115.78308100"
+        },
+        {
+          "price": 223.9,
+          "name": "Caltex Hamilton Hill North",
+          "brand": "Caltex",
+          "address": "224 Clontarf Rd",
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07553100",
+          "lng": "115.77951900"
         }
       ]
     },
@@ -130,7 +162,9 @@
         "name": "Vibe Jandakot",
         "brand": "Vibe",
         "address": "630 Karel Ave",
-        "suburb": "JANDAKOT"
+        "suburb": "JANDAKOT",
+        "lat": "-32.09075800",
+        "lng": "115.86884600"
       },
       "stations": [
         {
@@ -138,115 +172,145 @@
           "name": "Vibe Jandakot",
           "brand": "Vibe",
           "address": "630 Karel Ave",
-          "suburb": "JANDAKOT"
+          "suburb": "JANDAKOT",
+          "lat": "-32.09075800",
+          "lng": "115.86884600"
         },
         {
           "price": 209.7,
           "name": "Vibe Spearwood",
           "brand": "Vibe",
           "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.10503300",
+          "lng": "115.78241900"
         },
         {
           "price": 211.9,
           "name": "Ampol Foodary Cockburn Central",
           "brand": "Ampol",
           "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT"
+          "suburb": "JANDAKOT",
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
         },
         {
           "price": 211.9,
           "name": "Ampol Foodary South Lake",
           "brand": "Ampol",
           "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
           "price": 211.9,
           "name": "EG Ampol South Lake",
           "brand": "EG Ampol",
           "address": "752 North Lake Rd",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11517200",
+          "lng": "115.83703200"
         },
         {
           "price": 212.9,
           "name": "United South Lake",
           "brand": "United",
           "address": "49 Berrigan Dr",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11148100",
+          "lng": "115.83883300"
         },
         {
           "price": 213.7,
           "name": "Vibe Hamilton Hill",
           "brand": "Vibe",
           "address": "114 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
-        },
-        {
-          "price": 215.9,
-          "name": "7-Eleven Cockburn Central",
-          "brand": "7-Eleven",
-          "address": "814 North Lake Rd",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 215.9,
-          "name": "United Hamilton Hill",
-          "brand": "United",
-          "address": "9 Winterfold Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.08614300",
+          "lng": "115.77723300"
         },
         {
           "price": 215.9,
           "name": "BP Connect Thomsons Lake",
           "brand": "BP",
           "address": "810 Beeliar Dr",
-          "suburb": "SUCCESS"
+          "suburb": "SUCCESS",
+          "lat": "-32.12916900",
+          "lng": "115.85372600"
+        },
+        {
+          "price": 215.9,
+          "name": "United Hamilton Hill",
+          "brand": "United",
+          "address": "9 Winterfold Rd",
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07492600",
+          "lng": "115.78093100"
+        },
+        {
+          "price": 215.9,
+          "name": "7-Eleven Cockburn Central",
+          "brand": "7-Eleven",
+          "address": "814 North Lake Rd",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12000100",
+          "lng": "115.84654800"
         },
         {
           "price": 219.9,
-          "name": "BP Beeliar",
-          "brand": "BP",
-          "address": "701 Beeliar Dr",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 219.9,
-          "name": "Caltex Hamilton Hill South",
+          "name": "Caltex Munster",
           "brand": "Caltex",
-          "address": "216 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
-        },
-        {
-          "price": 219.9,
-          "name": "Caltex Hamilton Hill North",
-          "brand": "Caltex",
-          "address": "224 Clontarf Rd",
-          "suburb": "HAMILTON HILL"
+          "address": "512 Rockingham Rd",
+          "suburb": "MUNSTER",
+          "lat": "-32.12246300",
+          "lng": "115.78419400"
         },
         {
           "price": 219.9,
           "name": "7-Eleven Success",
           "brand": "7-Eleven",
           "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS"
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
         },
         {
           "price": 219.9,
-          "name": "BP Connect Phoenix",
+          "name": "Caltex Hamilton Hill South",
+          "brand": "Caltex",
+          "address": "216 Rockingham Rd",
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.09315200",
+          "lng": "115.78308100"
+        },
+        {
+          "price": 219.9,
+          "name": "Caltex Hamilton Hill North",
+          "brand": "Caltex",
+          "address": "224 Clontarf Rd",
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07553100",
+          "lng": "115.77951900"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Beeliar",
           "brand": "BP",
-          "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "address": "701 Beeliar Dr",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12715700",
+          "lng": "115.84335700"
         }
       ]
     },
     "recommendation": {
       "action": "fill",
       "diff": 10.0,
-      "text": "Fill up today \u2014 prices rise 10.0c/L tomorrow",
-      "icon": "\u26fd"
+      "icon": "\u26fd",
+      "text": "Fill up today \u2014 prices rise 10.0c/L tomorrow"
     },
-    "fetched_at": "11 Apr 2026 14:49 UTC",
+    "fetched_at": "11 Apr 2026 15:02 UTC",
     "history": [
       {
         "date": "2026-04-11",
@@ -265,95 +329,121 @@
       "count": 12,
       "cheapest": {
         "price": 224.7,
-        "name": "Vibe Jandakot",
+        "name": "Vibe Spearwood",
         "brand": "Vibe",
-        "address": "630 Karel Ave",
-        "suburb": "JANDAKOT"
+        "address": "333 Rockingham Rd",
+        "suburb": "SPEARWOOD",
+        "lat": "-32.10503300",
+        "lng": "115.78241900"
       },
       "stations": [
-        {
-          "price": 224.7,
-          "name": "Vibe Jandakot",
-          "brand": "Vibe",
-          "address": "630 Karel Ave",
-          "suburb": "JANDAKOT"
-        },
         {
           "price": 224.7,
           "name": "Vibe Spearwood",
           "brand": "Vibe",
           "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.10503300",
+          "lng": "115.78241900"
+        },
+        {
+          "price": 224.7,
+          "name": "Vibe Jandakot",
+          "brand": "Vibe",
+          "address": "630 Karel Ave",
+          "suburb": "JANDAKOT",
+          "lat": "-32.09075800",
+          "lng": "115.86884600"
         },
         {
           "price": 228.9,
           "name": "United South Lake",
           "brand": "United",
           "address": "49 Berrigan Dr",
-          "suburb": "SOUTH LAKE"
-        },
-        {
-          "price": 229.9,
-          "name": "Ampol Foodary South Lake",
-          "brand": "Ampol",
-          "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11148100",
+          "lng": "115.83883300"
         },
         {
           "price": 229.9,
           "name": "Ampol Foodary Cockburn Central",
           "brand": "Ampol",
           "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT"
+          "suburb": "JANDAKOT",
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
+        },
+        {
+          "price": 229.9,
+          "name": "Ampol Foodary South Lake",
+          "brand": "Ampol",
+          "address": "2 Omeo St",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
           "price": 233.9,
           "name": "EG Ampol South Lake",
           "brand": "EG Ampol",
           "address": "752 North Lake Rd",
-          "suburb": "SOUTH LAKE"
-        },
-        {
-          "price": 234.9,
-          "name": "BP Beeliar",
-          "brand": "BP",
-          "address": "701 Beeliar Dr",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Cockburn Central",
-          "brand": "7-Eleven",
-          "address": "814 North Lake Rd",
-          "suburb": "COCKBURN CENTRAL"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11517200",
+          "lng": "115.83703200"
         },
         {
           "price": 234.9,
           "name": "BP Connect Phoenix",
           "brand": "BP",
           "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.09397500",
+          "lng": "115.78303900"
         },
         {
           "price": 234.9,
           "name": "7-Eleven Success",
           "brand": "7-Eleven",
           "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS"
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
+        },
+        {
+          "price": 234.9,
+          "name": "BP Beeliar",
+          "brand": "BP",
+          "address": "701 Beeliar Dr",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12715700",
+          "lng": "115.84335700"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Cockburn Central",
+          "brand": "7-Eleven",
+          "address": "814 North Lake Rd",
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12000100",
+          "lng": "115.84654800"
         },
         {
           "price": 239.9,
           "name": "Caltex Hamilton Hill South",
           "brand": "Caltex",
           "address": "216 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.09315200",
+          "lng": "115.78308100"
         },
         {
           "price": 239.9,
           "name": "Caltex Hamilton Hill North",
           "brand": "Caltex",
           "address": "224 Clontarf Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07553100",
+          "lng": "115.77951900"
         }
       ]
     },
@@ -367,7 +457,9 @@
         "name": "Vibe Spearwood",
         "brand": "Vibe",
         "address": "333 Rockingham Rd",
-        "suburb": "SPEARWOOD"
+        "suburb": "SPEARWOOD",
+        "lat": "-32.10503300",
+        "lng": "115.78241900"
       },
       "stations": [
         {
@@ -375,94 +467,118 @@
           "name": "Vibe Spearwood",
           "brand": "Vibe",
           "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "SPEARWOOD",
+          "lat": "-32.10503300",
+          "lng": "115.78241900"
         },
         {
           "price": 224.7,
           "name": "Vibe Jandakot",
           "brand": "Vibe",
           "address": "630 Karel Ave",
-          "suburb": "JANDAKOT"
+          "suburb": "JANDAKOT",
+          "lat": "-32.09075800",
+          "lng": "115.86884600"
         },
         {
           "price": 226.9,
           "name": "United South Lake",
           "brand": "United",
           "address": "49 Berrigan Dr",
-          "suburb": "SOUTH LAKE"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Cockburn Central",
-          "brand": "Ampol",
-          "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11148100",
+          "lng": "115.83883300"
         },
         {
           "price": 227.9,
           "name": "Ampol Foodary South Lake",
           "brand": "Ampol",
           "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Cockburn Central",
+          "brand": "Ampol",
+          "address": "875 Beeliar Dr",
+          "suburb": "JANDAKOT",
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
         },
         {
           "price": 229.9,
           "name": "EG Ampol South Lake",
           "brand": "EG Ampol",
           "address": "752 North Lake Rd",
-          "suburb": "SOUTH LAKE"
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11517200",
+          "lng": "115.83703200"
         },
         {
           "price": 230.9,
           "name": "7-Eleven Cockburn Central",
           "brand": "7-Eleven",
           "address": "814 North Lake Rd",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 234.9,
-          "name": "BP Connect Phoenix",
-          "brand": "BP",
-          "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD"
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12000100",
+          "lng": "115.84654800"
         },
         {
           "price": 234.9,
           "name": "BP Beeliar",
           "brand": "BP",
           "address": "701 Beeliar Dr",
-          "suburb": "COCKBURN CENTRAL"
+          "suburb": "COCKBURN CENTRAL",
+          "lat": "-32.12715700",
+          "lng": "115.84335700"
+        },
+        {
+          "price": 234.9,
+          "name": "BP Connect Phoenix",
+          "brand": "BP",
+          "address": "222 Rockingham Rd",
+          "suburb": "SPEARWOOD",
+          "lat": "-32.09397500",
+          "lng": "115.78303900"
         },
         {
           "price": 234.9,
           "name": "7-Eleven Success",
           "brand": "7-Eleven",
           "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS"
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
         },
         {
           "price": 235.9,
           "name": "Caltex Hamilton Hill South",
           "brand": "Caltex",
           "address": "216 Rockingham Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.09315200",
+          "lng": "115.78308100"
         },
         {
           "price": 235.9,
           "name": "Caltex Hamilton Hill North",
           "brand": "Caltex",
           "address": "224 Clontarf Rd",
-          "suburb": "HAMILTON HILL"
+          "suburb": "HAMILTON HILL",
+          "lat": "-32.07553100",
+          "lng": "115.77951900"
         }
       ]
     },
     "recommendation": {
       "action": "neutral",
       "diff": 0.0,
-      "text": "Prices are similar \u2014 fill up whenever suits you",
-      "icon": "\u2713"
+      "icon": "\u2713",
+      "text": "Prices are similar \u2014 fill up whenever suits you"
     },
-    "fetched_at": "11 Apr 2026 14:49 UTC",
+    "fetched_at": "11 Apr 2026 15:02 UTC",
     "history": [
       {
         "date": "2026-04-11",
