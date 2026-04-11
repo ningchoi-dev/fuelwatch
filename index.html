@@ -529,9 +529,11 @@
       if (!entry) return null;
       const result = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
+      let hasAnyData = false;
       for (const name of fuelNames) {
-        const today    = entry[name]           ? { ...entry[name],           stations: entry[name].stations           || [] } : null;
+        const today    = entry[name]             ? { ...entry[name],             stations: entry[name].stations             || [] } : null;
         const tomorrow = entry[name+'_tomorrow'] ? { ...entry[name+'_tomorrow'], stations: entry[name+'_tomorrow'].stations || [] } : null;
+        if (today || tomorrow) hasAnyData = true;
         result[name] = {
           today,
           tomorrow,
@@ -540,7 +542,8 @@
           history:        allData?.[name]?.history    || [],
         };
       }
-      return result;
+      // If no actual price data found (suburb has no stations), fall back to default area
+      return hasAnyData ? result : null;
     }
 
     /* ─────────────────────────────── Location ── */
