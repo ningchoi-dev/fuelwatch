@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FuelWatch — Cockburn</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#0f1117">
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FuelWatch">
+  <link rel="apple-touch-icon" href="/static/icon-192.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3347;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --radius: 14px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      padding: calc(var(--safe-top) + 20px) 16px calc(var(--safe-bottom) + 40px);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header h1 span { color: var(--accent); }
+
+    header p {
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 0.88rem;
+    }
+
+    #last-updated {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: opacity 0.15s, transform 0.1s;
+      -webkit-appearance: none;
+    }
+
+    .refresh-btn:active { transform: scale(0.96); opacity: 0.85; }
+    .refresh-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    /* Tab switcher for fuel types */
+    .fuel-tabs {
+      display: flex;
+      gap: 8px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .fuel-tab {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      touch-action: manipulation;
+      transition: all 0.15s;
+    }
+
+    .fuel-tab.active-91 { background: #1d3a6e; border-color: #4f8ef7; color: #93c5fd; }
+    .fuel-tab.active-95 { background: #3b1d6e; border-color: #a78bfa; color: #c4b5fd; }
+
+    .fuel-panel { display: none; max-width: 600px; margin: 0 auto; }
+    .fuel-panel.visible { display: block; }
+
+    /* Price cards */
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .price-card .day-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .price-card .big-price {
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .price-card .big-price .unit {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: 1px;
+    }
+
+    .price-card .sub-prices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 8px;
+    }
+
+    .price-card .sub-item {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .price-card .sub-item span {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .price-card .cheapest-name {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .price-card .cheapest-name strong { color: var(--text); }
+
+    /* Recommendation banner */
+    .rec-banner {
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .rec-banner .rec-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .rec-wait { background: #1e2d1a; border: 1px solid #2d5c25; color: var(--green); }
+    .rec-fill { background: #2d1a1a; border: 1px solid #5c2525; color: var(--red); }
+    .rec-neutral { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
+
+    .rec-banner .rec-diff {
+      margin-left: auto;
+      font-size: 1rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* Stations */
+    .stations-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .stations-header {
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stations-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .station-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+    }
+
+    .station-row:last-child { border-bottom: none; }
+
+    .station-rank {
+      font-size: 0.72rem;
+      color: var(--muted);
+      width: 18px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .station-info { flex: 1; min-width: 0; }
+
+    .station-info .s-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .station-info .s-addr {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .station-price {
+      font-size: 1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .station-price .cpl { font-size: 0.68rem; color: var(--muted); }
+
+    .station-row:first-of-type .station-price { color: var(--green); }
+
+    /* Chart */
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .chart-card h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .chart-wrapper { position: relative; height: 160px; }
+
+    .no-history {
+      text-align: center;
+      padding: 28px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Loading */
+    .loading-overlay {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 14px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #content { display: none; }
+
+    .error-msg {
+      display: none;
+      background: #2d1a1a;
+      border: 1px solid var(--red);
+      color: var(--red);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Install banner */
+    #install-banner {
+      display: none;
+      position: fixed;
+      bottom: calc(var(--safe-bottom) + 12px);
+      left: 16px;
+      right: 16px;
+      background: var(--surface2);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      z-index: 100;
+      box-shadow: 0 8px 32px #0007;
+    }
+
+    #install-banner p {
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    #install-banner p strong { color: var(--accent); }
+
+    .banner-btns { display: flex; gap: 8px; }
+
+    .banner-btns button {
+      flex: 1;
+      padding: 9px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .btn-install { background: var(--accent); color: #fff; }
+    .btn-dismiss { background: var(--border); color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⛽ Fuel<span>Watch</span></h1>
+    <p>Aubin Grove &amp; Cockburn Surrounds</p>
+    <div id="last-updated">Loading…</div><br>
+    <button class="refresh-btn" id="refresh-btn" onclick="loadPrices(true)">↻ Refresh</button>
+  </header>
+
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <div>Fetching latest prices…</div>
+  </div>
+
+  <div class="error-msg" id="error-msg">
+    Failed to load prices. Check your connection and try again.
+  </div>
+
+  <div id="content">
+    <div class="fuel-tabs" id="fuel-tabs"></div>
+    <div id="panels"></div>
+  </div>
+
+  <div id="install-banner">
+    <p>Add <strong>FuelWatch</strong> to your Home Screen for quick access.</p>
+    <div class="banner-btns">
+      <button class="btn-install" onclick="triggerInstall()">Add to Home Screen</button>
+      <button class="btn-dismiss" onclick="dismissBanner()">Not now</button>
+    </div>
+  </div>
+
+  <script>
+    const charts = {};
+    let allData = null;
+    let activeTab = null;
+    let deferredPrompt = null;
+    const showAllMap = {};
+
+    // PWA install prompt (Android/Chrome)
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (!localStorage.getItem('pwa-dismissed')) {
+        document.getElementById('install-banner').style.display = 'block';
+      }
+    });
+
+    function triggerInstall() {
+      document.getElementById('install-banner').style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+      }
+    }
+
+    function dismissBanner() {
+      document.getElementById('install-banner').style.display = 'none';
+      localStorage.setItem('pwa-dismissed', '1');
+    }
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/static/sw.js').catch(() => {});
+    }
+
+    function fuelColor(name) {
+      return name.includes('91') ? '#4f8ef7' : '#a78bfa';
+    }
+
+    function formatPrice(p) {
+      return p != null ? p.toFixed(1) : '—';
+    }
+
+    function diffLabel(diff) {
+      if (diff == null) return '';
+      return `${diff > 0 ? '+' : ''}${diff.toFixed(1)}¢`;
+    }
+
+    function stationRows(stations, showAll) {
+      const list = showAll ? stations : stations.slice(0, 5);
+      return list.map((s, i) => `
+        <div class="station-row">
+          <div class="station-rank">${i + 1}</div>
+          <div class="station-info">
+            <div class="s-name">${s.name || '—'}</div>
+            <div class="s-addr">${s.suburb}${s.address ? ' · ' + s.address : ''}</div>
+          </div>
+          <div class="station-price">${formatPrice(s.price)}<span class="cpl">¢</span></div>
+        </div>
+      `).join('');
+    }
+
+    function renderPanel(name, data) {
+      const td = data.today;
+      const tm = data.tomorrow;
+      const rec = data.recommendation;
+      const hist = data.history;
+      const color = fuelColor(name);
+      const showAll = showAllMap[name] || false;
+
+      const recHtml = rec ? `
+        <div class="rec-banner rec-${rec.action}">
+          <span class="rec-icon">${rec.icon}</span>
+          <span>${rec.text}</span>
+          <span class="rec-diff">${diffLabel(rec.diff)}</span>
+        </div>` : '';
+
+      const cardHtml = (label, info) => {
+        if (!info) return `<div class="price-card"><div class="day-label">${label}</div><div style="color:var(--muted);font-size:.85rem;margin-top:8px">No data</div></div>`;
+        return `
+          <div class="price-card">
+            <div class="day-label">${label}</div>
+            <div class="big-price">${formatPrice(info.min)}<span class="unit">¢/L</span></div>
+            <div class="sub-prices">
+              <div class="sub-item">Avg <span>${formatPrice(info.avg)}¢</span></div>
+              <div class="sub-item">Max <span>${formatPrice(info.max)}¢</span></div>
+              <div class="sub-item">${info.count} stations</div>
+            </div>
+            ${info.cheapest ? `<div class="cheapest-name">Cheapest: <strong>${info.cheapest.name}</strong></div>` : ''}
+          </div>`;
+      };
+
+      const todayStations = td ? td.stations : [];
+      const btnText = showAll ? 'Show less' : `Show all ${todayStations.length}`;
+
+      const hasHistory = hist && hist.length > 1;
+      const chartId = `chart-${name.replace(/\s/g, '-')}`;
+
+      return `
+        <div class="price-grid">
+          ${cardHtml('Today', td)}
+          ${cardHtml('Tomorrow', tm)}
+        </div>
+        ${recHtml}
+        <div class="stations-section">
+          <div class="stations-header">
+            <span>Today's Cheapest Stations</span>
+            ${todayStations.length > 5 ? `<button class="stations-toggle" onclick="toggleStations('${name}')">${btnText}</button>` : ''}
+          </div>
+          ${stationRows(todayStations, showAll)}
+        </div>
+        <div class="chart-card">
+          <h3>Price History — Lowest c/L</h3>
+          ${hasHistory
+            ? `<div class="chart-wrapper"><canvas id="${chartId}"></canvas></div>`
+            : `<div class="no-history">History builds daily as you visit. Check back tomorrow!</div>`}
+        </div>`;
+    }
+
+    function buildChart(name, hist) {
+      const chartId = `chart-${name.replace(/\s/g, '-')}`;
+      const ctx = document.getElementById(chartId);
+      if (!ctx) return;
+      if (charts[name]) charts[name].destroy();
+      const color = fuelColor(name);
+      charts[name] = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: hist.map(h => {
+            const d = new Date(h.date);
+            return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+          }),
+          datasets: [{
+            label: 'Min',
+            data: hist.map(h => h.min),
+            borderColor: color,
+            backgroundColor: color + '22',
+            borderWidth: 2,
+            pointRadius: hist.length < 14 ? 4 : 2,
+            pointBackgroundColor: color,
+            fill: true,
+            tension: 0.35,
+          }, {
+            label: 'Avg',
+            data: hist.map(h => h.avg),
+            borderColor: color + '77',
+            borderWidth: 1.5,
+            borderDash: [5, 4],
+            pointRadius: 0,
+            fill: false,
+            tension: 0.35,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#8892a4', font: { size: 10 }, boxWidth: 12 } },
+            tooltip: { callbacks: { label: c => ` ${c.parsed.y.toFixed(1)}¢/L` } }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#8892a4', font: { size: 9 }, maxTicksLimit: 7 },
+              grid: { color: '#2e3347' }
+            },
+            y: {
+              ticks: { color: '#8892a4', font: { size: 9 }, callback: v => v + '¢' },
+              grid: { color: '#2e3347' }
+            }
+          }
+        }
+      });
+    }
+
+    function switchTab(name) {
+      activeTab = name;
+      document.querySelectorAll('.fuel-tab').forEach(t => {
+        t.classList.remove('active-91', 'active-95');
+      });
+      const tab = document.querySelector(`.fuel-tab[data-name="${name}"]`);
+      if (tab) tab.classList.add(name.includes('91') ? 'active-91' : 'active-95');
+
+      document.querySelectorAll('.fuel-panel').forEach(p => p.classList.remove('visible'));
+      const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
+      if (panel) panel.classList.add('visible');
+
+      if (allData && allData[name]) {
+        setTimeout(() => buildChart(name, allData[name].history), 50);
+      }
+    }
+
+    function toggleStations(name) {
+      showAllMap[name] = !showAllMap[name];
+      if (allData && allData[name]) {
+        const panelId = `panel-${name.replace(/\s/g, '-')}`;
+        document.getElementById(panelId).innerHTML = renderPanel(name, allData[name]);
+        setTimeout(() => buildChart(name, allData[name].history), 50);
+      }
+    }
+
+    async function loadPrices(forceRefresh = false) {
+      const btn = document.getElementById('refresh-btn');
+      const loading = document.getElementById('loading');
+      const content = document.getElementById('content');
+      const errMsg = document.getElementById('error-msg');
+
+      btn.disabled = true;
+      loading.style.display = 'block';
+      content.style.display = 'none';
+      errMsg.style.display = 'none';
+
+      try {
+        const url = forceRefresh ? '/api/prices?bust=' + Date.now() : '/api/prices';
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error('Bad response');
+        allData = await resp.json();
+
+        // Build tabs
+        const tabsEl = document.getElementById('fuel-tabs');
+        const panelsEl = document.getElementById('panels');
+        tabsEl.innerHTML = '';
+        panelsEl.innerHTML = '';
+
+        const names = Object.keys(allData);
+        names.forEach(name => {
+          const tab = document.createElement('button');
+          tab.className = 'fuel-tab';
+          tab.dataset.name = name;
+          tab.textContent = name;
+          tab.onclick = () => switchTab(name);
+          tabsEl.appendChild(tab);
+
+          const panel = document.createElement('div');
+          panel.className = 'fuel-panel';
+          panel.id = `panel-${name.replace(/\s/g, '-')}`;
+          panel.innerHTML = renderPanel(name, allData[name]);
+          panelsEl.appendChild(panel);
+        });
+
+        const firstKey = names[0];
+        document.getElementById('last-updated').textContent =
+          `Updated ${allData[firstKey]?.fetched_at || ''}`;
+
+        content.style.display = 'block';
+        switchTab(activeTab && allData[activeTab] ? activeTab : names[0]);
+
+      } catch (e) {
+        errMsg.style.display = 'block';
+      } finally {
+        loading.style.display = 'none';
+        btn.disabled = false;
+      }
+    }
+
+    loadPrices();
+  </script>
+</body>
+</html>
