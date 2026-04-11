@@ -346,6 +346,60 @@
       animation: spin 0.7s linear infinite;
       vertical-align: middle;
     }
+
+    /* ── Search ── */
+    .search-wrap {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+      width: min(320px, 90vw);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.88rem;
+      outline: none;
+      -webkit-appearance: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--muted); }
+
+    .search-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0; right: 0;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      list-style: none;
+      overflow: hidden;
+      z-index: 99;
+      box-shadow: 0 8px 24px #0008;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .search-dropdown li {
+      padding: 11px 16px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      transition: background 0.1s;
+    }
+
+    .search-dropdown li:last-child { border-bottom: none; }
+    .search-dropdown li:hover,
+    .search-dropdown li.active { background: var(--surface); color: var(--accent); }
+    .search-dropdown li .match { color: var(--accent); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -355,6 +409,15 @@
       <span id="loc-icon">📍</span>
       <span id="loc-label">Use my location</span>
     </button>
+
+    <div class="search-wrap" id="search-wrap">
+      <input id="search-input" class="search-input" type="text"
+             placeholder="Search suburb…" autocomplete="off"
+             oninput="onSearchInput(this.value)"
+             onkeydown="onSearchKey(event)">
+      <ul class="search-dropdown" id="search-dropdown"></ul>
+    </div>
+
     <div id="last-updated"></div>
   </header>
 
@@ -753,7 +816,12 @@
     async function load() {
       document.getElementById('loading').style.display = 'block';
       try {
-        const resp = await fetch('data/prices.json?t=' + Date.now());
+        // Load both in parallel — prices.json for display, by_suburb.json for search
+        const [pricesResp] = await Promise.all([
+          fetch('data/prices.json?t=' + Date.now()),
+          loadSuburbData(),   // preload suburb index so search works instantly
+        ]);
+        const resp = pricesResp;
         if (!resp.ok) throw new Error();
         allData = await resp.json();
 
@@ -768,6 +836,112 @@
         document.getElementById('loading').style.display = 'none';
       }
     }
+
+    /* ─────────────────────────────── Search ── */
+    let searchIndex    = -1;
+    let searchMatches  = [];
+
+    function onSearchInput(val) {
+      const dropdown = document.getElementById('search-dropdown');
+      searchIndex = -1;
+
+      if (!val.trim() || !suburbData) {
+        dropdown.style.display = 'none';
+        return;
+      }
+
+      const q = val.toLowerCase().trim();
+      searchMatches = Object.keys(suburbData)
+        .filter(k => k.toLowerCase().includes(q))
+        .sort((a, b) => {
+          // Exact start match ranks first
+          const aStart = a.toLowerCase().startsWith(q);
+          const bStart = b.toLowerCase().startsWith(q);
+          if (aStart && !bStart) return -1;
+          if (!aStart && bStart) return 1;
+          return a.localeCompare(b);
+        })
+        .slice(0, 8);
+
+      if (!searchMatches.length) {
+        dropdown.style.display = 'none';
+        return;
+      }
+
+      // Highlight matching portion
+      dropdown.innerHTML = searchMatches.map((name, i) => {
+        const idx  = name.toLowerCase().indexOf(q);
+        const hi   = idx >= 0
+          ? name.slice(0, idx) + `<span class="match">${name.slice(idx, idx + q.length)}</span>` + name.slice(idx + q.length)
+          : name;
+        return `<li data-i="${i}" onmousedown="selectSuburb('${name}')">${hi}</li>`;
+      }).join('');
+
+      dropdown.style.display = 'block';
+    }
+
+    function onSearchKey(e) {
+      const dropdown = document.getElementById('search-dropdown');
+      const items    = dropdown.querySelectorAll('li');
+      if (!items.length) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        searchIndex = Math.min(searchIndex + 1, items.length - 1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        searchIndex = Math.max(searchIndex - 1, -1);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const name = searchIndex >= 0 ? searchMatches[searchIndex] : searchMatches[0];
+        if (name) selectSuburb(name);
+        return;
+      } else if (e.key === 'Escape') {
+        dropdown.style.display = 'none';
+        return;
+      }
+
+      items.forEach((li, i) => li.classList.toggle('active', i === searchIndex));
+    }
+
+    function selectSuburb(name) {
+      const dropdown = document.getElementById('search-dropdown');
+      const input    = document.getElementById('search-input');
+      dropdown.style.display = 'none';
+      input.value   = name;
+      input.blur();
+
+      // Reset location pill back to default
+      const btn   = document.getElementById('loc-btn');
+      const icon  = document.getElementById('loc-icon');
+      const label = document.getElementById('loc-label');
+      btn.className    = 'location-pill';
+      icon.textContent = '📍';
+      label.textContent = 'Use my location';
+
+      const lookup = suburbData || {};
+      const key    = findSuburbKey(lookup, name) || name;
+      liveData     = buildLiveDataFromLookup(lookup, key);
+
+      if (liveData) {
+        document.getElementById('last-updated').textContent =
+          `🔍 ${name} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
+        render(liveData);
+      } else {
+        liveData = null;
+        document.getElementById('last-updated').textContent =
+          `🔍 ${name} — no data, showing area prices`;
+        render(allData);
+      }
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', e => {
+      if (!document.getElementById('search-wrap')?.contains(e.target)) {
+        const d = document.getElementById('search-dropdown');
+        if (d) d.style.display = 'none';
+      }
+    });
 
     load();
   </script>
