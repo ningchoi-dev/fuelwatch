@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FuelWatch — Cockburn</title>
+
+  <link rel="manifest" href="static/manifest.json">
+  <meta name="theme-color" content="#0f1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FuelWatch">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3347;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --radius: 14px;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      padding: calc(var(--safe-top) + 20px) 16px calc(var(--safe-bottom) + 40px);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header { text-align: center; margin-bottom: 24px; }
+
+    header h1 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header h1 span { color: var(--accent); }
+    header p { color: var(--muted); margin-top: 4px; font-size: 0.88rem; }
+
+    #last-updated {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .stale-warning {
+      display: none;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--red);
+    }
+
+    .fuel-tabs {
+      display: flex;
+      gap: 8px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .fuel-tab {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      touch-action: manipulation;
+      transition: all 0.15s;
+    }
+
+    .fuel-tab.active-91 { background: #1d3a6e; border-color: #4f8ef7; color: #93c5fd; }
+    .fuel-tab.active-95 { background: #3b1d6e; border-color: #a78bfa; color: #c4b5fd; }
+
+    .fuel-panel { display: none; max-width: 600px; margin: 0 auto; }
+    .fuel-panel.visible { display: block; }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .price-card .day-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .price-card .big-price {
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .price-card .big-price .unit {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: 1px;
+    }
+
+    .price-card .sub-prices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 8px;
+    }
+
+    .price-card .sub-item { font-size: 0.75rem; color: var(--muted); }
+    .price-card .sub-item span { color: var(--text); font-weight: 600; }
+
+    .price-card .cheapest-name {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .price-card .cheapest-name strong { color: var(--text); }
+
+    .rec-banner {
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .rec-banner .rec-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .rec-wait { background: #1e2d1a; border: 1px solid #2d5c25; color: var(--green); }
+    .rec-fill { background: #2d1a1a; border: 1px solid #5c2525; color: var(--red); }
+    .rec-neutral { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
+    .rec-banner .rec-diff { margin-left: auto; font-size: 1rem; font-weight: 800; white-space: nowrap; }
+
+    .stations-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .stations-header {
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stations-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .station-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+    }
+
+    .station-row:last-child { border-bottom: none; }
+
+    .station-rank { font-size: 0.72rem; color: var(--muted); width: 18px; flex-shrink: 0; text-align: right; }
+
+    .station-info { flex: 1; min-width: 0; }
+    .station-info .s-name { font-size: 0.88rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .station-info .s-addr { font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .station-price { font-size: 1rem; font-weight: 700; flex-shrink: 0; }
+    .station-price .cpl { font-size: 0.68rem; color: var(--muted); }
+    .station-row:first-of-type .station-price { color: var(--green); }
+
+    .chart-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .chart-card h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .chart-wrapper { position: relative; height: 160px; }
+    .no-history { text-align: center; padding: 28px; color: var(--muted); font-size: 0.85rem; }
+
+    .loading-overlay { display: none; text-align: center; padding: 60px 20px; color: var(--muted); }
+
+    .spinner {
+      width: 34px; height: 34px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 14px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #content { display: none; }
+
+    .error-msg {
+      display: none;
+      background: #2d1a1a;
+      border: 1px solid var(--red);
+      color: var(--red);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⛽ Fuel<span>Watch</span></h1>
+    <p>Aubin Grove &amp; Cockburn Surrounds</p>
+    <div id="last-updated">Loading…</div>
+    <div class="stale-warning" id="stale-warning">⚠️ Data may be outdated</div>
+  </header>
+
+  <div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <div>Loading prices…</div>
+  </div>
+
+  <div class="error-msg" id="error-msg">
+    Could not load prices. Try again later.
+  </div>
+
+  <div id="content">
+    <div class="fuel-tabs" id="fuel-tabs"></div>
+    <div id="panels"></div>
+  </div>
+
+  <script>
+    const charts = {};
+    let allData = null;
+    let activeTab = null;
+    const showAllMap = {};
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('static/sw.js').catch(() => {});
+    }
+
+    function fuelColor(name) { return name.includes('91') ? '#4f8ef7' : '#a78bfa'; }
+    function fmt(p) { return p != null ? p.toFixed(1) : '—'; }
+    function diffLabel(diff) {
+      if (diff == null) return '';
+      return `${diff > 0 ? '+' : ''}${diff.toFixed(1)}¢`;
+    }
+
+    function stationRows(stations, showAll) {
+      return (showAll ? stations : stations.slice(0, 5)).map((s, i) => `
+        <div class="station-row">
+          <div class="station-rank">${i + 1}</div>
+          <div class="station-info">
+            <div class="s-name">${s.name || '—'}</div>
+            <div class="s-addr">${s.suburb}${s.address ? ' · ' + s.address : ''}</div>
+          </div>
+          <div class="station-price">${fmt(s.price)}<span class="cpl">¢</span></div>
+        </div>`).join('');
+    }
+
+    function renderPanel(name, data) {
+      const td = data.today, tm = data.tomorrow, rec = data.recommendation;
+      const hist = data.history || [], showAll = showAllMap[name] || false;
+      const color = fuelColor(name);
+      const chartId = `chart-${name.replace(/\s/g, '-')}`;
+
+      const card = (label, info) => !info
+        ? `<div class="price-card"><div class="day-label">${label}</div><div style="color:var(--muted);font-size:.85rem;margin-top:8px">No data</div></div>`
+        : `<div class="price-card">
+            <div class="day-label">${label}</div>
+            <div class="big-price">${fmt(info.min)}<span class="unit">¢/L</span></div>
+            <div class="sub-prices">
+              <div class="sub-item">Avg <span>${fmt(info.avg)}¢</span></div>
+              <div class="sub-item">Max <span>${fmt(info.max)}¢</span></div>
+              <div class="sub-item">${info.count} stations</div>
+            </div>
+            ${info.cheapest ? `<div class="cheapest-name">Cheapest: <strong>${info.cheapest.name}</strong></div>` : ''}
+          </div>`;
+
+      const recHtml = rec ? `
+        <div class="rec-banner rec-${rec.action}">
+          <span class="rec-icon">${rec.icon}</span>
+          <span>${rec.text}</span>
+          <span class="rec-diff">${diffLabel(rec.diff)}</span>
+        </div>` : '';
+
+      const todayStations = td ? td.stations : [];
+
+      return `
+        <div class="price-grid">${card('Today', td)}${card('Tomorrow', tm)}</div>
+        ${recHtml}
+        <div class="stations-section">
+          <div class="stations-header">
+            <span>Today's Cheapest Stations</span>
+            ${todayStations.length > 5 ? `<button class="stations-toggle" onclick="toggleStations('${name}')">${showAll ? 'Show less' : 'Show all ' + todayStations.length}</button>` : ''}
+          </div>
+          ${stationRows(todayStations, showAll)}
+        </div>
+        <div class="chart-card">
+          <h3>Price History — Lowest ¢/L</h3>
+          ${hist.length > 1
+            ? `<div class="chart-wrapper"><canvas id="${chartId}"></canvas></div>`
+            : `<div class="no-history">History builds daily — check back tomorrow!</div>`}
+        </div>`;
+    }
+
+    function buildChart(name, hist) {
+      if (!hist || hist.length < 2) return;
+      const chartId = `chart-${name.replace(/\s/g, '-')}`;
+      const ctx = document.getElementById(chartId);
+      if (!ctx) return;
+      if (charts[name]) charts[name].destroy();
+      const color = fuelColor(name);
+      charts[name] = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: hist.map(h => new Date(h.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })),
+          datasets: [
+            { label: 'Min', data: hist.map(h => h.min), borderColor: color, backgroundColor: color + '22', borderWidth: 2, pointRadius: hist.length < 14 ? 4 : 2, pointBackgroundColor: color, fill: true, tension: 0.35 },
+            { label: 'Avg', data: hist.map(h => h.avg), borderColor: color + '77', borderWidth: 1.5, borderDash: [5, 4], pointRadius: 0, fill: false, tension: 0.35 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#8892a4', font: { size: 10 }, boxWidth: 12 } },
+            tooltip: { callbacks: { label: c => ` ${c.parsed.y.toFixed(1)}¢/L` } }
+          },
+          scales: {
+            x: { ticks: { color: '#8892a4', font: { size: 9 }, maxTicksLimit: 7 }, grid: { color: '#2e3347' } },
+            y: { ticks: { color: '#8892a4', font: { size: 9 }, callback: v => v + '¢' }, grid: { color: '#2e3347' } }
+          }
+        }
+      });
+    }
+
+    function switchTab(name) {
+      activeTab = name;
+      document.querySelectorAll('.fuel-tab').forEach(t => t.classList.remove('active-91', 'active-95'));
+      const tab = document.querySelector(`.fuel-tab[data-name="${name}"]`);
+      if (tab) tab.classList.add(name.includes('91') ? 'active-91' : 'active-95');
+      document.querySelectorAll('.fuel-panel').forEach(p => p.classList.remove('visible'));
+      const panel = document.getElementById(`panel-${name.replace(/\s/g, '-')}`);
+      if (panel) panel.classList.add('visible');
+      if (allData?.[name]) setTimeout(() => buildChart(name, allData[name].history), 50);
+    }
+
+    function toggleStations(name) {
+      showAllMap[name] = !showAllMap[name];
+      if (allData?.[name]) {
+        document.getElementById(`panel-${name.replace(/\s/g, '-')}`).innerHTML = renderPanel(name, allData[name]);
+        setTimeout(() => buildChart(name, allData[name].history), 50);
+      }
+    }
+
+    async function load() {
+      document.getElementById('loading').style.display = 'block';
+      try {
+        // prices.json is generated by GitHub Actions and committed to the repo
+        const resp = await fetch('data/prices.json?t=' + Date.now());
+        if (!resp.ok) throw new Error();
+        allData = await resp.json();
+
+        const tabsEl = document.getElementById('fuel-tabs');
+        const panelsEl = document.getElementById('panels');
+        tabsEl.innerHTML = '';
+        panelsEl.innerHTML = '';
+
+        const names = Object.keys(allData);
+        names.forEach(name => {
+          const tab = document.createElement('button');
+          tab.className = 'fuel-tab';
+          tab.dataset.name = name;
+          tab.textContent = name;
+          tab.onclick = () => switchTab(name);
+          tabsEl.appendChild(tab);
+
+          const panel = document.createElement('div');
+          panel.className = 'fuel-panel';
+          panel.id = `panel-${name.replace(/\s/g, '-')}`;
+          panel.innerHTML = renderPanel(name, allData[name]);
+          panelsEl.appendChild(panel);
+        });
+
+        const firstKey = names[0];
+        const fetchedAt = allData[firstKey]?.fetched_at || '';
+        document.getElementById('last-updated').textContent = `Updated ${fetchedAt}`;
+
+        // Warn if data is older than 8 hours
+        const match = fetchedAt.match(/(\d{2} \w+ \d{4} \d{2}:\d{2}) UTC/);
+        if (match) {
+          const age = (Date.now() - new Date(match[1] + ' UTC')) / 3600000;
+          if (age > 8) document.getElementById('stale-warning').style.display = 'block';
+        }
+
+        document.getElementById('content').style.display = 'block';
+        switchTab(activeTab && allData[activeTab] ? activeTab : names[0]);
+      } catch {
+        document.getElementById('error-msg').style.display = 'block';
+      } finally {
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>
