@@ -438,27 +438,39 @@
     const PROXIES = [
       url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
       url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
     ];
+
+    async function timedFetch(url, ms = 10000) {
+      const ctrl = new AbortController();
+      const id   = setTimeout(() => ctrl.abort(), ms);
+      try { return await fetch(url, { signal: ctrl.signal }); }
+      finally { clearTimeout(id); }
+    }
 
     async function proxyFetch(url) {
       for (const proxy of PROXIES) {
         try {
-          const r = await fetch(proxy(url), { signal: AbortSignal.timeout(12000) });
-          if (r.ok) return await r.text();
-        } catch { /* try next */ }
+          const r    = await timedFetch(proxy(url), 10000);
+          const text = await r.text();
+          // Validate we got actual RSS, not an error page
+          if (r.ok && text.includes('<rss') || text.includes('<item>')) return text;
+        } catch { /* try next proxy */ }
       }
       throw new Error('All proxies failed');
     }
 
     function parseRSS(xml) {
-      const doc = new DOMParser().parseFromString(xml, 'text/xml');
-      const stations = [];
-      doc.querySelectorAll('item').forEach(item => {
-        const g = tag => item.querySelector(tag)?.textContent?.trim() || '';
-        const p = parseFloat(g('price'));
-        if (!isNaN(p)) stations.push({ price: p, name: g('trading-name'), brand: g('brand'), address: g('address'), suburb: g('location') });
-      });
-      return stations.sort((a, b) => a.price - b.price);
+      try {
+        const doc = new DOMParser().parseFromString(xml, 'text/xml');
+        const stations = [];
+        doc.querySelectorAll('item').forEach(item => {
+          const g = tag => item.querySelector(tag)?.textContent?.trim() || '';
+          const p = parseFloat(g('price'));
+          if (!isNaN(p)) stations.push({ price: p, name: g('trading-name'), brand: g('brand'), address: g('address'), suburb: g('location') });
+        });
+        return stations.sort((a, b) => a.price - b.price);
+      } catch { return []; }
     }
 
     function fuelWatchURL(product, suburb, day) {
@@ -471,36 +483,48 @@
       const icon  = document.getElementById('loc-icon');
       const label = document.getElementById('loc-label');
 
-      btn.className   = 'location-pill locating';
+      btn.className    = 'location-pill locating';
       icon.textContent = '';
       label.innerHTML  = '<span class="inline-spinner"></span> Locating…';
       btn.disabled     = true;
 
+      let suburb = null;
+
       try {
-        // 1 — Get GPS coords
+        // 1 — GPS
         const pos = await new Promise((res, rej) =>
           navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 }));
         const { latitude: lat, longitude: lng } = pos.coords;
 
-        // 2 — Reverse geocode with OpenStreetMap Nominatim (free, no key)
+        // 2 — Reverse geocode
         label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
-        const geo = await fetch(
-          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
-          { headers: { 'Accept-Language': 'en-AU', 'User-Agent': 'FuelWatch-App/1.0' } }
-        );
+        const geo     = await timedFetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`, 8000);
         const geoData = await geo.json();
-        const suburb  = geoData.address?.suburb
-                     || geoData.address?.city_district
-                     || geoData.address?.town
-                     || geoData.address?.village
-                     || geoData.address?.county;
+        suburb = geoData.address?.suburb
+              || geoData.address?.city_district
+              || geoData.address?.town
+              || geoData.address?.village
+              || geoData.address?.county;
 
         if (!suburb) throw new Error('Suburb not found');
         detectedSuburb = suburb;
 
-        // 3 — Fetch live prices for this suburb
-        label.innerHTML = `<span class="inline-spinner"></span> Fetching ${suburb} prices…`;
+        // Show suburb immediately — prices loading next
+        btn.className    = 'location-pill located';
+        icon.textContent = '📍';
+        label.innerHTML  = `${suburb} <span class="inline-spinner"></span>`;
 
+      } catch (err) {
+        btn.className    = 'location-pill error';
+        icon.textContent = '⚠️';
+        label.textContent = err.code === 1 ? 'Location denied' : 'Suburb not found — tap to retry';
+        btn.disabled     = false;
+        return;
+      }
+
+      // 3 — Fetch prices (separate try so suburb stays shown on failure)
+      try {
         const combos = [
           { code: '1', name: 'Unleaded 91', day: 'today' },
           { code: '1', name: 'Unleaded 91', day: 'tomorrow' },
@@ -510,13 +534,16 @@
 
         const fetched = await Promise.all(
           combos.map(async ({ code, name, day }) => {
-            const xml      = await proxyFetch(fuelWatchURL(code, suburb, day));
-            const stations = parseRSS(xml);
-            return { name, day, stations };
+            try {
+              const xml      = await proxyFetch(fuelWatchURL(code, suburb, day));
+              return { name, day, stations: parseRSS(xml) };
+            } catch {
+              return { name, day, stations: [] };
+            }
           })
         );
 
-        // 4 — Build liveData in same shape as allData
+        // Build liveData
         liveData = {};
         for (const { name, day, stations } of fetched) {
           if (!liveData[name]) liveData[name] = { today: null, tomorrow: null, history: [] };
@@ -525,24 +552,26 @@
         for (const name of Object.keys(liveData)) {
           liveData[name].recommendation = recommendation(liveData[name].today?.min, liveData[name].tomorrow?.min);
           liveData[name].fetched_at     = new Date().toLocaleString('en-AU', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short' });
-          // Attach pre-fetched history for the chart
-          liveData[name].history = allData?.[name]?.history || [];
+          liveData[name].history        = allData?.[name]?.history || [];
         }
 
-        // 5 — Render
-        btn.className    = 'location-pill located';
-        icon.textContent = '📍';
+        // Check if we actually got any prices
+        const hasData = Object.values(liveData).some(d => d.today?.count > 0);
+        if (!hasData) throw new Error('No stations found for ' + suburb);
+
         label.textContent = suburb;
         document.getElementById('last-updated').textContent =
-          `Live prices · ${new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })}`;
-
+          `📍 ${suburb} · Live prices · ${new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' })}`;
         render(liveData);
 
       } catch (err) {
-        btn.className     = 'location-pill error';
-        icon.textContent  = '⚠️';
-        label.textContent = err.code === 1 ? 'Location denied' : 'Location failed — tap to retry';
+        // Keep suburb shown but flag the price issue
+        label.textContent = suburb;
         btn.disabled      = false;
+        document.getElementById('last-updated').textContent =
+          `📍 ${suburb} detected — couldn't fetch live prices, showing area data`;
+        // Fall back to pre-loaded area data
+        render(allData);
       }
     }
 
