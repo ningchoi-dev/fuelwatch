@@ -26,15 +26,6 @@
         },
         {
           "price": 209.7,
-          "name": "Vibe Spearwood",
-          "brand": "Vibe",
-          "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD",
-          "lat": "-32.10503300",
-          "lng": "115.78241900"
-        },
-        {
-          "price": 209.7,
           "name": "Vibe Jandakot",
           "brand": "Vibe",
           "address": "630 Karel Ave",
@@ -43,13 +34,13 @@
           "lng": "115.86884600"
         },
         {
-          "price": 213.9,
-          "name": "Ampol Foodary South Lake",
-          "brand": "Ampol",
-          "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE",
-          "lat": "-32.10827100",
-          "lng": "115.82922100"
+          "price": 209.7,
+          "name": "Vibe Spearwood",
+          "brand": "Vibe",
+          "address": "333 Rockingham Rd",
+          "suburb": "SPEARWOOD",
+          "lat": "-32.10503300",
+          "lng": "115.78241900"
         },
         {
           "price": 213.9,
@@ -59,6 +50,15 @@
           "suburb": "JANDAKOT",
           "lat": "-32.12678600",
           "lng": "115.86213800"
+        },
+        {
+          "price": 213.9,
+          "name": "Ampol Foodary South Lake",
+          "brand": "Ampol",
+          "address": "2 Omeo St",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
           "price": 214.9,
@@ -71,21 +71,21 @@
         },
         {
           "price": 215.9,
-          "name": "BP Connect Thomsons Lake",
-          "brand": "BP",
-          "address": "810 Beeliar Dr",
-          "suburb": "SUCCESS",
-          "lat": "-32.12916900",
-          "lng": "115.85372600"
-        },
-        {
-          "price": 215.9,
           "name": "EG Ampol South Lake",
           "brand": "EG Ampol",
           "address": "752 North Lake Rd",
           "suburb": "SOUTH LAKE",
           "lat": "-32.11517200",
           "lng": "115.83703200"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Connect Thomsons Lake",
+          "brand": "BP",
+          "address": "810 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12916900",
+          "lng": "115.85372600"
         },
         {
           "price": 217.5,
@@ -107,6 +107,15 @@
         },
         {
           "price": 219.9,
+          "name": "BP Connect Phoenix",
+          "brand": "BP",
+          "address": "222 Rockingham Rd",
+          "suburb": "SPEARWOOD",
+          "lat": "-32.09397500",
+          "lng": "115.78303900"
+        },
+        {
+          "price": 219.9,
           "name": "BP Beeliar",
           "brand": "BP",
           "address": "701 Beeliar Dr",
@@ -122,15 +131,6 @@
           "suburb": "COCKBURN CENTRAL",
           "lat": "-32.12000100",
           "lng": "115.84654800"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Connect Phoenix",
-          "brand": "BP",
-          "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD",
-          "lat": "-32.09397500",
-          "lng": "115.78303900"
         },
         {
           "price": 223.9,
@@ -159,14 +159,23 @@
       "count": 16,
       "cheapest": {
         "price": 209.7,
-        "name": "Vibe Spearwood",
+        "name": "Vibe Jandakot",
         "brand": "Vibe",
-        "address": "333 Rockingham Rd",
-        "suburb": "SPEARWOOD",
-        "lat": "-32.10503300",
-        "lng": "115.78241900"
+        "address": "630 Karel Ave",
+        "suburb": "JANDAKOT",
+        "lat": "-32.09075800",
+        "lng": "115.86884600"
       },
       "stations": [
+        {
+          "price": 209.7,
+          "name": "Vibe Jandakot",
+          "brand": "Vibe",
+          "address": "630 Karel Ave",
+          "suburb": "JANDAKOT",
+          "lat": "-32.09075800",
+          "lng": "115.86884600"
+        },
         {
           "price": 209.7,
           "name": "Vibe Spearwood",
@@ -177,13 +186,13 @@
           "lng": "115.78241900"
         },
         {
-          "price": 209.7,
-          "name": "Vibe Jandakot",
-          "brand": "Vibe",
-          "address": "630 Karel Ave",
+          "price": 211.9,
+          "name": "Ampol Foodary Cockburn Central",
+          "brand": "Ampol",
+          "address": "875 Beeliar Dr",
           "suburb": "JANDAKOT",
-          "lat": "-32.09075800",
-          "lng": "115.86884600"
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
         },
         {
           "price": 211.9,
@@ -202,15 +211,6 @@
           "suburb": "SOUTH LAKE",
           "lat": "-32.11517200",
           "lng": "115.83703200"
-        },
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Cockburn Central",
-          "brand": "Ampol",
-          "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT",
-          "lat": "-32.12678600",
-          "lng": "115.86213800"
         },
         {
           "price": 212.9,
@@ -232,6 +232,15 @@
         },
         {
           "price": 215.9,
+          "name": "BP Connect Thomsons Lake",
+          "brand": "BP",
+          "address": "810 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12916900",
+          "lng": "115.85372600"
+        },
+        {
+          "price": 215.9,
           "name": "7-Eleven Cockburn Central",
           "brand": "7-Eleven",
           "address": "814 North Lake Rd",
@@ -249,13 +258,22 @@
           "lng": "115.78093100"
         },
         {
-          "price": 215.9,
-          "name": "BP Connect Thomsons Lake",
-          "brand": "BP",
-          "address": "810 Beeliar Dr",
+          "price": 219.9,
+          "name": "7-Eleven Success",
+          "brand": "7-Eleven",
+          "address": "660 Beeliar Dr",
           "suburb": "SUCCESS",
-          "lat": "-32.12916900",
-          "lng": "115.85372600"
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
+        },
+        {
+          "price": 219.9,
+          "name": "Caltex Munster",
+          "brand": "Caltex",
+          "address": "512 Rockingham Rd",
+          "suburb": "MUNSTER",
+          "lat": "-32.12246300",
+          "lng": "115.78419400"
         },
         {
           "price": 219.9,
@@ -283,24 +301,6 @@
           "suburb": "HAMILTON HILL",
           "lat": "-32.09315200",
           "lng": "115.78308100"
-        },
-        {
-          "price": 219.9,
-          "name": "Caltex Hamilton Hill North",
-          "brand": "Caltex",
-          "address": "224 Clontarf Rd",
-          "suburb": "HAMILTON HILL",
-          "lat": "-32.07553100",
-          "lng": "115.77951900"
-        },
-        {
-          "price": 219.9,
-          "name": "Caltex Munster",
-          "brand": "Caltex",
-          "address": "512 Rockingham Rd",
-          "suburb": "MUNSTER",
-          "lat": "-32.12246300",
-          "lng": "115.78419400"
         }
       ]
     },
@@ -310,7 +310,7 @@
       "icon": "\u26fd",
       "text": "Fill up today \u2014 prices rise 10.0c/L tomorrow"
     },
-    "fetched_at": "11 Apr 2026 15:11 UTC",
+    "fetched_at": "11 Apr 2026 15:21 UTC",
     "history": [
       {
         "date": "2026-04-11",
@@ -366,21 +366,21 @@
         },
         {
           "price": 229.9,
-          "name": "Ampol Foodary Cockburn Central",
-          "brand": "Ampol",
-          "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT",
-          "lat": "-32.12678600",
-          "lng": "115.86213800"
-        },
-        {
-          "price": 229.9,
           "name": "Ampol Foodary South Lake",
           "brand": "Ampol",
           "address": "2 Omeo St",
           "suburb": "SOUTH LAKE",
           "lat": "-32.10827100",
           "lng": "115.82922100"
+        },
+        {
+          "price": 229.9,
+          "name": "Ampol Foodary Cockburn Central",
+          "brand": "Ampol",
+          "address": "875 Beeliar Dr",
+          "suburb": "JANDAKOT",
+          "lat": "-32.12678600",
+          "lng": "115.86213800"
         },
         {
           "price": 233.9,
@@ -390,24 +390,6 @@
           "suburb": "SOUTH LAKE",
           "lat": "-32.11517200",
           "lng": "115.83703200"
-        },
-        {
-          "price": 234.9,
-          "name": "BP Connect Phoenix",
-          "brand": "BP",
-          "address": "222 Rockingham Rd",
-          "suburb": "SPEARWOOD",
-          "lat": "-32.09397500",
-          "lng": "115.78303900"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Success",
-          "brand": "7-Eleven",
-          "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS",
-          "lat": "-32.12635600",
-          "lng": "115.83934600"
         },
         {
           "price": 234.9,
@@ -426,6 +408,24 @@
           "suburb": "COCKBURN CENTRAL",
           "lat": "-32.12000100",
           "lng": "115.84654800"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Success",
+          "brand": "7-Eleven",
+          "address": "660 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
+        },
+        {
+          "price": 234.9,
+          "name": "BP Connect Phoenix",
+          "brand": "BP",
+          "address": "222 Rockingham Rd",
+          "suburb": "SPEARWOOD",
+          "lat": "-32.09397500",
+          "lng": "115.78303900"
         },
         {
           "price": 239.9,
@@ -491,21 +491,21 @@
         },
         {
           "price": 227.9,
-          "name": "Ampol Foodary South Lake",
-          "brand": "Ampol",
-          "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE",
-          "lat": "-32.10827100",
-          "lng": "115.82922100"
-        },
-        {
-          "price": 227.9,
           "name": "Ampol Foodary Cockburn Central",
           "brand": "Ampol",
           "address": "875 Beeliar Dr",
           "suburb": "JANDAKOT",
           "lat": "-32.12678600",
           "lng": "115.86213800"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary South Lake",
+          "brand": "Ampol",
+          "address": "2 Omeo St",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
           "price": 229.9,
@@ -578,7 +578,7 @@
       "icon": "\u2713",
       "text": "Prices are similar \u2014 fill up whenever suits you"
     },
-    "fetched_at": "11 Apr 2026 15:11 UTC",
+    "fetched_at": "11 Apr 2026 15:21 UTC",
     "history": [
       {
         "date": "2026-04-11",
