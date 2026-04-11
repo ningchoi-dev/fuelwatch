@@ -2,7 +2,9 @@ name: Update Fuel Prices
 
 on:
   schedule:
-    - cron: '0 */4 * * *'   # every 4 hours
+    - cron: '0 5 * * *'   # 1pm AWST (UTC+8)
+    - cron: '0 6 * * *'   # 2pm AWST
+    - cron: '0 7 * * *'   # 3pm AWST
   workflow_dispatch:          # allow manual trigger from GitHub UI
 
 permissions:
