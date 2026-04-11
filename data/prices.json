@@ -22,17 +22,17 @@
         },
         {
           "price": 209.7,
-          "name": "Vibe Spearwood",
-          "brand": "Vibe",
-          "address": "333 Rockingham Rd",
-          "suburb": "SPEARWOOD"
-        },
-        {
-          "price": 209.7,
           "name": "Vibe Jandakot",
           "brand": "Vibe",
           "address": "630 Karel Ave",
           "suburb": "JANDAKOT"
+        },
+        {
+          "price": 209.7,
+          "name": "Vibe Spearwood",
+          "brand": "Vibe",
+          "address": "333 Rockingham Rd",
+          "suburb": "SPEARWOOD"
         },
         {
           "price": 213.9,
@@ -127,12 +127,19 @@
       "count": 16,
       "cheapest": {
         "price": 209.7,
-        "name": "Vibe Spearwood",
+        "name": "Vibe Jandakot",
         "brand": "Vibe",
-        "address": "333 Rockingham Rd",
-        "suburb": "SPEARWOOD"
+        "address": "630 Karel Ave",
+        "suburb": "JANDAKOT"
       },
       "stations": [
+        {
+          "price": 209.7,
+          "name": "Vibe Jandakot",
+          "brand": "Vibe",
+          "address": "630 Karel Ave",
+          "suburb": "JANDAKOT"
+        },
         {
           "price": 209.7,
           "name": "Vibe Spearwood",
@@ -141,10 +148,10 @@
           "suburb": "SPEARWOOD"
         },
         {
-          "price": 209.7,
-          "name": "Vibe Jandakot",
-          "brand": "Vibe",
-          "address": "630 Karel Ave",
+          "price": 211.9,
+          "name": "Ampol Foodary Cockburn Central",
+          "brand": "Ampol",
+          "address": "875 Beeliar Dr",
           "suburb": "JANDAKOT"
         },
         {
@@ -162,13 +169,6 @@
           "suburb": "SOUTH LAKE"
         },
         {
-          "price": 211.9,
-          "name": "Ampol Foodary Cockburn Central",
-          "brand": "Ampol",
-          "address": "875 Beeliar Dr",
-          "suburb": "JANDAKOT"
-        },
-        {
           "price": 212.9,
           "name": "United South Lake",
           "brand": "United",
@@ -184,13 +184,6 @@
         },
         {
           "price": 215.9,
-          "name": "United Hamilton Hill",
-          "brand": "United",
-          "address": "9 Winterfold Rd",
-          "suburb": "HAMILTON HILL"
-        },
-        {
-          "price": 215.9,
           "name": "7-Eleven Cockburn Central",
           "brand": "7-Eleven",
           "address": "814 North Lake Rd",
@@ -198,10 +191,24 @@
         },
         {
           "price": 215.9,
+          "name": "United Hamilton Hill",
+          "brand": "United",
+          "address": "9 Winterfold Rd",
+          "suburb": "HAMILTON HILL"
+        },
+        {
+          "price": 215.9,
           "name": "BP Connect Thomsons Lake",
           "brand": "BP",
           "address": "810 Beeliar Dr",
           "suburb": "SUCCESS"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Beeliar",
+          "brand": "BP",
+          "address": "701 Beeliar Dr",
+          "suburb": "COCKBURN CENTRAL"
         },
         {
           "price": 219.9,
@@ -219,24 +226,17 @@
         },
         {
           "price": 219.9,
-          "name": "Caltex Munster",
-          "brand": "Caltex",
-          "address": "512 Rockingham Rd",
-          "suburb": "MUNSTER"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Beeliar",
-          "brand": "BP",
-          "address": "701 Beeliar Dr",
-          "suburb": "COCKBURN CENTRAL"
-        },
-        {
-          "price": 219.9,
           "name": "7-Eleven Success",
           "brand": "7-Eleven",
           "address": "660 Beeliar Dr",
           "suburb": "SUCCESS"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Connect Phoenix",
+          "brand": "BP",
+          "address": "222 Rockingham Rd",
+          "suburb": "SPEARWOOD"
         }
       ]
     },
@@ -246,7 +246,7 @@
       "text": "Fill up today \u2014 prices rise 10.0c/L tomorrow",
       "icon": "\u26fd"
     },
-    "fetched_at": "11 Apr 2026 14:36 UTC",
+    "fetched_at": "11 Apr 2026 14:49 UTC",
     "history": [
       {
         "date": "2026-04-11",
@@ -462,7 +462,7 @@
       "text": "Prices are similar \u2014 fill up whenever suits you",
       "icon": "\u2713"
     },
-    "fetched_at": "11 Apr 2026 14:36 UTC",
+    "fetched_at": "11 Apr 2026 14:49 UTC",
     "history": [
       {
         "date": "2026-04-11",
