@@ -6,6 +6,13 @@
       "avg": 216.4,
       "station": "Vibe Hamilton Hill",
       "suburb": "HAMILTON HILL"
+    },
+    {
+      "date": "2026-04-12",
+      "min": 211.9,
+      "avg": 215.9,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -15,6 +22,13 @@
       "avg": 232.6,
       "station": "Vibe Jandakot",
       "suburb": "JANDAKOT"
+    },
+    {
+      "date": "2026-04-12",
+      "min": 227.9,
+      "avg": 232.4,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ]
 }
