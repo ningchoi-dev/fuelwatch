@@ -18,7 +18,7 @@ DEFAULT_SUBURBS = ['PERTH']
 ALL_METRO_SUBURBS = [
     # Inner Perth / CBD
     'PERTH', 'NORTHBRIDGE', 'EAST PERTH', 'WEST PERTH', 'HIGHGATE',
-    'LEEDERVILLE', 'NORTH PERTH', 'MT LAWLEY', 'INGLEWOOD', 'MAYLANDS',
+    'LEEDERVILLE', 'NORTH PERTH', 'MOUNT LAWLEY', 'INGLEWOOD', 'MAYLANDS',
     'SUBIACO', 'SHENTON PARK', 'DAGLISH', 'JOLIMONT', 'WEMBLEY',
     'FLOREAT', 'CITY BEACH', 'NEDLANDS', 'CRAWLEY', 'CLAREMONT',
     'COTTESLOE', 'MOSMAN PARK', 'PEPPERMINT GROVE', 'DALKEITH',
@@ -54,7 +54,7 @@ ALL_METRO_SUBURBS = [
     'KALAMUNDA', 'FORRESTFIELD', 'HIGH WYCOMBE', 'MAIDA VALE',
     'WATTLE GROVE', 'LESMURDIE', 'PICKERING BROOK', 'BICKLEY',
     'MUNDARING', 'GLEN FORREST', 'SAWYERS VALLEY', 'PARKERVILLE',
-    'CHIDLOW', 'STONEVILLE', 'MT HELENA', 'DARLINGTON',
+    'CHIDLOW', 'STONEVILLE', 'MOUNT HELENA', 'DARLINGTON',
     # East
     'BELMONT', 'CLOVERDALE', 'RIVERVALE', 'ASCOT',
     'WELSHPOOL', 'ST JAMES', 'VICTORIA PARK', 'EAST VICTORIA PARK',
@@ -187,8 +187,8 @@ FALLBACK_CENTROIDS = {
     'Medina':           {'lat': -32.2590, 'lng': 115.7600},
     'Melville':         {'lat': -32.0400, 'lng': 115.8000},
     'Mount Hawthorn':   {'lat': -31.9210, 'lng': 115.8420},
-    'Mt Helena':        {'lat': -31.8790, 'lng': 116.1880},
-    'Mt Lawley':        {'lat': -31.9280, 'lng': 115.8770},
+    'Mount Helena':     {'lat': -31.8790, 'lng': 116.1880},
+    'Mount Lawley':     {'lat': -31.9280, 'lng': 115.8770},
     'North Beach':      {'lat': -31.8720, 'lng': 115.7540},
     'North Coogee':     {'lat': -32.1020, 'lng': 115.7500},
     'North Lake':       {'lat': -32.0680, 'lng': 115.8280},
