@@ -575,10 +575,11 @@
       const fuelNames = ['Unleaded 91', 'Premium 95'];
       let hasAnyData = false;
 
-      // Collect up to 5 cheapest stations — always sorted by price, pulling from
-      // nearby suburbs to fill gaps when the selected suburb has fewer than 5
+      // Suburb's own stations first (price-sorted), then fill to 5 with
+      // cheapest from nearby suburbs — suburb context always takes priority
       function filledStations(primary, dataKey) {
-        const seen = new Set(primary.map(s => `${s.name}|${s.address}`));
+        const primarySorted = [...primary].sort((a, b) => a.price - b.price);
+        const seen = new Set(primarySorted.map(s => `${s.name}|${s.address}`));
         const extras = [];
         for (const [key, sub] of Object.entries(lookup)) {
           if (key === suburbKey) continue;
@@ -587,24 +588,15 @@
             if (!seen.has(id)) { seen.add(id); extras.push(s); }
           }
         }
-        return [...primary, ...extras]
-          .sort((a, b) => a.price - b.price)
-          .slice(0, 5);
+        extras.sort((a, b) => a.price - b.price);
+        return [...primarySorted, ...extras].slice(0, 5);
       }
 
-      // Recompute summary stats from the actual filled station list
+      // Keep suburb's own summary stats (min/avg/max reflect the suburb),
+      // just swap in the filled station list
       function recompute(raw, stations) {
-        if (!raw || !stations.length) return raw;
-        const prices = stations.map(s => s.price);
-        return {
-          ...raw,
-          min:      Math.min(...prices),
-          avg:      +(prices.reduce((a, b) => a + b) / prices.length).toFixed(1),
-          max:      Math.max(...prices),
-          count:    stations.length,
-          cheapest: stations[0],
-          stations,
-        };
+        if (!raw) return raw;
+        return { ...raw, stations };
       }
 
       for (const name of fuelNames) {
