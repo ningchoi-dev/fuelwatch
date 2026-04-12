@@ -571,7 +571,7 @@
     function buildLiveDataFromLookup(lookup, suburbKey) {
       const entry    = lookup[suburbKey] || {};
       const centroid = entry._centroid   || null;
-      const FILL_KM  = 20; // only pull fill stations from within 20km
+      const FILL_KM  = 5; // only pull fill stations from within 5km
       const result   = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
       let hasAnyData = false;
