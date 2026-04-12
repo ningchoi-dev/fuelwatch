@@ -477,11 +477,11 @@
     <div class="day-tabs" id="day-tabs">
       <button class="day-tab active" data-day="today" onclick="switchDay('today')">
         Today
-        <span class="day-price-hint" id="hint-today-91"></span>
+        <span class="day-price-hint" id="hint-today"></span>
       </button>
       <button class="day-tab" data-day="tomorrow" onclick="switchDay('tomorrow')">
         Tomorrow
-        <span class="day-price-hint" id="hint-tomorrow-91"></span>
+        <span class="day-price-hint" id="hint-tomorrow"></span>
       </button>
     </div>
 
@@ -792,14 +792,14 @@
       document.getElementById('content').style.display = 'block';
     }
 
-    function updateDayHints(data) {
-      // Show cheapest min price in day tab hints for ULP91
-      const fuel91 = data['Unleaded 91'];
-      if (!fuel91) return;
-      const h91t = document.getElementById('hint-today-91');
-      const h91m = document.getElementById('hint-tomorrow-91');
-      if (h91t && fuel91.today)    h91t.textContent = fmt(fuel91.today.min) + '¢';
-      if (h91m && fuel91.tomorrow) h91m.textContent = fmt(fuel91.tomorrow.min) + '¢';
+    function updateDayHints(data, fuelName) {
+      // Show cheapest min price for whichever fuel tab is active
+      const fuel = data[fuelName || activeTab || 'Unleaded 91'];
+      if (!fuel) return;
+      const ht = document.getElementById('hint-today');
+      const hm = document.getElementById('hint-tomorrow');
+      if (ht) ht.textContent = fuel.today    ? fmt(fuel.today.min)    + '¢' : '';
+      if (hm) hm.textContent = fuel.tomorrow ? fmt(fuel.tomorrow.min) + '¢' : '';
     }
 
     function switchDay(day) {
@@ -823,6 +823,9 @@
         panel.classList.add('visible');
         renderFuelPanel(name, currentData()[name]);
       }
+      // Update day tab price hints to reflect the selected fuel
+      const data = currentData();
+      if (data) updateDayHints(data, name);
     }
 
     function toggleStations(key) {
