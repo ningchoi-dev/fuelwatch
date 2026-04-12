@@ -79,7 +79,7 @@ ALL_METRO_SUBURBS = [
     # Fremantle / Coast
     'FREMANTLE', 'EAST FREMANTLE', 'NORTH FREMANTLE', 'SOUTH FREMANTLE',
     'WHITE GUM VALLEY', 'BEACONSFIELD', 'HILTON', 'PALMYRA', 'BICTON',
-    'ATTADALE', 'MELVILLE', 'MYAREE', 'O CONNOR', 'ALFRED COVE',
+    'ATTADALE', 'MELVILLE', 'MYAREE', "O'CONNOR", 'ALFRED COVE',
     'COOGEE', 'NORTH COOGEE',
     # Rockingham / Kwinana
     'ROCKINGHAM', 'SAFETY BAY', 'WAIKIKI', 'SHOALWATER', 'WARNBRO',
@@ -192,7 +192,7 @@ FALLBACK_CENTROIDS = {
     'North Beach':      {'lat': -31.8720, 'lng': 115.7540},
     'North Coogee':     {'lat': -32.1020, 'lng': 115.7500},
     'North Lake':       {'lat': -32.0680, 'lng': 115.8280},
-    'O Connor':         {'lat': -32.0640, 'lng': 115.7930},
+    "O'Connor":         {'lat': -32.0640, 'lng': 115.7930},
     'Orange Grove':     {'lat': -32.0340, 'lng': 116.0110},
     'Orelia':           {'lat': -32.2580, 'lng': 115.7690},
     'Parkwood':         {'lat': -32.0270, 'lng': 115.9130},
