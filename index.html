@@ -571,9 +571,13 @@
     function buildLiveDataFromLookup(lookup, suburbKey) {
       const entry    = lookup[suburbKey] || {};
       const centroid = entry._centroid   || null;
-      const FILL_KM  = 5; // only pull fill stations from within 5km
-      const result   = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
+      // Suburbs FuelWatch doesn't recognise (0 own stations) need a wider fill radius
+      // to approximate FuelWatch's broader catchment zone (~15 km).
+      // Recognised suburbs already have correct surrounding data so stay tight (5 km).
+      const hasOwnData = fuelNames.some(fn => entry[fn]?.stations?.length > 0);
+      const FILL_KM  = hasOwnData ? 5 : 15;
+      const result   = {};
       let hasAnyData = false;
 
       function filledStations(primary, dataKey) {
