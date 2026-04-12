@@ -1,13 +1,7 @@
 name: Update Fuel Prices
 
 on:
-  schedule:
-    - cron: '5 22 * * *'   # 06:05 AWST — FuelWatch early update
-    - cron: '5 16 * * *'   # 00:05 AWST — fresh today's prices
-    - cron: '30 6 * * *'   # 14:30 AWST — tomorrow's prices (right as FuelWatch publishes)
-    - cron: '45 6 * * *'   # 14:45 AWST — backup in case 14:30 was early
-    - cron: '30 7 * * *'   # 15:30 AWST — backup in case 14:45 run was delayed
-  workflow_dispatch:          # allow manual trigger from GitHub UI
+  workflow_dispatch:          # triggered by cron-job.com via GitHub API dispatch
 
 permissions:
   contents: write
