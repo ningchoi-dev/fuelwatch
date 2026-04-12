@@ -1,13 +1,15 @@
 {
-  "name": "FuelWatch Perth",
+  "name": "FuelWatch — Live Perth Fuel Prices",
   "short_name": "FuelWatch",
-  "description": "Live fuel prices for Perth metro suburbs",
+  "description": "Live fuel prices for Cockburn, Aubin Grove & surrounds — but better.",
   "start_url": "/fuelwatch/",
   "scope": "/fuelwatch/",
   "display": "standalone",
   "background_color": "#0f1117",
   "theme_color": "#0f1117",
   "orientation": "portrait-primary",
+  "categories": ["utilities", "lifestyle"],
+  "lang": "en-AU",
   "icons": [
     {
       "src": "/fuelwatch/static/icon-192.png",

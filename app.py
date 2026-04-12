@@ -228,10 +228,12 @@ def index():
 
 @app.route('/api/prices')
 def prices():
+    from flask import request as flask_request
     cache_key = date.today().isoformat()
     now = time.time()
+    force = flask_request.args.get('force') == '1'
 
-    if cache_key in _cache:
+    if not force and cache_key in _cache:
         ts, cached = _cache[cache_key]
         if now - ts < CACHE_TTL:
             return jsonify(cached)

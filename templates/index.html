@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>FuelWatch — Cockburn</title>
+  <title>FuelWatch — Live Perth Fuel Prices, but better</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Live fuel prices for Cockburn, Aubin Grove & surrounds. See today's cheapest stations, tomorrow's prices, and smart fill-up recommendations.">
+  <meta name="keywords" content="fuel prices Perth, cheapest petrol Cockburn, Aubin Grove fuel, unleaded 91, premium 95, FuelWatch WA">
+  <link rel="canonical" href="https://ningchoi-dev.github.io/fuelwatch/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ningchoi-dev.github.io/fuelwatch/">
+  <meta property="og:title" content="FuelWatch — Live Perth Fuel Prices, but better">
+  <meta property="og:description" content="Live fuel prices for Cockburn, Aubin Grove & surrounds. Cheapest stations, tomorrow's forecast, and fill-up recommendations.">
+  <meta property="og:image" content="https://ningchoi-dev.github.io/fuelwatch/static/icon-512.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FuelWatch — Live Perth Fuel Prices, but better">
+  <meta name="twitter:description" content="Live fuel prices for Cockburn, Aubin Grove & surrounds.">
+  <meta name="twitter:image" content="https://ningchoi-dev.github.io/fuelwatch/static/icon-512.png">
 
   <!-- PWA -->
   <link rel="manifest" href="/static/manifest.json">
@@ -14,6 +33,24 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="FuelWatch">
   <link rel="apple-touch-icon" href="/static/icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/static/icon-512.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FuelWatch",
+    "description": "Live fuel prices for Cockburn, Aubin Grove & surrounding Perth suburbs.",
+    "url": "https://ningchoi-dev.github.io/fuelwatch/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" }
+  }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
@@ -95,6 +132,7 @@
 
     .refresh-btn:active { transform: scale(0.96); opacity: 0.85; }
     .refresh-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .refresh-btn.spinning { animation: spin 0.7s linear infinite; }
 
     /* Tab switcher for fuel types */
     .fuel-tabs {
@@ -631,12 +669,13 @@
       const errMsg = document.getElementById('error-msg');
 
       btn.disabled = true;
+      if (forceRefresh) btn.classList.add('spinning');
       loading.style.display = 'block';
       content.style.display = 'none';
       errMsg.style.display = 'none';
 
       try {
-        const url = forceRefresh ? '/api/prices?bust=' + Date.now() : '/api/prices';
+        const url = forceRefresh ? '/api/prices?force=1' : '/api/prices';
         const resp = await fetch(url);
         if (!resp.ok) throw new Error('Bad response');
         allData = await resp.json();
@@ -675,6 +714,7 @@
       } finally {
         loading.style.display = 'none';
         btn.disabled = false;
+        btn.classList.remove('spinning');
       }
     }
 
