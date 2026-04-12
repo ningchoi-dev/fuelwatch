@@ -86,6 +86,27 @@
     .location-pill.located  { color: var(--green); border-color: var(--green); background: #1a2e1a; }
     .location-pill.error    { color: var(--red);   border-color: var(--red); }
 
+    .refresh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: opacity 0.15s, transform 0.1s;
+      -webkit-appearance: none;
+    }
+    .refresh-btn:active { transform: scale(0.96); opacity: 0.85; }
+    .refresh-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .refresh-btn.spinning { animation: spin 0.7s linear infinite; }
+
     #last-updated {
       display: block;
       margin-top: 8px;
@@ -440,6 +461,8 @@
     </div>
 
     <div id="last-updated"></div>
+    <br>
+    <button class="refresh-btn" id="refresh-btn" onclick="refreshPrices()">↻ Refresh</button>
   </header>
 
   <div class="loading-overlay" id="loading">
@@ -1048,6 +1071,15 @@
         if (d) d.style.display = 'none';
       }
     });
+
+    async function refreshPrices() {
+      const btn = document.getElementById('refresh-btn');
+      btn.disabled = true;
+      btn.classList.add('spinning');
+      await load();
+      btn.disabled = false;
+      btn.classList.remove('spinning');
+    }
 
     load();
   </script>
