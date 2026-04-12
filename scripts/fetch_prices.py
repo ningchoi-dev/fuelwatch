@@ -423,6 +423,27 @@ def main():
         if suburb_title in by_suburb and '_centroid' not in by_suburb[suburb_title]:
             by_suburb[suburb_title]['_centroid'] = centroid
 
+    # 3. Per-suburb price history (tracks min/avg per fuel type per day, last 90 days)
+    suburb_history_path = DATA_DIR / 'suburb_history.json'
+    suburb_history = (json.loads(suburb_history_path.read_text())
+                      if suburb_history_path.exists() else {})
+    today_str = date.today().isoformat()
+
+    for key, entry in by_suburb.items():
+        for fuel_name in FUEL_TYPES.values():
+            fuel_data = entry.get(fuel_name)
+            if not fuel_data:
+                continue
+            suburb_history.setdefault(key, {}).setdefault(fuel_name, [])
+            hist = suburb_history[key][fuel_name]
+            if not any(h['date'] == today_str for h in hist):
+                hist.append({'date': today_str, 'min': fuel_data['min'], 'avg': fuel_data['avg']})
+            suburb_history[key][fuel_name] = sorted(hist, key=lambda h: h['date'])[-90:]
+        # Embed history into each suburb's by_suburb entry so the frontend can use it
+        if key in suburb_history:
+            by_suburb[key]['_history'] = suburb_history[key]
+
+    suburb_history_path.write_text(json.dumps(suburb_history, indent=2))
     (DATA_DIR / 'by_suburb.json').write_text(json.dumps(by_suburb, indent=2))
     print(f'by_suburb.json saved — {len(by_suburb)} suburbs.')
 

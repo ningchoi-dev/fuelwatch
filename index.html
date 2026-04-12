@@ -632,7 +632,7 @@
           tomorrow,
           recommendation: recommendation(today?.min ?? null, tomorrow?.min ?? null),
           fetched_at:     allData?.[name]?.fetched_at || '',
-          history:        allData?.[name]?.history    || [],
+          history:        entry._history?.[name] || allData?.[name]?.history || [],
         };
       }
       return hasAnyData ? result : null;
