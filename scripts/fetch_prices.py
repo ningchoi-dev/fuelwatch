@@ -186,7 +186,9 @@ def main():
     history_path = DATA_DIR / 'history.json'
     history = json.loads(history_path.read_text()) if history_path.exists() else {}
 
-    fetched_at = datetime.utcnow().strftime('%d %b %Y %H:%M UTC')
+    from datetime import timezone, timedelta
+    AWST = timezone(timedelta(hours=8))
+    fetched_at = datetime.now(AWST).strftime('%d %b %Y %H:%M AWST')
 
     # 1. Default area prices (today + tomorrow for both fuels)
     print('Fetching default area prices…')
