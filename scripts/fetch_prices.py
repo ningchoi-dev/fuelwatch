@@ -7,6 +7,7 @@ Run by GitHub Actions.
 import requests
 import xml.etree.ElementTree as ET
 import json
+import math
 from datetime import date, datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -423,7 +424,49 @@ def main():
         if suburb_title in by_suburb and '_centroid' not in by_suburb[suburb_title]:
             by_suburb[suburb_title]['_centroid'] = centroid
 
-    # 3. Per-suburb price history (tracks min/avg per fuel type per day, last 90 days)
+    # 3. Per-suburb price history — mirrors the frontend fill logic so that
+    #    suburbs with no direct data (Aubin Grove etc.) track the min price
+    #    from their actual catchment area (15 km radius for fill-only suburbs,
+    #    5 km for recognised suburbs), not just the global Perth average.
+    def haversine_km(lat1, lng1, lat2, lng2):
+        R = 6371
+        dlat = math.radians(lat2 - lat1)
+        dlng = math.radians(lng2 - lng1)
+        a = (math.sin(dlat / 2) ** 2
+             + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2))
+             * math.sin(dlng / 2) ** 2)
+        return R * 2 * math.asin(math.sqrt(a))
+
+    def effective_fuel_data(key, entry, fuel_name):
+        """Return {min, avg} for a suburb using the same fill logic as the frontend."""
+        direct = entry.get(fuel_name)
+        if direct:
+            return direct
+        # Fill-only suburb: aggregate stations from surrounding suburbs
+        centroid = entry.get('_centroid')
+        if not centroid:
+            return None
+        has_own_data = any(entry.get(fn) for fn in FUEL_TYPES.values())
+        fill_km = 5 if has_own_data else 15
+        seen, prices = set(), []
+        for other_key, other_entry in by_suburb.items():
+            if other_key == key:
+                continue
+            other_c = other_entry.get('_centroid')
+            if not other_c:
+                continue
+            if haversine_km(centroid['lat'], centroid['lng'],
+                            other_c['lat'], other_c['lng']) > fill_km:
+                continue
+            for st in other_entry.get(fuel_name, {}).get('stations', []):
+                uid = (st['name'], st.get('address', ''))
+                if uid not in seen:
+                    seen.add(uid)
+                    prices.append(st['price'])
+        if not prices:
+            return None
+        return {'min': min(prices), 'avg': round(sum(prices) / len(prices), 1)}
+
     suburb_history_path = DATA_DIR / 'suburb_history.json'
     suburb_history = (json.loads(suburb_history_path.read_text())
                       if suburb_history_path.exists() else {})
@@ -431,7 +474,7 @@ def main():
 
     for key, entry in by_suburb.items():
         for fuel_name in FUEL_TYPES.values():
-            fuel_data = entry.get(fuel_name)
+            fuel_data = effective_fuel_data(key, entry, fuel_name)
             if not fuel_data:
                 continue
             suburb_history.setdefault(key, {}).setdefault(fuel_name, [])
@@ -439,7 +482,6 @@ def main():
             if not any(h['date'] == today_str for h in hist):
                 hist.append({'date': today_str, 'min': fuel_data['min'], 'avg': fuel_data['avg']})
             suburb_history[key][fuel_name] = sorted(hist, key=lambda h: h['date'])[-90:]
-        # Embed history into each suburb's by_suburb entry so the frontend can use it
         if key in suburb_history:
             by_suburb[key]['_history'] = suburb_history[key]
 
