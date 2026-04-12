@@ -2,6 +2,7 @@ name: Update Fuel Prices
 
 on:
   schedule:
+    - cron: '0 16 * * *'  # midnight AWST (12am) — today ticks to tomorrow
     - cron: '0 5 * * *'   # 1pm AWST (UTC+8)
     - cron: '0 6 * * *'   # 2pm AWST
     - cron: '0 7 * * *'   # 3pm AWST

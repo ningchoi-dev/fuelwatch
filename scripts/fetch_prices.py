@@ -1,6 +1,6 @@
 """
 Fetches fuel prices from FuelWatch WA.
-- data/prices.json  → Cockburn/Aubin Grove area prices + history
+- data/prices.json  → Perth (6000) default area prices + history
 - data/by_suburb.json → per-suburb prices for ALL Perth metro suburbs (for location lookup)
 Run by GitHub Actions.
 """
@@ -11,11 +11,8 @@ from datetime import date, datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-# ── Default area (Cockburn / Aubin Grove) ────────────────────────────────────
-DEFAULT_SUBURBS = [
-    'COCKBURN CENTRAL', 'HAMMOND PARK', 'JANDAKOT', 'SUCCESS',
-    'SOUTH LAKE', 'MUNSTER', 'SPEARWOOD', 'HAMILTON HILL',
-]
+# ── Default area (Perth / 6000) ──────────────────────────────────────────────
+DEFAULT_SUBURBS = ['PERTH']
 
 # ── All Perth metro suburbs for location-based lookup ────────────────────────
 ALL_METRO_SUBURBS = [

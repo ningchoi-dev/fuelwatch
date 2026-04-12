@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>FuelWatch — Cockburn</title>
+  <title>FuelWatch — Perth</title>
 
   <link rel="manifest" href="static/manifest.json">
   <meta name="theme-color" content="#0f1117">
@@ -465,7 +465,7 @@
 
     /* ── Service worker ── */
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('static/sw.js').catch(() => {});
+      navigator.serviceWorker.register('sw.js').catch(() => {});
     }
 
     /* ─────────────────────────────── helpers ── */
@@ -758,7 +758,7 @@
       if (!stations || !stations.length)
         return '<div style="padding:16px;color:var(--muted);font-size:.85rem">No stations found</div>';
       const showAll    = showAllMap[toggleKey] || false;
-      const visible    = showAll ? stations : stations.slice(0, 5);
+      const visible    = showAll ? stations : stations.slice(0, 10);
       const rows       = visible.map((s, i) => {
         const mapsQ = encodeURIComponent(
           [s.name, s.address, s.suburb].filter(Boolean).join(', ')
@@ -777,7 +777,7 @@
           <div class="station-map-icon">›</div>
         </a>`;
       }).join('');
-      const toggleBtn  = stations.length > 5
+      const toggleBtn  = stations.length > 10
         ? `<button class="stations-toggle" onclick="toggleStations('${toggleKey}')">${showAll ? 'Show less' : 'Show all ' + stations.length}</button>`
         : '';
       return rows + (toggleBtn
