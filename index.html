@@ -1094,11 +1094,13 @@
 
         render(liveData || allData);
 
-        const fetched = Object.values(allData)[0]?.fetched_at || '';
-        const prefix  = detectedSuburb ? `📍 ${detectedSuburb}` : 'Perth';
-        document.getElementById('last-updated').textContent = `${prefix} · Updated ${fetched}`;
+        const fetched  = Object.values(allData)[0]?.fetched_at || '';
+        const checkedAt = new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' });
+        const prefix   = detectedSuburb ? `📍 ${detectedSuburb}` : 'Perth';
+        document.getElementById('last-updated').textContent =
+          `${prefix} · Prices from ${fetched} · Checked ${checkedAt}`;
 
-        btn.textContent = '✓ Updated';
+        btn.textContent = '✓ Up to date';
         setTimeout(() => { btn.textContent = '↻ Refresh'; btn.disabled = false; }, 1500);
 
       } catch {
