@@ -2,6 +2,7 @@ name: Update Fuel Prices
 
 on:
   schedule:
+    - cron: '5 22 * * *'   # 06:05 AWST — FuelWatch early update
     - cron: '5 16 * * *'   # 00:05 AWST — fresh today's prices
     - cron: '30 6 * * *'   # 14:30 AWST — tomorrow's prices (right as FuelWatch publishes)
     - cron: '45 6 * * *'   # 14:45 AWST — backup in case 14:30 was early

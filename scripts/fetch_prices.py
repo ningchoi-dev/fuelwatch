@@ -246,6 +246,7 @@ def main():
                 by_suburb[key][fuel_name] = {
                     'min':      s['min'],
                     'avg':      s['avg'],
+                    'max':      s['max'],
                     'count':    s['count'],
                     'stations': s['stations'],
                 }
@@ -278,6 +279,7 @@ def main():
                 by_suburb[key][fuel_key] = {
                     'min':      s['min'],
                     'avg':      s['avg'],
+                    'max':      s['max'],
                     'count':    s['count'],
                     'stations': s['stations'],
                 }
