@@ -569,30 +569,36 @@
     }
 
     function buildLiveDataFromLookup(lookup, suburbKey) {
-      const entry = lookup[suburbKey] || {}; // empty entry = no own stations, fill from nearby
-      const result = {};
+      const entry    = lookup[suburbKey] || {};
+      const centroid = entry._centroid   || null;
+      const FILL_KM  = 20; // only pull fill stations from within 20km
+      const result   = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
       let hasAnyData = false;
 
-      // All stations from suburb + surrounding, sorted cheapest first —
-      // mirrors FuelWatch's own sort order
       function filledStations(primary, dataKey) {
-        const seen = new Set(primary.map(s => `${s.name}|${s.address}`));
+        const primarySorted = [...primary].sort((a, b) => a.price - b.price);
+        if (primarySorted.length >= 5) return primarySorted.slice(0, 5);
+
+        const seen   = new Set(primarySorted.map(s => `${s.name}|${s.address}`));
         const extras = [];
         for (const [key, sub] of Object.entries(lookup)) {
           if (key === suburbKey) continue;
+          // Distance gate: only fill from nearby suburbs
+          if (centroid && sub._centroid) {
+            if (haversineDist(centroid.lat, centroid.lng,
+                              sub._centroid.lat, sub._centroid.lng) > FILL_KM) continue;
+          }
           for (const s of (sub[dataKey]?.stations || [])) {
             const id = `${s.name}|${s.address}`;
             if (!seen.has(id)) { seen.add(id); extras.push(s); }
           }
         }
-        return [...primary, ...extras]
+        return [...primarySorted, ...extras]
           .sort((a, b) => a.price - b.price)
           .slice(0, 5);
       }
 
-      // Build summary from stations — uses raw as base if available,
-      // synthesises from filled stations if the suburb has no own data
       function summarise(raw, stations) {
         if (!stations.length) return null;
         const prices = stations.map(s => s.price);
@@ -623,7 +629,6 @@
           history:        allData?.[name]?.history    || [],
         };
       }
-      // If no actual price data found (suburb has no stations), fall back to default area
       return hasAnyData ? result : null;
     }
 

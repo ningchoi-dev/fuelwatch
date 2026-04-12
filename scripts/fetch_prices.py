@@ -97,6 +97,55 @@ FUEL_TYPES = {'1': 'Unleaded 91', '2': 'Premium 95'}
 FUELWATCH_RSS = 'https://www.fuelwatch.wa.gov.au/fuelwatch/fuelWatchRSS'
 DATA_DIR = Path(__file__).parent.parent / 'data'
 
+# Fallback centroids for suburbs FuelWatch doesn't recognise (returns 0 stations)
+# These ensure the distance gate still works for location/search
+FALLBACK_CENTROIDS = {
+    'Aubin Grove':    {'lat': -32.1480, 'lng': 115.8830},
+    'Hammond Park':   {'lat': -32.1530, 'lng': 115.8610},
+    'Treeby':         {'lat': -32.1400, 'lng': 115.8750},
+    'Atwell':         {'lat': -32.1270, 'lng': 115.8490},
+    'Banjup':         {'lat': -32.1700, 'lng': 115.8700},
+    'Piara Waters':   {'lat': -32.1340, 'lng': 115.9140},
+    'Harrisdale':     {'lat': -32.1256, 'lng': 115.9260},
+    'Hilbert':        {'lat': -32.1500, 'lng': 115.9400},
+    'Brookdale':      {'lat': -32.1750, 'lng': 115.9900},
+    'Champion Lakes': {'lat': -32.1600, 'lng': 115.9600},
+    'Wungong':        {'lat': -32.1850, 'lng': 115.9700},
+    'Caversham':      {'lat': -31.8400, 'lng': 115.9700},
+    'Brabham':        {'lat': -31.7700, 'lng': 115.9400},
+    'Dayton':         {'lat': -31.7900, 'lng': 115.9500},
+    'Aveley':         {'lat': -31.7800, 'lng': 116.0100},
+    'Sinagra':        {'lat': -31.6900, 'lng': 115.7800},
+    'Ashby':          {'lat': -31.6700, 'lng': 115.7700},
+    'Ridgewood':      {'lat': -31.6600, 'lng': 115.7600},
+    'Banksia Grove':  {'lat': -31.6800, 'lng': 115.8100},
+    'Eglinton':       {'lat': -31.5300, 'lng': 115.7400},
+    'Burns Beach':    {'lat': -31.6900, 'lng': 115.7300},
+    'Iluka':          {'lat': -31.7100, 'lng': 115.7300},
+    'Jindalee':       {'lat': -31.7300, 'lng': 115.7200},
+    'Bedfordale':     {'lat': -32.2000, 'lng': 116.0200},
+    'Roleystone':     {'lat': -32.1200, 'lng': 116.0700},
+    'Warnbro':        {'lat': -32.3300, 'lng': 115.7600},
+    'Wannanup':       {'lat': -32.6000, 'lng': 115.6800},
+    'Bouvard':        {'lat': -32.6200, 'lng': 115.6600},
+    'Herron':         {'lat': -32.5800, 'lng': 115.6700},
+    'Lesmurdie':      {'lat': -32.0100, 'lng': 116.0400},
+    'Mundaring':      {'lat': -31.9000, 'lng': 116.1700},
+    'Glen Forrest':   {'lat': -31.9300, 'lng': 116.1200},
+    'Sawyers Valley': {'lat': -31.9200, 'lng': 116.2100},
+    'Parkerville':    {'lat': -31.8700, 'lng': 116.1400},
+    'Chidlow':        {'lat': -31.8600, 'lng': 116.2700},
+    'Stoneville':     {'lat': -31.8600, 'lng': 116.1700},
+    'Churchlands':    {'lat': -31.9200, 'lng': 115.8100},
+    'Wembley Downs':  {'lat': -31.9000, 'lng': 115.7900},
+    'Doubleview':     {'lat': -31.9100, 'lng': 115.7900},
+    'South Fremantle':{'lat': -32.0800, 'lng': 115.7500},
+    'Kensington':     {'lat': -31.9900, 'lng': 115.8800},
+    'Queens Park':    {'lat': -32.0000, 'lng': 115.9200},
+    'Burswood':       {'lat': -31.9600, 'lng': 115.9000},
+    'South Perth':    {'lat': -31.9800, 'lng': 115.8600},
+}
+
 
 def fetch_suburb(suburb, product, day):
     params = {'Product': product, 'Suburb': suburb, 'Day': day, 'Surrounding': '1'}
@@ -295,6 +344,12 @@ def main():
                     'count':    s['count'],
                     'stations': s['stations'],
                 }
+
+    # Apply fallback centroids for suburbs FuelWatch doesn't recognise (0 stations returned)
+    # Without a centroid, the 20 km distance gate in the front-end can't filter correctly
+    for suburb_title, centroid in FALLBACK_CENTROIDS.items():
+        if suburb_title in by_suburb and '_centroid' not in by_suburb[suburb_title]:
+            by_suburb[suburb_title]['_centroid'] = centroid
 
     (DATA_DIR / 'by_suburb.json').write_text(json.dumps(by_suburb, indent=2))
     print(f'by_suburb.json saved — {len(by_suburb)} suburbs.')
