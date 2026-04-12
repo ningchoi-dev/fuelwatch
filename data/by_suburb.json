@@ -37,99 +37,6 @@
       ]
     }
   },
-  "Mt Lawley": {},
-  "Perth": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 232.4,
-      "count": 4,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary East Perth",
-          "brand": "Ampol",
-          "address": "157 Lord St",
-          "suburb": "PERTH",
-          "lat": "-31.94868900",
-          "lng": "115.86956700"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Perth",
-          "brand": "Reddy Express",
-          "address": "480 William St",
-          "suburb": "PERTH",
-          "lat": "-31.94095300",
-          "lng": "115.86390400"
-        },
-        {
-          "price": 233.4,
-          "name": "OTR Perth Pier Street",
-          "brand": "Shell",
-          "address": "17 Brisbane St",
-          "suburb": "PERTH",
-          "lat": "-31.94416200",
-          "lng": "115.86904000"
-        },
-        {
-          "price": 234.9,
-          "name": "BP Highgate",
-          "brand": "BP",
-          "address": "342 Beaufort St",
-          "suburb": "PERTH",
-          "lat": "-31.94255600",
-          "lng": "115.86735900"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.94409,
-      "lng": 115.86747
-    },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 215.9,
-      "count": 4,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary East Perth",
-          "brand": "Ampol",
-          "address": "157 Lord St",
-          "suburb": "PERTH",
-          "lat": "-31.94868900",
-          "lng": "115.86956700"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Perth",
-          "brand": "Reddy Express",
-          "address": "480 William St",
-          "suburb": "PERTH",
-          "lat": "-31.94095300",
-          "lng": "115.86390400"
-        },
-        {
-          "price": 215.9,
-          "name": "OTR Perth Pier Street",
-          "brand": "Shell",
-          "address": "17 Brisbane St",
-          "suburb": "PERTH",
-          "lat": "-31.94416200",
-          "lng": "115.86904000"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Highgate",
-          "brand": "BP",
-          "address": "342 Beaufort St",
-          "suburb": "PERTH",
-          "lat": "-31.94255600",
-          "lng": "115.86735900"
-        }
-      ]
-    }
-  },
   "Subiaco": {
     "Premium 95": {
       "min": 224.7,
@@ -186,6 +93,185 @@
       ]
     }
   },
+  "East Perth": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "BP Connect East Perth",
+          "brand": "BP",
+          "address": "68-70 Brown St",
+          "suburb": "EAST PERTH",
+          "lat": "-31.95077000",
+          "lng": "115.87657200"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.95077,
+      "lng": 115.87657
+    },
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 230.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 230.9,
+          "name": "BP Connect East Perth",
+          "brand": "BP",
+          "address": "68-70 Brown St",
+          "suburb": "EAST PERTH",
+          "lat": "-31.95077000",
+          "lng": "115.87657200"
+        }
+      ]
+    }
+  },
+  "West Perth": {
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
+      "count": 1,
+      "stations": [
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express West Perth",
+          "brand": "Reddy Express",
+          "address": "30 Thomas St",
+          "suburb": "WEST PERTH",
+          "lat": "-31.94549400",
+          "lng": "115.83971900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.94549,
+      "lng": 115.83972
+    },
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 219.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express West Perth",
+          "brand": "Reddy Express",
+          "address": "30 Thomas St",
+          "suburb": "WEST PERTH",
+          "lat": "-31.94549400",
+          "lng": "115.83971900"
+        },
+        {
+          "price": 223.9,
+          "name": "Caltex North Perth",
+          "brand": "Caltex",
+          "address": "311 Fitzgerald St",
+          "suburb": "WEST PERTH",
+          "lat": "-31.93663800",
+          "lng": "115.85796000"
+        }
+      ]
+    }
+  },
+  "Daglish": {},
+  "Perth": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 215.9,
+      "count": 4,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary East Perth",
+          "brand": "Ampol",
+          "address": "157 Lord St",
+          "suburb": "PERTH",
+          "lat": "-31.94868900",
+          "lng": "115.86956700"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Perth",
+          "brand": "Reddy Express",
+          "address": "480 William St",
+          "suburb": "PERTH",
+          "lat": "-31.94095300",
+          "lng": "115.86390400"
+        },
+        {
+          "price": 215.9,
+          "name": "OTR Perth Pier Street",
+          "brand": "Shell",
+          "address": "17 Brisbane St",
+          "suburb": "PERTH",
+          "lat": "-31.94416200",
+          "lng": "115.86904000"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Highgate",
+          "brand": "BP",
+          "address": "342 Beaufort St",
+          "suburb": "PERTH",
+          "lat": "-31.94255600",
+          "lng": "115.86735900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.94409,
+      "lng": 115.86747
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 232.4,
+      "count": 4,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary East Perth",
+          "brand": "Ampol",
+          "address": "157 Lord St",
+          "suburb": "PERTH",
+          "lat": "-31.94868900",
+          "lng": "115.86956700"
+        },
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Perth",
+          "brand": "Reddy Express",
+          "address": "480 William St",
+          "suburb": "PERTH",
+          "lat": "-31.94095300",
+          "lng": "115.86390400"
+        },
+        {
+          "price": 233.4,
+          "name": "OTR Perth Pier Street",
+          "brand": "Shell",
+          "address": "17 Brisbane St",
+          "suburb": "PERTH",
+          "lat": "-31.94416200",
+          "lng": "115.86904000"
+        },
+        {
+          "price": 234.9,
+          "name": "BP Highgate",
+          "brand": "BP",
+          "address": "342 Beaufort St",
+          "suburb": "PERTH",
+          "lat": "-31.94255600",
+          "lng": "115.86735900"
+        }
+      ]
+    }
+  },
+  "Maylands": {},
   "Jolimont": {
     "Premium 95": {
       "min": 233.4,
@@ -224,87 +310,117 @@
       ]
     }
   },
-  "West Perth": {
+  "North Perth": {
     "Unleaded 91": {
-      "min": 215.9,
-      "avg": 219.9,
-      "count": 2,
+      "min": 209.7,
+      "avg": 213.8,
+      "count": 3,
       "stations": [
         {
-          "price": 215.9,
-          "name": "Shell Reddy Express West Perth",
-          "brand": "Reddy Express",
-          "address": "30 Thomas St",
-          "suburb": "WEST PERTH",
-          "lat": "-31.94549400",
-          "lng": "115.83971900"
+          "price": 209.7,
+          "name": "Vibe Charles St",
+          "brand": "Vibe",
+          "address": "427 Charles St",
+          "suburb": "NORTH PERTH",
+          "lat": "-31.92231200",
+          "lng": "115.85026400"
         },
         {
-          "price": 223.9,
-          "name": "Caltex North Perth",
-          "brand": "Caltex",
-          "address": "311 Fitzgerald St",
-          "suburb": "WEST PERTH",
-          "lat": "-31.93663800",
-          "lng": "115.85796000"
+          "price": 215.9,
+          "name": "BP Connect North Perth",
+          "brand": "BP",
+          "address": "349 Charles St",
+          "suburb": "NORTH PERTH",
+          "lat": "-31.92667300",
+          "lng": "115.85190100"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Mount Lawley",
+          "brand": "Reddy Express",
+          "address": "253 Walcott St",
+          "suburb": "NORTH PERTH",
+          "lat": "-31.92382100",
+          "lng": "115.85928100"
         }
       ]
     },
     "_centroid": {
-      "lat": -31.94107,
-      "lng": 115.84884
+      "lat": -31.92427,
+      "lng": 115.85382
     },
     "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
-      "count": 1,
+      "min": 230.9,
+      "avg": 232.2,
+      "count": 2,
       "stations": [
         {
+          "price": 230.9,
+          "name": "BP Connect North Perth",
+          "brand": "BP",
+          "address": "349 Charles St",
+          "suburb": "NORTH PERTH",
+          "lat": "-31.92667300",
+          "lng": "115.85190100"
+        },
+        {
           "price": 233.4,
-          "name": "Shell Reddy Express West Perth",
+          "name": "Shell Reddy Express Mount Lawley",
           "brand": "Reddy Express",
-          "address": "30 Thomas St",
-          "suburb": "WEST PERTH",
-          "lat": "-31.94549400",
-          "lng": "115.83971900"
+          "address": "253 Walcott St",
+          "suburb": "NORTH PERTH",
+          "lat": "-31.92382100",
+          "lng": "115.85928100"
         }
       ]
     }
   },
-  "East Perth": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+  "Mt Lawley": {},
+  "Inglewood": {},
+  "Shenton Park": {},
+  "Wembley": {
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
-          "name": "BP Connect East Perth",
+          "price": 234.9,
+          "name": "BP Connect Wembley",
           "brand": "BP",
-          "address": "68-70 Brown St",
-          "suburb": "EAST PERTH",
-          "lat": "-31.95077000",
-          "lng": "115.87657200"
+          "address": "240 Cambridge St",
+          "suburb": "WEMBLEY",
+          "lat": "-31.94054700",
+          "lng": "115.82009500"
         }
       ]
     },
     "_centroid": {
-      "lat": -31.95077,
-      "lng": 115.87657
+      "lat": -31.94055,
+      "lng": 115.82009
     },
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 230.9,
-      "count": 1,
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 217.9,
+      "count": 2,
       "stations": [
         {
-          "price": 230.9,
-          "name": "BP Connect East Perth",
+          "price": 215.9,
+          "name": "Shell Reddy Express Wembley",
+          "brand": "Reddy Express",
+          "address": "337 Cambridge St",
+          "suburb": "WEMBLEY",
+          "lat": "-31.94102300",
+          "lng": "115.81185800"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Connect Wembley",
           "brand": "BP",
-          "address": "68-70 Brown St",
-          "suburb": "EAST PERTH",
-          "lat": "-31.95077000",
-          "lng": "115.87657200"
+          "address": "240 Cambridge St",
+          "suburb": "WEMBLEY",
+          "lat": "-31.94054700",
+          "lng": "115.82009500"
         }
       ]
     }
@@ -348,123 +464,6 @@
     }
   },
   "Highgate": {},
-  "Maylands": {},
-  "Wembley": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 217.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Wembley",
-          "brand": "Reddy Express",
-          "address": "337 Cambridge St",
-          "suburb": "WEMBLEY",
-          "lat": "-31.94102300",
-          "lng": "115.81185800"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Connect Wembley",
-          "brand": "BP",
-          "address": "240 Cambridge St",
-          "suburb": "WEMBLEY",
-          "lat": "-31.94054700",
-          "lng": "115.82009500"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.94078,
-      "lng": 115.81598
-    },
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "BP Connect Wembley",
-          "brand": "BP",
-          "address": "240 Cambridge St",
-          "suburb": "WEMBLEY",
-          "lat": "-31.94054700",
-          "lng": "115.82009500"
-        }
-      ]
-    }
-  },
-  "Shenton Park": {},
-  "Daglish": {},
-  "Inglewood": {},
-  "North Perth": {
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 232.2,
-      "count": 2,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "BP Connect North Perth",
-          "brand": "BP",
-          "address": "349 Charles St",
-          "suburb": "NORTH PERTH",
-          "lat": "-31.92667300",
-          "lng": "115.85190100"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Mount Lawley",
-          "brand": "Reddy Express",
-          "address": "253 Walcott St",
-          "suburb": "NORTH PERTH",
-          "lat": "-31.92382100",
-          "lng": "115.85928100"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.92525,
-      "lng": 115.85559
-    },
-    "Unleaded 91": {
-      "min": 209.7,
-      "avg": 213.8,
-      "count": 3,
-      "stations": [
-        {
-          "price": 209.7,
-          "name": "Vibe Charles St",
-          "brand": "Vibe",
-          "address": "427 Charles St",
-          "suburb": "NORTH PERTH",
-          "lat": "-31.92231200",
-          "lng": "115.85026400"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Connect North Perth",
-          "brand": "BP",
-          "address": "349 Charles St",
-          "suburb": "NORTH PERTH",
-          "lat": "-31.92667300",
-          "lng": "115.85190100"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Mount Lawley",
-          "brand": "Reddy Express",
-          "address": "253 Walcott St",
-          "suburb": "NORTH PERTH",
-          "lat": "-31.92382100",
-          "lng": "115.85928100"
-        }
-      ]
-    }
-  },
-  "City Beach": {},
   "Floreat": {
     "Unleaded 91": {
       "min": 215.9,
@@ -501,30 +500,6 @@
           "lng": "115.79391100"
         }
       ]
-    }
-  },
-  "Cottesloe": {},
-  "Crawley": {},
-  "Mount Pleasant": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Mount Pleasant",
-          "brand": "Reddy Express",
-          "address": "1 The Esplanade",
-          "suburb": "MOUNT PLEASANT",
-          "lat": "-32.01251100",
-          "lng": "115.85007700"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.01251,
-      "lng": 115.85008
     }
   },
   "Nedlands": {
@@ -583,138 +558,8 @@
       ]
     }
   },
-  "Mosman Park": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 230.7,
-      "count": 2,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Mosman Park",
-          "brand": "Ampol",
-          "address": "676 Stirling Hwy",
-          "suburb": "MOSMAN PARK",
-          "lat": "-32.01196900",
-          "lng": "115.75556700"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Mosman Park",
-          "brand": "Reddy Express",
-          "address": "582 Stirling Hwy",
-          "suburb": "MOSMAN PARK",
-          "lat": "-32.00518400",
-          "lng": "115.75930400"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.00858,
-      "lng": 115.75744
-    },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 213.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Mosman Park",
-          "brand": "Ampol",
-          "address": "676 Stirling Hwy",
-          "suburb": "MOSMAN PARK",
-          "lat": "-32.01196900",
-          "lng": "115.75556700"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Mosman Park",
-          "brand": "Reddy Express",
-          "address": "582 Stirling Hwy",
-          "suburb": "MOSMAN PARK",
-          "lat": "-32.00518400",
-          "lng": "115.75930400"
-        }
-      ]
-    }
-  },
-  "Booragoon": {
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 230.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "7-Eleven Booragoon",
-          "brand": "7-Eleven",
-          "address": "492 Marmion St",
-          "suburb": "BOORAGOON",
-          "lat": "-32.03953700",
-          "lng": "115.82289300"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.03954,
-      "lng": 115.82289
-    },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "7-Eleven Booragoon",
-          "brand": "7-Eleven",
-          "address": "492 Marmion St",
-          "suburb": "BOORAGOON",
-          "lat": "-32.03953700",
-          "lng": "115.82289300"
-        }
-      ]
-    }
-  },
-  "Glendalough": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Glendalough",
-          "brand": "Ampol",
-          "address": "2 Jon Sanders Dr",
-          "suburb": "GLENDALOUGH",
-          "lat": "-31.92242600",
-          "lng": "115.81975400"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.92243,
-      "lng": 115.81975
-    },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 211.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Glendalough",
-          "brand": "Ampol",
-          "address": "2 Jon Sanders Dr",
-          "suburb": "GLENDALOUGH",
-          "lat": "-31.92242600",
-          "lng": "115.81975400"
-        }
-      ]
-    }
-  },
+  "City Beach": {},
+  "Crawley": {},
   "Claremont": {
     "Unleaded 91": {
       "min": 215.9,
@@ -753,9 +598,219 @@
       ]
     }
   },
-  "Ardross": {},
+  "Cottesloe": {},
+  "Mosman Park": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 213.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Mosman Park",
+          "brand": "Ampol",
+          "address": "676 Stirling Hwy",
+          "suburb": "MOSMAN PARK",
+          "lat": "-32.01196900",
+          "lng": "115.75556700"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Mosman Park",
+          "brand": "Reddy Express",
+          "address": "582 Stirling Hwy",
+          "suburb": "MOSMAN PARK",
+          "lat": "-32.00518400",
+          "lng": "115.75930400"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.00858,
+      "lng": 115.75744
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 230.7,
+      "count": 2,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Mosman Park",
+          "brand": "Ampol",
+          "address": "676 Stirling Hwy",
+          "suburb": "MOSMAN PARK",
+          "lat": "-32.01196900",
+          "lng": "115.75556700"
+        },
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Mosman Park",
+          "brand": "Reddy Express",
+          "address": "582 Stirling Hwy",
+          "suburb": "MOSMAN PARK",
+          "lat": "-32.00518400",
+          "lng": "115.75930400"
+        }
+      ]
+    }
+  },
+  "Mount Pleasant": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Mount Pleasant",
+          "brand": "Reddy Express",
+          "address": "1 The Esplanade",
+          "suburb": "MOUNT PLEASANT",
+          "lat": "-32.01251100",
+          "lng": "115.85007700"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.01251,
+      "lng": 115.85008
+    }
+  },
   "Peppermint Grove": {},
   "Dalkeith": {},
+  "Booragoon": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "7-Eleven Booragoon",
+          "brand": "7-Eleven",
+          "address": "492 Marmion St",
+          "suburb": "BOORAGOON",
+          "lat": "-32.03953700",
+          "lng": "115.82289300"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.03954,
+      "lng": 115.82289
+    },
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 230.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 230.9,
+          "name": "7-Eleven Booragoon",
+          "brand": "7-Eleven",
+          "address": "492 Marmion St",
+          "suburb": "BOORAGOON",
+          "lat": "-32.03953700",
+          "lng": "115.82289300"
+        }
+      ]
+    }
+  },
+  "Glendalough": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 211.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Glendalough",
+          "brand": "Ampol",
+          "address": "2 Jon Sanders Dr",
+          "suburb": "GLENDALOUGH",
+          "lat": "-31.92242600",
+          "lng": "115.81975400"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.92243,
+      "lng": 115.81975
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 227.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Glendalough",
+          "brand": "Ampol",
+          "address": "2 Jon Sanders Dr",
+          "suburb": "GLENDALOUGH",
+          "lat": "-31.92242600",
+          "lng": "115.81975400"
+        }
+      ]
+    }
+  },
+  "Applecross": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 213.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Applecross",
+          "brand": "Ampol",
+          "address": "918 Canning Hwy",
+          "suburb": "APPLECROSS",
+          "lat": "-32.01154000",
+          "lng": "115.85020100"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Applecross",
+          "brand": "BP",
+          "address": "848 Canning Hwy",
+          "suburb": "APPLECROSS",
+          "lat": "-32.01507000",
+          "lng": "115.84318000"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.01331,
+      "lng": 115.84669
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 229.4,
+      "count": 2,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Applecross",
+          "brand": "Ampol",
+          "address": "918 Canning Hwy",
+          "suburb": "APPLECROSS",
+          "lat": "-32.01154000",
+          "lng": "115.85020100"
+        },
+        {
+          "price": 230.9,
+          "name": "BP Applecross",
+          "brand": "BP",
+          "address": "848 Canning Hwy",
+          "suburb": "APPLECROSS",
+          "lat": "-32.01507000",
+          "lng": "115.84318000"
+        }
+      ]
+    }
+  },
   "Osborne Park": {
     "Premium 95": {
       "min": 225.9,
@@ -875,62 +930,7 @@
       ]
     }
   },
-  "Applecross": {
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 213.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Applecross",
-          "brand": "Ampol",
-          "address": "918 Canning Hwy",
-          "suburb": "APPLECROSS",
-          "lat": "-32.01154000",
-          "lng": "115.85020100"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Applecross",
-          "brand": "BP",
-          "address": "848 Canning Hwy",
-          "suburb": "APPLECROSS",
-          "lat": "-32.01507000",
-          "lng": "115.84318000"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.01331,
-      "lng": 115.84669
-    },
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 229.4,
-      "count": 2,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Applecross",
-          "brand": "Ampol",
-          "address": "918 Canning Hwy",
-          "suburb": "APPLECROSS",
-          "lat": "-32.01154000",
-          "lng": "115.85020100"
-        },
-        {
-          "price": 230.9,
-          "name": "BP Applecross",
-          "brand": "BP",
-          "address": "848 Canning Hwy",
-          "suburb": "APPLECROSS",
-          "lat": "-32.01507000",
-          "lng": "115.84318000"
-        }
-      ]
-    }
-  },
+  "Ardross": {},
   "Innaloo": {
     "Unleaded 91": {
       "min": 215.9,
@@ -969,7 +969,6 @@
       ]
     }
   },
-  "Karrinyup": {},
   "Balcatta": {
     "Premium 95": {
       "min": 227.9,
@@ -1080,6 +1079,8 @@
       ]
     }
   },
+  "Karrinyup": {},
+  "Stirling": {},
   "Gwelup": {
     "Unleaded 91": {
       "min": 211.9,
@@ -1136,7 +1137,7 @@
       ]
     }
   },
-  "Stirling": {},
+  "Hamersley": {},
   "Duncraig": {
     "Unleaded 91": {
       "min": 215.9,
@@ -1175,203 +1176,14 @@
       ]
     }
   },
-  "Hamersley": {},
-  "Hillarys": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "EG Ampol Whitfords",
-          "brand": "EG Ampol",
-          "address": "470 Whitfords Ave",
-          "suburb": "HILLARYS",
-          "lat": "-31.79668300",
-          "lng": "115.74550500"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.79668,
-      "lng": 115.7455
-    },
-    "Premium 95": {
-      "min": 233.9,
-      "avg": 233.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 233.9,
-          "name": "EG Ampol Whitfords",
-          "brand": "EG Ampol",
-          "address": "470 Whitfords Ave",
-          "suburb": "HILLARYS",
-          "lat": "-31.79668300",
-          "lng": "115.74550500"
-        }
-      ]
-    }
-  },
-  "Kingsley": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Kingsley",
-          "brand": "Ampol",
-          "address": "86 Kingsley Dr",
-          "suburb": "KINGSLEY",
-          "lat": "-31.80703800",
-          "lng": "115.78872300"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.80704,
-      "lng": 115.78872
-    },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 213.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Kingsley",
-          "brand": "Ampol",
-          "address": "86 Kingsley Dr",
-          "suburb": "KINGSLEY",
-          "lat": "-31.80703800",
-          "lng": "115.78872300"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Kingsley",
-          "brand": "Reddy Express",
-          "address": "47 Renegade Way",
-          "suburb": "KINGSLEY",
-          "lat": "-31.81975000",
-          "lng": "115.80577800"
-        }
-      ]
-    }
-  },
-  "Woodvale": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "BP 2go Woodvale",
-          "brand": "BP",
-          "address": "941 Whitfords Ave",
-          "suburb": "WOODVALE",
-          "lat": "-31.79988700",
-          "lng": "115.79597900"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.79989,
-      "lng": 115.79598
-    },
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 230.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "BP 2go Woodvale",
-          "brand": "BP",
-          "address": "941 Whitfords Ave",
-          "suburb": "WOODVALE",
-          "lat": "-31.79988700",
-          "lng": "115.79597900"
-        }
-      ]
-    }
-  },
-  "Ocean Reef": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 218.6,
-      "count": 3,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Ocean Reef",
-          "brand": "Reddy Express",
-          "address": "6 Marina Bvd",
-          "suburb": "OCEAN REEF",
-          "lat": "-31.76744000",
-          "lng": "115.74942100"
-        },
-        {
-          "price": 219.9,
-          "name": "OMG Metro Ocean Reef",
-          "brand": "OMG Metro",
-          "address": "82 Marina Bvd",
-          "suburb": "OCEAN REEF",
-          "lat": "-31.76527900",
-          "lng": "115.74100900"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Connect Beaumauris",
-          "brand": "BP",
-          "address": "2 Prendiville Ave",
-          "suburb": "OCEAN REEF",
-          "lat": "-31.75235100",
-          "lng": "115.74064000"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.76169,
-      "lng": 115.74369
-    },
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 235.4,
-      "count": 2,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "BP Connect Beaumauris",
-          "brand": "BP",
-          "address": "2 Prendiville Ave",
-          "suburb": "OCEAN REEF",
-          "lat": "-31.75235100",
-          "lng": "115.74064000"
-        },
-        {
-          "price": 235.9,
-          "name": "OMG Metro Ocean Reef",
-          "brand": "OMG Metro",
-          "address": "82 Marina Bvd",
-          "suburb": "OCEAN REEF",
-          "lat": "-31.76527900",
-          "lng": "115.74100900"
-        }
-      ]
-    }
-  },
   "Warwick": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
+          "price": 215.9,
           "name": "Shell Reddy Express Warwick",
           "brand": "Reddy Express",
           "address": "274 Erindale Rd",
@@ -1385,13 +1197,13 @@
       "lat": -31.84443,
       "lng": 115.81274
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
+          "price": 233.4,
           "name": "Shell Reddy Express Warwick",
           "brand": "Reddy Express",
           "address": "274 Erindale Rd",
@@ -1476,7 +1288,121 @@
       ]
     }
   },
+  "Woodvale": {
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 230.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 230.9,
+          "name": "BP 2go Woodvale",
+          "brand": "BP",
+          "address": "941 Whitfords Ave",
+          "suburb": "WOODVALE",
+          "lat": "-31.79988700",
+          "lng": "115.79597900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.79989,
+      "lng": 115.79598
+    },
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "BP 2go Woodvale",
+          "brand": "BP",
+          "address": "941 Whitfords Ave",
+          "suburb": "WOODVALE",
+          "lat": "-31.79988700",
+          "lng": "115.79597900"
+        }
+      ]
+    }
+  },
+  "Kingsley": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 213.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Kingsley",
+          "brand": "Ampol",
+          "address": "86 Kingsley Dr",
+          "suburb": "KINGSLEY",
+          "lat": "-31.80703800",
+          "lng": "115.78872300"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Kingsley",
+          "brand": "Reddy Express",
+          "address": "47 Renegade Way",
+          "suburb": "KINGSLEY",
+          "lat": "-31.81975000",
+          "lng": "115.80577800"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.81339,
+      "lng": 115.79725
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 227.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Kingsley",
+          "brand": "Ampol",
+          "address": "86 Kingsley Dr",
+          "suburb": "KINGSLEY",
+          "lat": "-31.80703800",
+          "lng": "115.78872300"
+        }
+      ]
+    }
+  },
   "Padbury": {
+    "Unleaded 91": {
+      "min": 214.9,
+      "avg": 215.4,
+      "count": 2,
+      "stations": [
+        {
+          "price": 214.9,
+          "name": "United Hepburn Heights",
+          "brand": "United",
+          "address": "4 Walter Padbury Bvd",
+          "suburb": "PADBURY",
+          "lat": "-31.81889000",
+          "lng": "115.77409600"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Connect Padbury",
+          "brand": "BP",
+          "address": "2 Warburton Ave",
+          "suburb": "PADBURY",
+          "lat": "-31.81370800",
+          "lng": "115.75932000"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.8163,
+      "lng": 115.76671
+    },
     "Premium 95": {
       "min": 228.9,
       "avg": 229.9,
@@ -1501,33 +1427,107 @@
           "lng": "115.75932000"
         }
       ]
+    }
+  },
+  "Hillarys": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "EG Ampol Whitfords",
+          "brand": "EG Ampol",
+          "address": "470 Whitfords Ave",
+          "suburb": "HILLARYS",
+          "lat": "-31.79668300",
+          "lng": "115.74550500"
+        }
+      ]
     },
     "_centroid": {
-      "lat": -31.8163,
-      "lng": 115.76671
+      "lat": -31.79668,
+      "lng": 115.7455
     },
+    "Premium 95": {
+      "min": 233.9,
+      "avg": 233.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 233.9,
+          "name": "EG Ampol Whitfords",
+          "brand": "EG Ampol",
+          "address": "470 Whitfords Ave",
+          "suburb": "HILLARYS",
+          "lat": "-31.79668300",
+          "lng": "115.74550500"
+        }
+      ]
+    }
+  },
+  "Ocean Reef": {
     "Unleaded 91": {
-      "min": 214.9,
-      "avg": 215.4,
+      "min": 215.9,
+      "avg": 218.6,
+      "count": 3,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Ocean Reef",
+          "brand": "Reddy Express",
+          "address": "6 Marina Bvd",
+          "suburb": "OCEAN REEF",
+          "lat": "-31.76744000",
+          "lng": "115.74942100"
+        },
+        {
+          "price": 219.9,
+          "name": "OMG Metro Ocean Reef",
+          "brand": "OMG Metro",
+          "address": "82 Marina Bvd",
+          "suburb": "OCEAN REEF",
+          "lat": "-31.76527900",
+          "lng": "115.74100900"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Connect Beaumauris",
+          "brand": "BP",
+          "address": "2 Prendiville Ave",
+          "suburb": "OCEAN REEF",
+          "lat": "-31.75235100",
+          "lng": "115.74064000"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.76169,
+      "lng": 115.74369
+    },
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 235.4,
       "count": 2,
       "stations": [
         {
-          "price": 214.9,
-          "name": "United Hepburn Heights",
-          "brand": "United",
-          "address": "4 Walter Padbury Bvd",
-          "suburb": "PADBURY",
-          "lat": "-31.81889000",
-          "lng": "115.77409600"
+          "price": 234.9,
+          "name": "BP Connect Beaumauris",
+          "brand": "BP",
+          "address": "2 Prendiville Ave",
+          "suburb": "OCEAN REEF",
+          "lat": "-31.75235100",
+          "lng": "115.74064000"
         },
         {
-          "price": 215.9,
-          "name": "BP Connect Padbury",
-          "brand": "BP",
-          "address": "2 Warburton Ave",
-          "suburb": "PADBURY",
-          "lat": "-31.81370800",
-          "lng": "115.75932000"
+          "price": 235.9,
+          "name": "OMG Metro Ocean Reef",
+          "brand": "OMG Metro",
+          "address": "82 Marina Bvd",
+          "suburb": "OCEAN REEF",
+          "lat": "-31.76527900",
+          "lng": "115.74100900"
         }
       ]
     }
@@ -1683,35 +1683,6 @@
     }
   },
   "Currambine": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 217.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "EG Ampol Currambine Marketplace",
-          "brand": "EG Ampol",
-          "address": "1244 Marmion Ave",
-          "suburb": "CURRAMBINE",
-          "lat": "-31.74221100",
-          "lng": "115.74036500"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Connect Currambine",
-          "brand": "BP",
-          "address": "2 Sunlander Dr",
-          "suburb": "CURRAMBINE",
-          "lat": "-31.72373600",
-          "lng": "115.74642000"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.73297,
-      "lng": 115.74339
-    },
     "Premium 95": {
       "min": 233.9,
       "avg": 234.4,
@@ -1728,6 +1699,35 @@
         },
         {
           "price": 234.9,
+          "name": "BP Connect Currambine",
+          "brand": "BP",
+          "address": "2 Sunlander Dr",
+          "suburb": "CURRAMBINE",
+          "lat": "-31.72373600",
+          "lng": "115.74642000"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.73297,
+      "lng": 115.74339
+    },
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 217.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "EG Ampol Currambine Marketplace",
+          "brand": "EG Ampol",
+          "address": "1244 Marmion Ave",
+          "suburb": "CURRAMBINE",
+          "lat": "-31.74221100",
+          "lng": "115.74036500"
+        },
+        {
+          "price": 219.9,
           "name": "BP Connect Currambine",
           "brand": "BP",
           "address": "2 Sunlander Dr",
@@ -1761,14 +1761,15 @@
       "lng": 115.76722
     }
   },
+  "Marmion": {},
   "Mullaloo": {
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
       "count": 1,
       "stations": [
         {
-          "price": 219.9,
+          "price": 234.9,
           "name": "BP Mullaloo",
           "brand": "BP",
           "address": "101 Dampier Av",
@@ -1782,13 +1783,13 @@
       "lat": -31.78005,
       "lng": 115.74405
     },
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
       "count": 1,
       "stations": [
         {
-          "price": 234.9,
+          "price": 219.9,
           "name": "BP Mullaloo",
           "brand": "BP",
           "address": "101 Dampier Av",
@@ -1799,17 +1800,16 @@
       ]
     }
   },
-  "Marmion": {},
   "North Beach": {},
   "Watermans Bay": {},
   "Sorrento": {
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
       "count": 1,
       "stations": [
         {
-          "price": 234.9,
+          "price": 219.9,
           "name": "BP Sorrento",
           "brand": "BP",
           "address": "128 West Coast Dr",
@@ -1823,13 +1823,13 @@
       "lat": -31.83241,
       "lng": 115.74792
     },
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
       "count": 1,
       "stations": [
         {
-          "price": 219.9,
+          "price": 234.9,
           "name": "BP Sorrento",
           "brand": "BP",
           "address": "128 West Coast Dr",
@@ -1923,29 +1923,36 @@
       ]
     }
   },
-  "Madeley": {
-    "Unleaded 91": {
+  "Wangara": {
+    "Premium 95": {
       "min": 219.9,
-      "avg": 219.9,
-      "count": 1,
+      "avg": 226.7,
+      "count": 2,
       "stations": [
         {
           "price": 219.9,
-          "name": "Caltex Madeley",
-          "brand": "Caltex",
-          "address": "182 Wanneroo Rd",
-          "suburb": "MADELEY",
-          "lat": "-31.81701800",
-          "lng": "115.82112700"
+          "name": "Metro Wangara",
+          "brand": "Metro Petroleum",
+          "address": "79 Gnangara Rd",
+          "suburb": "WANGARA",
+          "lat": "-31.80190300",
+          "lng": "115.82751900"
+        },
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Wangara",
+          "brand": "Reddy Express",
+          "address": "1 Niche Pde",
+          "suburb": "WANGARA",
+          "lat": "-31.79196300",
+          "lng": "115.85247800"
         }
       ]
     },
     "_centroid": {
-      "lat": -31.81702,
-      "lng": 115.82113
-    }
-  },
-  "Wangara": {
+      "lat": -31.79693,
+      "lng": 115.84
+    },
     "Unleaded 91": {
       "min": 209.9,
       "avg": 216.9,
@@ -1988,47 +1995,40 @@
           "lng": "115.81924100"
         }
       ]
-    },
-    "_centroid": {
-      "lat": -31.79194,
-      "lng": 115.83188
-    },
-    "Premium 95": {
+    }
+  },
+  "Madeley": {
+    "Unleaded 91": {
       "min": 219.9,
-      "avg": 226.7,
-      "count": 2,
+      "avg": 219.9,
+      "count": 1,
       "stations": [
         {
           "price": 219.9,
-          "name": "Metro Wangara",
-          "brand": "Metro Petroleum",
-          "address": "79 Gnangara Rd",
-          "suburb": "WANGARA",
-          "lat": "-31.80190300",
-          "lng": "115.82751900"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Wangara",
-          "brand": "Reddy Express",
-          "address": "1 Niche Pde",
-          "suburb": "WANGARA",
-          "lat": "-31.79196300",
-          "lng": "115.85247800"
+          "name": "Caltex Madeley",
+          "brand": "Caltex",
+          "address": "182 Wanneroo Rd",
+          "suburb": "MADELEY",
+          "lat": "-31.81701800",
+          "lng": "115.82112700"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -31.81702,
+      "lng": 115.82113
     }
   },
   "Darch": {},
   "Marangaroo": {},
   "Girrawheen": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
+          "price": 215.9,
           "name": "Shell Reddy Express Girrawheen",
           "brand": "Reddy Express",
           "address": "60 Marangaroo Dr",
@@ -2042,13 +2042,13 @@
       "lat": -31.8346,
       "lng": 115.8289
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
+          "price": 233.4,
           "name": "Shell Reddy Express Girrawheen",
           "brand": "Reddy Express",
           "address": "60 Marangaroo Dr",
@@ -2082,13 +2082,13 @@
     }
   },
   "Nollamara": {
-    "Unleaded 91": {
-      "min": 209.7,
-      "avg": 209.7,
+    "Premium 95": {
+      "min": 224.7,
+      "avg": 224.7,
       "count": 1,
       "stations": [
         {
-          "price": 209.7,
+          "price": 224.7,
           "name": "Vibe Nollamara",
           "brand": "Vibe",
           "address": "66 Sylvia St",
@@ -2102,13 +2102,13 @@
       "lat": -31.88051,
       "lng": 115.84034
     },
-    "Premium 95": {
-      "min": 224.7,
-      "avg": 224.7,
+    "Unleaded 91": {
+      "min": 209.7,
+      "avg": 209.7,
       "count": 1,
       "stations": [
         {
-          "price": 224.7,
+          "price": 209.7,
           "name": "Vibe Nollamara",
           "brand": "Vibe",
           "address": "66 Sylvia St",
@@ -2196,13 +2196,13 @@
     }
   },
   "Mirrabooka": {
-    "Unleaded 91": {
-      "min": 213.9,
-      "avg": 213.9,
+    "Premium 95": {
+      "min": 231.9,
+      "avg": 231.9,
       "count": 1,
       "stations": [
         {
-          "price": 213.9,
+          "price": 231.9,
           "name": "EG Ampol Mirrabooka",
           "brand": "EG Ampol",
           "address": "53 Yirrigan Dr",
@@ -2216,13 +2216,13 @@
       "lat": -31.87357,
       "lng": 115.86141
     },
-    "Premium 95": {
-      "min": 231.9,
-      "avg": 231.9,
+    "Unleaded 91": {
+      "min": 213.9,
+      "avg": 213.9,
       "count": 1,
       "stations": [
         {
-          "price": 231.9,
+          "price": 213.9,
           "name": "EG Ampol Mirrabooka",
           "brand": "EG Ampol",
           "address": "53 Yirrigan Dr",
@@ -2410,6 +2410,7 @@
   },
   "Hocking": {},
   "Tapping": {},
+  "Sinagra": {},
   "Ashby": {
     "Premium 95": {
       "min": 227.9,
@@ -2448,7 +2449,6 @@
       ]
     }
   },
-  "Sinagra": {},
   "Butler": {
     "Unleaded 91": {
       "min": 211.9,
@@ -2519,6 +2519,62 @@
           "suburb": "BUTLER",
           "lat": "-31.63535800",
           "lng": "115.70555400"
+        }
+      ]
+    }
+  },
+  "Ridgewood": {
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 232.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 230.9,
+          "name": "BP Connect Merriwa",
+          "brand": "BP",
+          "address": "2 Ridgewood Bvd",
+          "suburb": "RIDGEWOOD",
+          "lat": "-31.67012700",
+          "lng": "115.72619500"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Ridgewood",
+          "brand": "7-Eleven",
+          "address": "35 Kilrush Turn",
+          "suburb": "RIDGEWOOD",
+          "lat": "-31.65373700",
+          "lng": "115.71585100"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.66193,
+      "lng": 115.72102
+    },
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 217.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "BP Connect Merriwa",
+          "brand": "BP",
+          "address": "2 Ridgewood Bvd",
+          "suburb": "RIDGEWOOD",
+          "lat": "-31.67012700",
+          "lng": "115.72619500"
+        },
+        {
+          "price": 219.9,
+          "name": "7-Eleven Ridgewood",
+          "brand": "7-Eleven",
+          "address": "35 Kilrush Turn",
+          "suburb": "RIDGEWOOD",
+          "lat": "-31.65373700",
+          "lng": "115.71585100"
         }
       ]
     }
@@ -2615,110 +2671,7 @@
       ]
     }
   },
-  "Ridgewood": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 217.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "BP Connect Merriwa",
-          "brand": "BP",
-          "address": "2 Ridgewood Bvd",
-          "suburb": "RIDGEWOOD",
-          "lat": "-31.67012700",
-          "lng": "115.72619500"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Ridgewood",
-          "brand": "7-Eleven",
-          "address": "35 Kilrush Turn",
-          "suburb": "RIDGEWOOD",
-          "lat": "-31.65373700",
-          "lng": "115.71585100"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.66193,
-      "lng": 115.72102
-    },
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 232.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "BP Connect Merriwa",
-          "brand": "BP",
-          "address": "2 Ridgewood Bvd",
-          "suburb": "RIDGEWOOD",
-          "lat": "-31.67012700",
-          "lng": "115.72619500"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Ridgewood",
-          "brand": "7-Eleven",
-          "address": "35 Kilrush Turn",
-          "suburb": "RIDGEWOOD",
-          "lat": "-31.65373700",
-          "lng": "115.71585100"
-        }
-      ]
-    }
-  },
   "Clarkson": {
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 215.9,
-      "count": 4,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Clarkson",
-          "brand": "Ampol",
-          "address": "7 Ocean Keys Bvd",
-          "suburb": "CLARKSON",
-          "lat": "-31.68936900",
-          "lng": "115.71522600"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Clarkson",
-          "brand": "BP",
-          "address": "28K Caloundra Rd",
-          "suburb": "CLARKSON",
-          "lat": "-31.69357900",
-          "lng": "115.72497100"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Clarkson",
-          "brand": "Reddy Express",
-          "address": "36 Ocean Keys Bvd",
-          "suburb": "CLARKSON",
-          "lat": "-31.69189400",
-          "lng": "115.71611800"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Clarkson",
-          "brand": "7-Eleven",
-          "address": "19 Neerabup Dr",
-          "suburb": "CLARKSON",
-          "lat": "-31.69279700",
-          "lng": "115.71884300"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.69191,
-      "lng": 115.71879
-    },
     "Premium 95": {
       "min": 227.9,
       "avg": 231.8,
@@ -2761,9 +2714,85 @@
           "lng": "115.71884300"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -31.69191,
+      "lng": 115.71879
+    },
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 215.9,
+      "count": 4,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Clarkson",
+          "brand": "Ampol",
+          "address": "7 Ocean Keys Bvd",
+          "suburb": "CLARKSON",
+          "lat": "-31.68936900",
+          "lng": "115.71522600"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Clarkson",
+          "brand": "BP",
+          "address": "28K Caloundra Rd",
+          "suburb": "CLARKSON",
+          "lat": "-31.69357900",
+          "lng": "115.72497100"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Clarkson",
+          "brand": "Reddy Express",
+          "address": "36 Ocean Keys Bvd",
+          "suburb": "CLARKSON",
+          "lat": "-31.69189400",
+          "lng": "115.71611800"
+        },
+        {
+          "price": 219.9,
+          "name": "7-Eleven Clarkson",
+          "brand": "7-Eleven",
+          "address": "19 Neerabup Dr",
+          "suburb": "CLARKSON",
+          "lat": "-31.69279700",
+          "lng": "115.71884300"
+        }
+      ]
     }
   },
   "Mindarie": {
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 219.9,
+          "name": "Caltex Mindarie",
+          "brand": "Caltex",
+          "address": "22 Anchorage Dr",
+          "suburb": "MINDARIE",
+          "lat": "-31.69367200",
+          "lng": "115.71373200"
+        },
+        {
+          "price": 219.9,
+          "name": "BP Mindarie",
+          "brand": "BP",
+          "address": "360 Anchorage Dr North",
+          "suburb": "MINDARIE",
+          "lat": "-31.67706400",
+          "lng": "115.71119700"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.68537,
+      "lng": 115.71246
+    },
     "Premium 95": {
       "min": 234.9,
       "avg": 235.4,
@@ -2786,73 +2815,6 @@
           "suburb": "MINDARIE",
           "lat": "-31.69367200",
           "lng": "115.71373200"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.68537,
-      "lng": 115.71246
-    },
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 219.9,
-          "name": "Caltex Mindarie",
-          "brand": "Caltex",
-          "address": "22 Anchorage Dr",
-          "suburb": "MINDARIE",
-          "lat": "-31.69367200",
-          "lng": "115.71373200"
-        },
-        {
-          "price": 219.9,
-          "name": "BP Mindarie",
-          "brand": "BP",
-          "address": "360 Anchorage Dr North",
-          "suburb": "MINDARIE",
-          "lat": "-31.67706400",
-          "lng": "115.71119700"
-        }
-      ]
-    }
-  },
-  "Merriwa": {
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 219.9,
-          "name": "Caltex Merriwa",
-          "brand": "Caltex",
-          "address": "4 Hughie Edwards Dr",
-          "suburb": "MERRIWA",
-          "lat": "-31.65980200",
-          "lng": "115.70613100"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.6598,
-      "lng": 115.70613
-    },
-    "Premium 95": {
-      "min": 235.9,
-      "avg": 235.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 235.9,
-          "name": "Caltex Merriwa",
-          "brand": "Caltex",
-          "address": "4 Hughie Edwards Dr",
-          "suburb": "MERRIWA",
-          "lat": "-31.65980200",
-          "lng": "115.70613100"
         }
       ]
     }
@@ -2891,6 +2853,44 @@
           "suburb": "QUINNS ROCKS",
           "lat": "-31.67265700",
           "lng": "115.70828200"
+        }
+      ]
+    }
+  },
+  "Merriwa": {
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 219.9,
+          "name": "Caltex Merriwa",
+          "brand": "Caltex",
+          "address": "4 Hughie Edwards Dr",
+          "suburb": "MERRIWA",
+          "lat": "-31.65980200",
+          "lng": "115.70613100"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.6598,
+      "lng": 115.70613
+    },
+    "Premium 95": {
+      "min": 235.9,
+      "avg": 235.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 235.9,
+          "name": "Caltex Merriwa",
+          "brand": "Caltex",
+          "address": "4 Hughie Edwards Dr",
+          "suburb": "MERRIWA",
+          "lat": "-31.65980200",
+          "lng": "115.70613100"
         }
       ]
     }
@@ -2934,44 +2934,6 @@
     }
   },
   "Yanchep": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 234.7,
-      "count": 3,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Yanchep",
-          "brand": "Ampol",
-          "address": "1 Morwell St",
-          "suburb": "YANCHEP",
-          "lat": "-31.55206300",
-          "lng": "115.63963200"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Yanchep",
-          "brand": "7-Eleven",
-          "address": "2 Tamala Lane",
-          "suburb": "YANCHEP",
-          "lat": "-31.55038600",
-          "lng": "115.63858700"
-        },
-        {
-          "price": 241.4,
-          "name": "S24 Yanchep",
-          "brand": "Caltex",
-          "address": "1 Ikara Lane",
-          "suburb": "YANCHEP",
-          "lat": "-31.54777900",
-          "lng": "115.64135200"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.55008,
-      "lng": 115.63986
-    },
     "Unleaded 91": {
       "min": 211.9,
       "avg": 218.6,
@@ -3005,56 +2967,47 @@
           "lng": "115.64135200"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -31.55008,
+      "lng": 115.63986
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 234.7,
+      "count": 3,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Yanchep",
+          "brand": "Ampol",
+          "address": "1 Morwell St",
+          "suburb": "YANCHEP",
+          "lat": "-31.55206300",
+          "lng": "115.63963200"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Yanchep",
+          "brand": "7-Eleven",
+          "address": "2 Tamala Lane",
+          "suburb": "YANCHEP",
+          "lat": "-31.55038600",
+          "lng": "115.63858700"
+        },
+        {
+          "price": 241.4,
+          "name": "S24 Yanchep",
+          "brand": "Caltex",
+          "address": "1 Ikara Lane",
+          "suburb": "YANCHEP",
+          "lat": "-31.54777900",
+          "lng": "115.64135200"
+        }
+      ]
     }
   },
   "Alkimos": {
-    "Unleaded 91": {
-      "min": 197.3,
-      "avg": 211.7,
-      "count": 4,
-      "stations": [
-        {
-          "price": 197.3,
-          "name": "Burk Alkimos",
-          "brand": "Burk",
-          "address": "12 Longstaff Ave",
-          "suburb": "ALKIMOS",
-          "lat": "-31.62823900",
-          "lng": "115.69118000"
-        },
-        {
-          "price": 213.9,
-          "name": "EG Ampol Alkimos",
-          "brand": "EG Ampol",
-          "address": "11 Shorehaven Bvd",
-          "suburb": "ALKIMOS",
-          "lat": "-31.60190200",
-          "lng": "115.68089800"
-        },
-        {
-          "price": 215.5,
-          "name": "X Convenience Alkimos",
-          "brand": "X Convenience",
-          "address": "58 Montana Cres",
-          "suburb": "ALKIMOS",
-          "lat": "-31.62143300",
-          "lng": "115.68875400"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Alkimos",
-          "brand": "7-Eleven",
-          "address": "10 Carlsbad Prom",
-          "suburb": "ALKIMOS",
-          "lat": "-31.62832300",
-          "lng": "115.68969300"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.61997,
-      "lng": 115.68763
-    },
     "Premium 95": {
       "min": 213.3,
       "avg": 227.4,
@@ -3089,6 +3042,53 @@
         },
         {
           "price": 234.9,
+          "name": "7-Eleven Alkimos",
+          "brand": "7-Eleven",
+          "address": "10 Carlsbad Prom",
+          "suburb": "ALKIMOS",
+          "lat": "-31.62832300",
+          "lng": "115.68969300"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.61997,
+      "lng": 115.68763
+    },
+    "Unleaded 91": {
+      "min": 197.3,
+      "avg": 211.7,
+      "count": 4,
+      "stations": [
+        {
+          "price": 197.3,
+          "name": "Burk Alkimos",
+          "brand": "Burk",
+          "address": "12 Longstaff Ave",
+          "suburb": "ALKIMOS",
+          "lat": "-31.62823900",
+          "lng": "115.69118000"
+        },
+        {
+          "price": 213.9,
+          "name": "EG Ampol Alkimos",
+          "brand": "EG Ampol",
+          "address": "11 Shorehaven Bvd",
+          "suburb": "ALKIMOS",
+          "lat": "-31.60190200",
+          "lng": "115.68089800"
+        },
+        {
+          "price": 215.5,
+          "name": "X Convenience Alkimos",
+          "brand": "X Convenience",
+          "address": "58 Montana Cres",
+          "suburb": "ALKIMOS",
+          "lat": "-31.62143300",
+          "lng": "115.68875400"
+        },
+        {
+          "price": 219.9,
           "name": "7-Eleven Alkimos",
           "brand": "7-Eleven",
           "address": "10 Carlsbad Prom",
@@ -3335,91 +3335,7 @@
       ]
     }
   },
-  "Eden Hill": {},
   "Malaga": {
-    "Premium 95": {
-      "min": 215.3,
-      "avg": 231.1,
-      "count": 8,
-      "stations": [
-        {
-          "price": 215.3,
-          "name": "Burk Malaga",
-          "brand": "Burk",
-          "address": "1 Harlond Ave",
-          "suburb": "MALAGA",
-          "lat": "-31.85577800",
-          "lng": "115.89155900"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Malaga",
-          "brand": "Ampol",
-          "address": "1 Capital Rd",
-          "suburb": "MALAGA",
-          "lat": "-31.84823500",
-          "lng": "115.87848400"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Malaga Drive",
-          "brand": "Ampol",
-          "address": "76 Malaga Dr",
-          "suburb": "MALAGA",
-          "lat": "-31.86318900",
-          "lng": "115.89392100"
-        },
-        {
-          "price": 230.9,
-          "name": "BP Malaga",
-          "brand": "BP",
-          "address": "370 Victoria Rd",
-          "suburb": "MALAGA",
-          "lat": "-31.86206700",
-          "lng": "115.89444500"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Malaga",
-          "brand": "Reddy Express",
-          "address": "492 Alexander Dr",
-          "suburb": "MALAGA",
-          "lat": "-31.86351200",
-          "lng": "115.87927900"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Malaga",
-          "brand": "7-Eleven",
-          "address": "650 Marshall Rd",
-          "suburb": "MALAGA",
-          "lat": "-31.85677800",
-          "lng": "115.90809800"
-        },
-        {
-          "price": 236.5,
-          "name": "Better Choice Malaga",
-          "brand": "Better Choice",
-          "address": "3 Carson Rd",
-          "suburb": "MALAGA",
-          "lat": "-31.85513600",
-          "lng": "115.87822900"
-        },
-        {
-          "price": 241.9,
-          "name": "Caltex Malaga",
-          "brand": "Caltex",
-          "address": "1896 Beach Rd",
-          "suburb": "MALAGA",
-          "lat": "-31.85295000",
-          "lng": "115.88205900"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.85721,
-      "lng": 115.88826
-    },
     "Unleaded 91": {
       "min": 199.3,
       "avg": 215.0,
@@ -3490,6 +3406,89 @@
         },
         {
           "price": 225.9,
+          "name": "Caltex Malaga",
+          "brand": "Caltex",
+          "address": "1896 Beach Rd",
+          "suburb": "MALAGA",
+          "lat": "-31.85295000",
+          "lng": "115.88205900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.85721,
+      "lng": 115.88826
+    },
+    "Premium 95": {
+      "min": 215.3,
+      "avg": 231.1,
+      "count": 8,
+      "stations": [
+        {
+          "price": 215.3,
+          "name": "Burk Malaga",
+          "brand": "Burk",
+          "address": "1 Harlond Ave",
+          "suburb": "MALAGA",
+          "lat": "-31.85577800",
+          "lng": "115.89155900"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Malaga",
+          "brand": "Ampol",
+          "address": "1 Capital Rd",
+          "suburb": "MALAGA",
+          "lat": "-31.84823500",
+          "lng": "115.87848400"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Malaga Drive",
+          "brand": "Ampol",
+          "address": "76 Malaga Dr",
+          "suburb": "MALAGA",
+          "lat": "-31.86318900",
+          "lng": "115.89392100"
+        },
+        {
+          "price": 230.9,
+          "name": "BP Malaga",
+          "brand": "BP",
+          "address": "370 Victoria Rd",
+          "suburb": "MALAGA",
+          "lat": "-31.86206700",
+          "lng": "115.89444500"
+        },
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Malaga",
+          "brand": "Reddy Express",
+          "address": "492 Alexander Dr",
+          "suburb": "MALAGA",
+          "lat": "-31.86351200",
+          "lng": "115.87927900"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Malaga",
+          "brand": "7-Eleven",
+          "address": "650 Marshall Rd",
+          "suburb": "MALAGA",
+          "lat": "-31.85677800",
+          "lng": "115.90809800"
+        },
+        {
+          "price": 236.5,
+          "name": "Better Choice Malaga",
+          "brand": "Better Choice",
+          "address": "3 Carson Rd",
+          "suburb": "MALAGA",
+          "lat": "-31.85513600",
+          "lng": "115.87822900"
+        },
+        {
+          "price": 241.9,
           "name": "Caltex Malaga",
           "brand": "Caltex",
           "address": "1896 Beach Rd",
@@ -3572,66 +3571,6 @@
           "lng": "115.92906900"
         }
       ]
-    }
-  },
-  "Embleton": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 215.9,
-          "name": "BP Embleton",
-          "brand": "BP",
-          "address": "484 Walter Rd East",
-          "suburb": "EMBLETON",
-          "lat": "-31.89510000",
-          "lng": "115.92320600"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.8951,
-      "lng": 115.92321
-    },
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 230.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "BP Embleton",
-          "brand": "BP",
-          "address": "484 Walter Rd East",
-          "suburb": "EMBLETON",
-          "lat": "-31.89510000",
-          "lng": "115.92320600"
-        }
-      ]
-    }
-  },
-  "Bedford": {
-    "Unleaded 91": {
-      "min": 212.7,
-      "avg": 212.7,
-      "count": 1,
-      "stations": [
-        {
-          "price": 212.7,
-          "name": "Vibe Bedford",
-          "brand": "Vibe",
-          "address": "168 Walter Rd West",
-          "suburb": "BEDFORD",
-          "lat": "-31.90000000",
-          "lng": "115.88925700"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.9,
-      "lng": 115.88926
     }
   },
   "Bassendean": {
@@ -3717,6 +3656,67 @@
       ]
     }
   },
+  "Eden Hill": {},
+  "Embleton": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "BP Embleton",
+          "brand": "BP",
+          "address": "484 Walter Rd East",
+          "suburb": "EMBLETON",
+          "lat": "-31.89510000",
+          "lng": "115.92320600"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.8951,
+      "lng": 115.92321
+    },
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 230.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 230.9,
+          "name": "BP Embleton",
+          "brand": "BP",
+          "address": "484 Walter Rd East",
+          "suburb": "EMBLETON",
+          "lat": "-31.89510000",
+          "lng": "115.92320600"
+        }
+      ]
+    }
+  },
+  "Bedford": {
+    "Unleaded 91": {
+      "min": 212.7,
+      "avg": 212.7,
+      "count": 1,
+      "stations": [
+        {
+          "price": 212.7,
+          "name": "Vibe Bedford",
+          "brand": "Vibe",
+          "address": "168 Walter Rd West",
+          "suburb": "BEDFORD",
+          "lat": "-31.90000000",
+          "lng": "115.88925700"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.9,
+      "lng": 115.88926
+    }
+  },
   "Dianella": {
     "Unleaded 91": {
       "min": 214.9,
@@ -3792,13 +3792,13 @@
     }
   },
   "Tuart Hill": {
-    "Unleaded 91": {
-      "min": 219.5,
-      "avg": 219.5,
+    "Premium 95": {
+      "min": 236.5,
+      "avg": 236.5,
       "count": 1,
       "stations": [
         {
-          "price": 219.5,
+          "price": 236.5,
           "name": "Better Choice Tuart Hill",
           "brand": "Better Choice",
           "address": "150 Wanneroo Rd",
@@ -3812,13 +3812,13 @@
       "lat": -31.89727,
       "lng": 115.84145
     },
-    "Premium 95": {
-      "min": 236.5,
-      "avg": 236.5,
+    "Unleaded 91": {
+      "min": 219.5,
+      "avg": 219.5,
       "count": 1,
       "stations": [
         {
-          "price": 236.5,
+          "price": 219.5,
           "name": "Better Choice Tuart Hill",
           "brand": "Better Choice",
           "address": "150 Wanneroo Rd",
@@ -4106,36 +4106,29 @@
       ]
     }
   },
-  "Middle Swan": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 234.2,
-      "count": 2,
+  "Swan View": {
+    "Unleaded 91": {
+      "min": 210.9,
+      "avg": 210.9,
+      "count": 1,
       "stations": [
         {
-          "price": 233.4,
-          "name": "Shell Reddy Express Middle Swan",
-          "brand": "Reddy Express",
-          "address": "Lot 46 Great Northern Hwy",
-          "suburb": "MIDDLE SWAN",
-          "lat": "-31.87444900",
-          "lng": "116.01108600"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Middle Swan",
-          "brand": "7-Eleven",
-          "address": "40-42 Great Northern Hwy",
-          "suburb": "MIDDLE SWAN",
-          "lat": "-31.87367100",
-          "lng": "116.01158600"
+          "price": 210.9,
+          "name": "Petro Fuels Swan View",
+          "brand": "Petro Fuels",
+          "address": "309 Morrison Rd",
+          "suburb": "SWAN VIEW",
+          "lat": "-31.88569300",
+          "lng": "116.04218700"
         }
       ]
     },
     "_centroid": {
-      "lat": -31.87406,
-      "lng": 116.01134
-    },
+      "lat": -31.88569,
+      "lng": 116.04219
+    }
+  },
+  "Middle Swan": {
     "Unleaded 91": {
       "min": 215.9,
       "avg": 217.9,
@@ -4160,28 +4153,73 @@
           "lng": "116.01158600"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -31.87406,
+      "lng": 116.01134
+    },
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 234.2,
+      "count": 2,
+      "stations": [
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Middle Swan",
+          "brand": "Reddy Express",
+          "address": "Lot 46 Great Northern Hwy",
+          "suburb": "MIDDLE SWAN",
+          "lat": "-31.87444900",
+          "lng": "116.01108600"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Middle Swan",
+          "brand": "7-Eleven",
+          "address": "40-42 Great Northern Hwy",
+          "suburb": "MIDDLE SWAN",
+          "lat": "-31.87367100",
+          "lng": "116.01158600"
+        }
+      ]
     }
   },
-  "Swan View": {
+  "Midland": {
     "Unleaded 91": {
-      "min": 210.9,
-      "avg": 210.9,
+      "min": 219.9,
+      "avg": 219.9,
       "count": 1,
       "stations": [
         {
-          "price": 210.9,
-          "name": "Petro Fuels Swan View",
-          "brand": "Petro Fuels",
-          "address": "309 Morrison Rd",
-          "suburb": "SWAN VIEW",
-          "lat": "-31.88569300",
-          "lng": "116.04218700"
+          "price": 219.9,
+          "name": "7-Eleven Midland",
+          "brand": "7-Eleven",
+          "address": "8 Clayton St",
+          "suburb": "MIDLAND",
+          "lat": "-31.89765000",
+          "lng": "116.01557000"
         }
       ]
     },
     "_centroid": {
-      "lat": -31.88569,
-      "lng": 116.04219
+      "lat": -31.89765,
+      "lng": 116.01557
+    },
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 234.9,
+          "name": "7-Eleven Midland",
+          "brand": "7-Eleven",
+          "address": "8 Clayton St",
+          "suburb": "MIDLAND",
+          "lat": "-31.89765000",
+          "lng": "116.01557000"
+        }
+      ]
     }
   },
   "Midvale": {
@@ -4295,53 +4333,6 @@
     }
   },
   "Bellevue": {
-    "Unleaded 91": {
-      "min": 219.2,
-      "avg": 222.9,
-      "count": 4,
-      "stations": [
-        {
-          "price": 219.2,
-          "name": "NightOwl Shell Bellevue",
-          "brand": "Shell",
-          "address": "49 Great Eastern Hwy",
-          "suburb": "BELLEVUE",
-          "lat": "-31.89557600",
-          "lng": "116.03280600"
-        },
-        {
-          "price": 219.9,
-          "name": "BP 2go Bellevue",
-          "brand": "BP",
-          "address": "59 Great Eastern Hwy",
-          "suburb": "BELLEVUE",
-          "lat": "-31.89535900",
-          "lng": "116.03131300"
-        },
-        {
-          "price": 223.9,
-          "name": "Caltex Bellevue",
-          "brand": "Caltex",
-          "address": "16-20 Clayton St",
-          "suburb": "BELLEVUE",
-          "lat": "-31.89905600",
-          "lng": "116.01973600"
-        },
-        {
-          "price": 228.5,
-          "name": "Better Choice Bellevue",
-          "brand": "Better Choice",
-          "address": "177-179 Great Eastern Hwy",
-          "suburb": "BELLEVUE",
-          "lat": "-31.89305800",
-          "lng": "116.01941900"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.89576,
-      "lng": 116.02582
-    },
     "Premium 95": {
       "min": 234.9,
       "avg": 240.1,
@@ -4384,42 +4375,51 @@
           "lng": "116.01941900"
         }
       ]
-    }
-  },
-  "Midland": {
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "7-Eleven Midland",
-          "brand": "7-Eleven",
-          "address": "8 Clayton St",
-          "suburb": "MIDLAND",
-          "lat": "-31.89765000",
-          "lng": "116.01557000"
-        }
-      ]
     },
     "_centroid": {
-      "lat": -31.89765,
-      "lng": 116.01557
+      "lat": -31.89576,
+      "lng": 116.02582
     },
     "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
-      "count": 1,
+      "min": 219.2,
+      "avg": 222.9,
+      "count": 4,
       "stations": [
         {
+          "price": 219.2,
+          "name": "NightOwl Shell Bellevue",
+          "brand": "Shell",
+          "address": "49 Great Eastern Hwy",
+          "suburb": "BELLEVUE",
+          "lat": "-31.89557600",
+          "lng": "116.03280600"
+        },
+        {
           "price": 219.9,
-          "name": "7-Eleven Midland",
-          "brand": "7-Eleven",
-          "address": "8 Clayton St",
-          "suburb": "MIDLAND",
-          "lat": "-31.89765000",
-          "lng": "116.01557000"
+          "name": "BP 2go Bellevue",
+          "brand": "BP",
+          "address": "59 Great Eastern Hwy",
+          "suburb": "BELLEVUE",
+          "lat": "-31.89535900",
+          "lng": "116.03131300"
+        },
+        {
+          "price": 223.9,
+          "name": "Caltex Bellevue",
+          "brand": "Caltex",
+          "address": "16-20 Clayton St",
+          "suburb": "BELLEVUE",
+          "lat": "-31.89905600",
+          "lng": "116.01973600"
+        },
+        {
+          "price": 228.5,
+          "name": "Better Choice Bellevue",
+          "brand": "Better Choice",
+          "address": "177-179 Great Eastern Hwy",
+          "suburb": "BELLEVUE",
+          "lat": "-31.89305800",
+          "lng": "116.01941900"
         }
       ]
     }
@@ -4666,35 +4666,6 @@
     }
   },
   "Dayton": {
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 235.4,
-      "count": 2,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "7-Eleven Dayton",
-          "brand": "7-Eleven",
-          "address": "10 Swaisdale Ent",
-          "suburb": "DAYTON",
-          "lat": "-31.84800900",
-          "lng": "115.96758400"
-        },
-        {
-          "price": 235.9,
-          "name": "Caltex Dayton",
-          "brand": "Caltex",
-          "address": "8 Repton St",
-          "suburb": "DAYTON",
-          "lat": "-31.85108900",
-          "lng": "115.96878600"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.84955,
-      "lng": 115.96819
-    },
     "Unleaded 91": {
       "min": 219.9,
       "avg": 219.9,
@@ -4717,6 +4688,35 @@
           "suburb": "DAYTON",
           "lat": "-31.84800900",
           "lng": "115.96758400"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.84955,
+      "lng": 115.96819
+    },
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 235.4,
+      "count": 2,
+      "stations": [
+        {
+          "price": 234.9,
+          "name": "7-Eleven Dayton",
+          "brand": "7-Eleven",
+          "address": "10 Swaisdale Ent",
+          "suburb": "DAYTON",
+          "lat": "-31.84800900",
+          "lng": "115.96758400"
+        },
+        {
+          "price": 235.9,
+          "name": "Caltex Dayton",
+          "brand": "Caltex",
+          "address": "8 Repton St",
+          "suburb": "DAYTON",
+          "lat": "-31.85108900",
+          "lng": "115.96878600"
         }
       ]
     }
@@ -4760,26 +4760,6 @@
     }
   },
   "Belmont": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Belmont",
-          "brand": "Ampol",
-          "address": "303 Great Eastern Hwy",
-          "suburb": "BELMONT",
-          "lat": "-31.93773400",
-          "lng": "115.93344700"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.93773,
-      "lng": 115.93345
-    },
     "Unleaded 91": {
       "min": 211.9,
       "avg": 215.9,
@@ -4804,29 +4784,29 @@
           "lng": "115.93963300"
         }
       ]
-    }
-  },
-  "Cloverdale": {
+    },
+    "_centroid": {
+      "lat": -31.94201,
+      "lng": 115.93654
+    },
     "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+      "min": 227.9,
+      "avg": 227.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
-          "name": "Shell Reddy Express Cloverdale",
-          "brand": "Reddy Express",
-          "address": "223 Belmont Ave",
-          "suburb": "CLOVERDALE",
-          "lat": "-31.96505700",
-          "lng": "115.93316400"
+          "price": 227.9,
+          "name": "Ampol Foodary Belmont",
+          "brand": "Ampol",
+          "address": "303 Great Eastern Hwy",
+          "suburb": "BELMONT",
+          "lat": "-31.93773400",
+          "lng": "115.93344700"
         }
       ]
-    },
-    "_centroid": {
-      "lat": -31.96506,
-      "lng": 115.93316
-    },
+    }
+  },
+  "Cloverdale": {
     "Unleaded 91": {
       "min": 215.9,
       "avg": 215.9,
@@ -4842,16 +4822,36 @@
           "lng": "115.93316400"
         }
       ]
-    }
-  },
-  "Rivervale": {
+    },
+    "_centroid": {
+      "lat": -31.96506,
+      "lng": 115.93316
+    },
     "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 227.9,
+          "price": 233.4,
+          "name": "Shell Reddy Express Cloverdale",
+          "brand": "Reddy Express",
+          "address": "223 Belmont Ave",
+          "suburb": "CLOVERDALE",
+          "lat": "-31.96505700",
+          "lng": "115.93316400"
+        }
+      ]
+    }
+  },
+  "Rivervale": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 211.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 211.9,
           "name": "Ampol Foodary Rivervale",
           "brand": "Ampol",
           "address": "111 Great Eastern Hwy",
@@ -4865,13 +4865,13 @@
       "lat": -31.95362,
       "lng": 115.91362
     },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 211.9,
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 227.9,
       "count": 1,
       "stations": [
         {
-          "price": 211.9,
+          "price": 227.9,
           "name": "Ampol Foodary Rivervale",
           "brand": "Ampol",
           "address": "111 Great Eastern Hwy",
@@ -4993,6 +4993,35 @@
     }
   },
   "Welshpool": {
+    "Premium 95": {
+      "min": 225.5,
+      "avg": 233.7,
+      "count": 2,
+      "stations": [
+        {
+          "price": 225.5,
+          "name": "Atlas Fuel Welshpool",
+          "brand": "Atlas",
+          "address": "36 Welshpool Rd",
+          "suburb": "WELSHPOOL",
+          "lat": "-31.99370700",
+          "lng": "115.91913900"
+        },
+        {
+          "price": 241.9,
+          "name": "Caltex Welshpool",
+          "brand": "Caltex",
+          "address": "23 Kewdale Rd",
+          "suburb": "WELSHPOOL",
+          "lat": "-31.99146500",
+          "lng": "115.94646900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.99259,
+      "lng": 115.9328
+    },
     "Unleaded 91": {
       "min": 202.7,
       "avg": 211.4,
@@ -5035,187 +5064,10 @@
           "lng": "115.94646900"
         }
       ]
-    },
-    "_centroid": {
-      "lat": -31.9924,
-      "lng": 115.9396
-    },
-    "Premium 95": {
-      "min": 225.5,
-      "avg": 233.7,
-      "count": 2,
-      "stations": [
-        {
-          "price": 225.5,
-          "name": "Atlas Fuel Welshpool",
-          "brand": "Atlas",
-          "address": "36 Welshpool Rd",
-          "suburb": "WELSHPOOL",
-          "lat": "-31.99370700",
-          "lng": "115.91913900"
-        },
-        {
-          "price": 241.9,
-          "name": "Caltex Welshpool",
-          "brand": "Caltex",
-          "address": "23 Kewdale Rd",
-          "suburb": "WELSHPOOL",
-          "lat": "-31.99146500",
-          "lng": "115.94646900"
-        }
-      ]
     }
   },
   "St James": {},
   "Victoria Park": {},
-  "Carlisle": {
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 219.9,
-          "name": "BP Connect Carlisle",
-          "brand": "BP",
-          "address": "44 Archer St",
-          "suburb": "CARLISLE",
-          "lat": "-31.97222800",
-          "lng": "115.91879700"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Carlisle",
-          "brand": "7-Eleven",
-          "address": "232 Orrong Rd",
-          "suburb": "CARLISLE",
-          "lat": "-31.97162400",
-          "lng": "115.91834100"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -31.97193,
-      "lng": 115.91857
-    },
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "BP Connect Carlisle",
-          "brand": "BP",
-          "address": "44 Archer St",
-          "suburb": "CARLISLE",
-          "lat": "-31.97222800",
-          "lng": "115.91879700"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Carlisle",
-          "brand": "7-Eleven",
-          "address": "232 Orrong Rd",
-          "suburb": "CARLISLE",
-          "lat": "-31.97162400",
-          "lng": "115.91834100"
-        }
-      ]
-    }
-  },
-  "Bentley": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 233.0,
-      "count": 4,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Bentley",
-          "brand": "Ampol",
-          "address": "91-93 Manning Rd",
-          "suburb": "BENTLEY",
-          "lat": "-32.01214200",
-          "lng": "115.91413100"
-        },
-        {
-          "price": 233.4,
-          "name": "Shell Reddy Express Bentley",
-          "brand": "Reddy Express",
-          "address": "1128 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00063300",
-          "lng": "115.91869800"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Bentley",
-          "brand": "7-Eleven",
-          "address": "1133-1135 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00175400",
-          "lng": "115.91852300"
-        },
-        {
-          "price": 235.9,
-          "name": "Caltex Bentley",
-          "brand": "Caltex",
-          "address": "1/1163 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00411300",
-          "lng": "115.92048900"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.00466,
-      "lng": 115.91796
-    },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 216.9,
-      "count": 4,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Bentley",
-          "brand": "Ampol",
-          "address": "91-93 Manning Rd",
-          "suburb": "BENTLEY",
-          "lat": "-32.01214200",
-          "lng": "115.91413100"
-        },
-        {
-          "price": 215.9,
-          "name": "Shell Reddy Express Bentley",
-          "brand": "Reddy Express",
-          "address": "1128 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00063300",
-          "lng": "115.91869800"
-        },
-        {
-          "price": 219.9,
-          "name": "7-Eleven Bentley",
-          "brand": "7-Eleven",
-          "address": "1133-1135 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00175400",
-          "lng": "115.91852300"
-        },
-        {
-          "price": 219.9,
-          "name": "Caltex Bentley",
-          "brand": "Caltex",
-          "address": "1/1163 Albany Hwy",
-          "suburb": "BENTLEY",
-          "lat": "-32.00411300",
-          "lng": "115.92048900"
-        }
-      ]
-    }
-  },
   "East Victoria Park": {
     "Unleaded 91": {
       "min": 214.9,
@@ -5272,7 +5124,155 @@
       ]
     }
   },
+  "Carlisle": {
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 234.9,
+          "name": "BP Connect Carlisle",
+          "brand": "BP",
+          "address": "44 Archer St",
+          "suburb": "CARLISLE",
+          "lat": "-31.97222800",
+          "lng": "115.91879700"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Carlisle",
+          "brand": "7-Eleven",
+          "address": "232 Orrong Rd",
+          "suburb": "CARLISLE",
+          "lat": "-31.97162400",
+          "lng": "115.91834100"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -31.97193,
+      "lng": 115.91857
+    },
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 219.9,
+          "name": "BP Connect Carlisle",
+          "brand": "BP",
+          "address": "44 Archer St",
+          "suburb": "CARLISLE",
+          "lat": "-31.97222800",
+          "lng": "115.91879700"
+        },
+        {
+          "price": 219.9,
+          "name": "7-Eleven Carlisle",
+          "brand": "7-Eleven",
+          "address": "232 Orrong Rd",
+          "suburb": "CARLISLE",
+          "lat": "-31.97162400",
+          "lng": "115.91834100"
+        }
+      ]
+    }
+  },
   "Lathlain": {},
+  "Bentley": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 216.9,
+      "count": 4,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Bentley",
+          "brand": "Ampol",
+          "address": "91-93 Manning Rd",
+          "suburb": "BENTLEY",
+          "lat": "-32.01214200",
+          "lng": "115.91413100"
+        },
+        {
+          "price": 215.9,
+          "name": "Shell Reddy Express Bentley",
+          "brand": "Reddy Express",
+          "address": "1128 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00063300",
+          "lng": "115.91869800"
+        },
+        {
+          "price": 219.9,
+          "name": "7-Eleven Bentley",
+          "brand": "7-Eleven",
+          "address": "1133-1135 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00175400",
+          "lng": "115.91852300"
+        },
+        {
+          "price": 219.9,
+          "name": "Caltex Bentley",
+          "brand": "Caltex",
+          "address": "1/1163 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00411300",
+          "lng": "115.92048900"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.00466,
+      "lng": 115.91796
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 233.0,
+      "count": 4,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Bentley",
+          "brand": "Ampol",
+          "address": "91-93 Manning Rd",
+          "suburb": "BENTLEY",
+          "lat": "-32.01214200",
+          "lng": "115.91413100"
+        },
+        {
+          "price": 233.4,
+          "name": "Shell Reddy Express Bentley",
+          "brand": "Reddy Express",
+          "address": "1128 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00063300",
+          "lng": "115.91869800"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Bentley",
+          "brand": "7-Eleven",
+          "address": "1133-1135 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00175400",
+          "lng": "115.91852300"
+        },
+        {
+          "price": 235.9,
+          "name": "Caltex Bentley",
+          "brand": "Caltex",
+          "address": "1/1163 Albany Hwy",
+          "suburb": "BENTLEY",
+          "lat": "-32.00411300",
+          "lng": "115.92048900"
+        }
+      ]
+    }
+  },
   "Como": {
     "Unleaded 91": {
       "min": 215.9,
@@ -5388,8 +5388,8 @@
   "Manning": {},
   "Salter Point": {},
   "Waterford": {},
-  "Rossmoyne": {},
   "Shelley": {},
+  "Rossmoyne": {},
   "Bull Creek": {
     "Unleaded 91": {
       "min": 215.9,
@@ -5438,13 +5438,13 @@
     }
   },
   "Leeming": {
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
+          "price": 233.4,
           "name": "Shell Reddy Express Leeming",
           "brand": "Reddy Express",
           "address": "51 Farrington St",
@@ -5458,13 +5458,13 @@
       "lat": -32.07901,
       "lng": 115.85841
     },
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
+          "price": 215.9,
           "name": "Shell Reddy Express Leeming",
           "brand": "Reddy Express",
           "address": "51 Farrington St",
@@ -5589,44 +5589,6 @@
     }
   },
   "South Lake": {
-    "Premium 95": {
-      "min": 226.9,
-      "avg": 228.2,
-      "count": 3,
-      "stations": [
-        {
-          "price": 226.9,
-          "name": "United South Lake",
-          "brand": "United",
-          "address": "49 Berrigan Dr",
-          "suburb": "SOUTH LAKE",
-          "lat": "-32.11148100",
-          "lng": "115.83883300"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary South Lake",
-          "brand": "Ampol",
-          "address": "2 Omeo St",
-          "suburb": "SOUTH LAKE",
-          "lat": "-32.10827100",
-          "lng": "115.82922100"
-        },
-        {
-          "price": 229.9,
-          "name": "EG Ampol South Lake",
-          "brand": "EG Ampol",
-          "address": "752 North Lake Rd",
-          "suburb": "SOUTH LAKE",
-          "lat": "-32.11517200",
-          "lng": "115.83703200"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.11164,
-      "lng": 115.83503
-    },
     "Unleaded 91": {
       "min": 211.9,
       "avg": 212.2,
@@ -5660,73 +5622,47 @@
           "lng": "115.83883300"
         }
       ]
-    }
-  },
-  "Yangebup": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 234.7,
-      "count": 2,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Yangebup",
-          "brand": "Ampol",
-          "address": "289 Beeliar Dr",
-          "suburb": "YANGEBUP",
-          "lat": "-32.12756800",
-          "lng": "115.79915800"
-        },
-        {
-          "price": 241.4,
-          "name": "OTR Yangebup",
-          "brand": "Caltex",
-          "address": "71 Shallcross St",
-          "suburb": "YANGEBUP",
-          "lat": "-32.11888320",
-          "lng": "115.79473000"
-        }
-      ]
     },
     "_centroid": {
-      "lat": -32.12323,
-      "lng": 115.79694
+      "lat": -32.11164,
+      "lng": 115.83503
     },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 216.2,
+    "Premium 95": {
+      "min": 226.9,
+      "avg": 228.2,
       "count": 3,
       "stations": [
         {
-          "price": 211.9,
-          "name": "Ampol Foodary Yangebup",
+          "price": 226.9,
+          "name": "United South Lake",
+          "brand": "United",
+          "address": "49 Berrigan Dr",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11148100",
+          "lng": "115.83883300"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary South Lake",
           "brand": "Ampol",
-          "address": "289 Beeliar Dr",
-          "suburb": "YANGEBUP",
-          "lat": "-32.12756800",
-          "lng": "115.79915800"
+          "address": "2 Omeo St",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.10827100",
+          "lng": "115.82922100"
         },
         {
-          "price": 212.9,
-          "name": "OMG Metro Yangebup",
-          "brand": "OMG Metro",
-          "address": "109 Barrington St",
-          "suburb": "YANGEBUP",
-          "lat": "-32.11689100",
-          "lng": "115.79544600"
-        },
-        {
-          "price": 223.9,
-          "name": "OTR Yangebup",
-          "brand": "Caltex",
-          "address": "71 Shallcross St",
-          "suburb": "YANGEBUP",
-          "lat": "-32.11888320",
-          "lng": "115.79473000"
+          "price": 229.9,
+          "name": "EG Ampol South Lake",
+          "brand": "EG Ampol",
+          "address": "752 North Lake Rd",
+          "suburb": "SOUTH LAKE",
+          "lat": "-32.11517200",
+          "lng": "115.83703200"
         }
       ]
     }
   },
+  "North Lake": {},
   "Bibra Lake": {
     "Unleaded 91": {
       "min": 213.9,
@@ -5819,7 +5755,71 @@
       ]
     }
   },
-  "North Lake": {},
+  "Yangebup": {
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 216.2,
+      "count": 3,
+      "stations": [
+        {
+          "price": 211.9,
+          "name": "Ampol Foodary Yangebup",
+          "brand": "Ampol",
+          "address": "289 Beeliar Dr",
+          "suburb": "YANGEBUP",
+          "lat": "-32.12756800",
+          "lng": "115.79915800"
+        },
+        {
+          "price": 212.9,
+          "name": "OMG Metro Yangebup",
+          "brand": "OMG Metro",
+          "address": "109 Barrington St",
+          "suburb": "YANGEBUP",
+          "lat": "-32.11689100",
+          "lng": "115.79544600"
+        },
+        {
+          "price": 223.9,
+          "name": "OTR Yangebup",
+          "brand": "Caltex",
+          "address": "71 Shallcross St",
+          "suburb": "YANGEBUP",
+          "lat": "-32.11888320",
+          "lng": "115.79473000"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.12111,
+      "lng": 115.79644
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 234.7,
+      "count": 2,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Yangebup",
+          "brand": "Ampol",
+          "address": "289 Beeliar Dr",
+          "suburb": "YANGEBUP",
+          "lat": "-32.12756800",
+          "lng": "115.79915800"
+        },
+        {
+          "price": 241.4,
+          "name": "OTR Yangebup",
+          "brand": "Caltex",
+          "address": "71 Shallcross St",
+          "suburb": "YANGEBUP",
+          "lat": "-32.11888320",
+          "lng": "115.79473000"
+        }
+      ]
+    }
+  },
   "Forrestdale": {
     "Unleaded 91": {
       "min": 196.9,
@@ -6042,6 +6042,7 @@
       ]
     }
   },
+  "Ferndale": {},
   "Cannington": {
     "Unleaded 91": {
       "min": 203.2,
@@ -6116,7 +6117,6 @@
       ]
     }
   },
-  "Ferndale": {},
   "Kenwick": {},
   "Maddington": {
     "Unleaded 91": {
@@ -6514,35 +6514,6 @@
     }
   },
   "Riverton": {
-    "Unleaded 91": {
-      "min": 201.5,
-      "avg": 208.7,
-      "count": 2,
-      "stations": [
-        {
-          "price": 201.5,
-          "name": "Solo Riverton",
-          "brand": "Solo",
-          "address": "268 High Rd",
-          "suburb": "RIVERTON",
-          "lat": "-32.03836300",
-          "lng": "115.89675400"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Connect Riverton",
-          "brand": "BP",
-          "address": "339 High Rd",
-          "suburb": "RIVERTON",
-          "lat": "-32.03890800",
-          "lng": "115.90435500"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.03864,
-      "lng": 115.90055
-    },
     "Premium 95": {
       "min": 217.5,
       "avg": 224.2,
@@ -6567,30 +6538,77 @@
           "lng": "115.90435500"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -32.03864,
+      "lng": 115.90055
+    },
+    "Unleaded 91": {
+      "min": 201.5,
+      "avg": 208.7,
+      "count": 2,
+      "stations": [
+        {
+          "price": 201.5,
+          "name": "Solo Riverton",
+          "brand": "Solo",
+          "address": "268 High Rd",
+          "suburb": "RIVERTON",
+          "lat": "-32.03836300",
+          "lng": "115.89675400"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Connect Riverton",
+          "brand": "BP",
+          "address": "339 High Rd",
+          "suburb": "RIVERTON",
+          "lat": "-32.03890800",
+          "lng": "115.90435500"
+        }
+      ]
     }
   },
   "Parkwood": {},
-  "Langford": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+  "Lynwood": {
+    "Unleaded 91": {
+      "min": 219.9,
+      "avg": 219.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
-          "name": "Shell Reddy Express Langford",
-          "brand": "Reddy Express",
-          "address": "70 Nicholson Rd",
-          "suburb": "LANGFORD",
-          "lat": "-32.03187900",
-          "lng": "115.93884100"
+          "price": 219.9,
+          "name": "Caltex Lynwood",
+          "brand": "Caltex",
+          "address": "2 Lynwood Ave",
+          "suburb": "LYNWOOD",
+          "lat": "-32.03563900",
+          "lng": "115.92703400"
         }
       ]
     },
     "_centroid": {
-      "lat": -32.03188,
-      "lng": 115.93884
+      "lat": -32.03564,
+      "lng": 115.92703
     },
+    "Premium 95": {
+      "min": 235.9,
+      "avg": 235.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 235.9,
+          "name": "Caltex Lynwood",
+          "brand": "Caltex",
+          "address": "2 Lynwood Ave",
+          "suburb": "LYNWOOD",
+          "lat": "-32.03563900",
+          "lng": "115.92703400"
+        }
+      ]
+    }
+  },
+  "Langford": {
     "Unleaded 91": {
       "min": 215.9,
       "avg": 216.9,
@@ -6615,85 +6633,67 @@
           "lng": "115.93237500"
         }
       ]
-    }
-  },
-  "Lynwood": {
+    },
+    "_centroid": {
+      "lat": -32.03955,
+      "lng": 115.93561
+    },
     "Premium 95": {
-      "min": 235.9,
-      "avg": 235.9,
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 235.9,
-          "name": "Caltex Lynwood",
-          "brand": "Caltex",
-          "address": "2 Lynwood Ave",
-          "suburb": "LYNWOOD",
-          "lat": "-32.03563900",
-          "lng": "115.92703400"
+          "price": 233.4,
+          "name": "Shell Reddy Express Langford",
+          "brand": "Reddy Express",
+          "address": "70 Nicholson Rd",
+          "suburb": "LANGFORD",
+          "lat": "-32.03187900",
+          "lng": "115.93884100"
+        }
+      ]
+    }
+  },
+  "Huntingdale": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
+          "name": "BP Huntingdale",
+          "brand": "BP",
+          "address": "68 Warton Rd",
+          "suburb": "HUNTINGDALE",
+          "lat": "-32.07142100",
+          "lng": "115.96647200"
         }
       ]
     },
     "_centroid": {
-      "lat": -32.03564,
-      "lng": 115.92703
+      "lat": -32.07142,
+      "lng": 115.96647
     },
-    "Unleaded 91": {
-      "min": 219.9,
-      "avg": 219.9,
+    "Premium 95": {
+      "min": 230.9,
+      "avg": 230.9,
       "count": 1,
       "stations": [
         {
-          "price": 219.9,
-          "name": "Caltex Lynwood",
-          "brand": "Caltex",
-          "address": "2 Lynwood Ave",
-          "suburb": "LYNWOOD",
-          "lat": "-32.03563900",
-          "lng": "115.92703400"
+          "price": 230.9,
+          "name": "BP Huntingdale",
+          "brand": "BP",
+          "address": "68 Warton Rd",
+          "suburb": "HUNTINGDALE",
+          "lat": "-32.07142100",
+          "lng": "115.96647200"
         }
       ]
     }
   },
   "Thornlie": {
-    "Premium 95": {
-      "min": 222.2,
-      "avg": 227.0,
-      "count": 3,
-      "stations": [
-        {
-          "price": 222.2,
-          "name": "Atlas Fuel Thornlie",
-          "brand": "Atlas",
-          "address": "223 Yale Rd",
-          "suburb": "THORNLIE",
-          "lat": "-32.06109200",
-          "lng": "115.93925700"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Thornlie Square",
-          "brand": "Ampol",
-          "address": "316 Spencer Rd",
-          "suburb": "THORNLIE",
-          "lat": "-32.05575500",
-          "lng": "115.96194000"
-        },
-        {
-          "price": 230.9,
-          "name": "7-Eleven Thornlie",
-          "brand": "7-Eleven",
-          "address": "125 Murdoch Rd",
-          "suburb": "THORNLIE",
-          "lat": "-32.06954000",
-          "lng": "115.95209500"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.06213,
-      "lng": 115.9511
-    },
     "Unleaded 91": {
       "min": 207.7,
       "avg": 211.8,
@@ -6727,42 +6727,42 @@
           "lng": "115.95209500"
         }
       ]
-    }
-  },
-  "Huntingdale": {
-    "Premium 95": {
-      "min": 230.9,
-      "avg": 230.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 230.9,
-          "name": "BP Huntingdale",
-          "brand": "BP",
-          "address": "68 Warton Rd",
-          "suburb": "HUNTINGDALE",
-          "lat": "-32.07142100",
-          "lng": "115.96647200"
-        }
-      ]
     },
     "_centroid": {
-      "lat": -32.07142,
-      "lng": 115.96647
+      "lat": -32.06213,
+      "lng": 115.9511
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
-      "count": 1,
+    "Premium 95": {
+      "min": 222.2,
+      "avg": 227.0,
+      "count": 3,
       "stations": [
         {
-          "price": 215.9,
-          "name": "BP Huntingdale",
-          "brand": "BP",
-          "address": "68 Warton Rd",
-          "suburb": "HUNTINGDALE",
-          "lat": "-32.07142100",
-          "lng": "115.96647200"
+          "price": 222.2,
+          "name": "Atlas Fuel Thornlie",
+          "brand": "Atlas",
+          "address": "223 Yale Rd",
+          "suburb": "THORNLIE",
+          "lat": "-32.06109200",
+          "lng": "115.93925700"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Thornlie Square",
+          "brand": "Ampol",
+          "address": "316 Spencer Rd",
+          "suburb": "THORNLIE",
+          "lat": "-32.05575500",
+          "lng": "115.96194000"
+        },
+        {
+          "price": 230.9,
+          "name": "7-Eleven Thornlie",
+          "brand": "7-Eleven",
+          "address": "125 Murdoch Rd",
+          "suburb": "THORNLIE",
+          "lat": "-32.06954000",
+          "lng": "115.95209500"
         }
       ]
     }
@@ -6860,44 +6860,6 @@
     }
   },
   "Gosnells": {
-    "Premium 95": {
-      "min": 224.5,
-      "avg": 229.1,
-      "count": 3,
-      "stations": [
-        {
-          "price": 224.5,
-          "name": "Liberty Gosnells",
-          "brand": "Liberty",
-          "address": "2341 Albany Hwy",
-          "suburb": "GOSNELLS",
-          "lat": "-32.07521600",
-          "lng": "116.00581600"
-        },
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Gosnells",
-          "brand": "Ampol",
-          "address": "158 Corfield St",
-          "suburb": "GOSNELLS",
-          "lat": "-32.07979400",
-          "lng": "115.98811700"
-        },
-        {
-          "price": 234.9,
-          "name": "7-Eleven Gosnells",
-          "brand": "7-Eleven",
-          "address": "303 Corfield St",
-          "suburb": "GOSNELLS",
-          "lat": "-32.08980200",
-          "lng": "115.99868200"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.0816,
-      "lng": 115.99754
-    },
     "Unleaded 91": {
       "min": 209.5,
       "avg": 213.3,
@@ -6940,6 +6902,66 @@
           "lng": "115.99868200"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -32.07724,
+      "lng": 115.99804
+    },
+    "Premium 95": {
+      "min": 224.5,
+      "avg": 229.1,
+      "count": 3,
+      "stations": [
+        {
+          "price": 224.5,
+          "name": "Liberty Gosnells",
+          "brand": "Liberty",
+          "address": "2341 Albany Hwy",
+          "suburb": "GOSNELLS",
+          "lat": "-32.07521600",
+          "lng": "116.00581600"
+        },
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Gosnells",
+          "brand": "Ampol",
+          "address": "158 Corfield St",
+          "suburb": "GOSNELLS",
+          "lat": "-32.07979400",
+          "lng": "115.98811700"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Gosnells",
+          "brand": "7-Eleven",
+          "address": "303 Corfield St",
+          "suburb": "GOSNELLS",
+          "lat": "-32.08980200",
+          "lng": "115.99868200"
+        }
+      ]
+    }
+  },
+  "Camillo": {
+    "Unleaded 91": {
+      "min": 199.3,
+      "avg": 199.3,
+      "count": 1,
+      "stations": [
+        {
+          "price": 199.3,
+          "name": "Burk Camillo",
+          "brand": "Burk",
+          "address": "Cnr Westfield Rd & Ypres Rd",
+          "suburb": "CAMILLO",
+          "lat": "-32.11865200",
+          "lng": "116.00255600"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.11865,
+      "lng": 116.00256
     }
   },
   "Seville Grove": {
@@ -6971,28 +6993,6 @@
     "_centroid": {
       "lat": -32.13361,
       "lng": 115.99064
-    }
-  },
-  "Camillo": {
-    "Unleaded 91": {
-      "min": 199.3,
-      "avg": 199.3,
-      "count": 1,
-      "stations": [
-        {
-          "price": 199.3,
-          "name": "Burk Camillo",
-          "brand": "Burk",
-          "address": "Cnr Westfield Rd & Ypres Rd",
-          "suburb": "CAMILLO",
-          "lat": "-32.11865200",
-          "lng": "116.00255600"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.11865,
-      "lng": 116.00256
     }
   },
   "Kelmscott": {
@@ -7424,6 +7424,62 @@
       ]
     }
   },
+  "Piara Waters": {
+    "Unleaded 91": {
+      "min": 192.9,
+      "avg": 204.4,
+      "count": 2,
+      "stations": [
+        {
+          "price": 192.9,
+          "name": "Vibe Piara Waters",
+          "brand": "Vibe",
+          "address": "386 Nicholson Rd",
+          "suburb": "PIARA WATERS",
+          "lat": "-32.14685200",
+          "lng": "115.92209900"
+        },
+        {
+          "price": 215.9,
+          "name": "BP Piara Waters",
+          "brand": "BP",
+          "address": "12 Erade Dr",
+          "suburb": "PIARA WATERS",
+          "lat": "-32.11625700",
+          "lng": "115.91594800"
+        }
+      ]
+    },
+    "_centroid": {
+      "lat": -32.13155,
+      "lng": 115.91902
+    },
+    "Premium 95": {
+      "min": 207.9,
+      "avg": 219.4,
+      "count": 2,
+      "stations": [
+        {
+          "price": 207.9,
+          "name": "Vibe Piara Waters",
+          "brand": "Vibe",
+          "address": "386 Nicholson Rd",
+          "suburb": "PIARA WATERS",
+          "lat": "-32.14685200",
+          "lng": "115.92209900"
+        },
+        {
+          "price": 230.9,
+          "name": "BP Piara Waters",
+          "brand": "BP",
+          "address": "12 Erade Dr",
+          "suburb": "PIARA WATERS",
+          "lat": "-32.11625700",
+          "lng": "115.91594800"
+        }
+      ]
+    }
+  },
   "Harrisdale": {
     "Unleaded 91": {
       "min": 215.9,
@@ -7458,62 +7514,6 @@
           "suburb": "HARRISDALE",
           "lat": "-32.12559900",
           "lng": "115.92601000"
-        }
-      ]
-    }
-  },
-  "Piara Waters": {
-    "Premium 95": {
-      "min": 207.9,
-      "avg": 219.4,
-      "count": 2,
-      "stations": [
-        {
-          "price": 207.9,
-          "name": "Vibe Piara Waters",
-          "brand": "Vibe",
-          "address": "386 Nicholson Rd",
-          "suburb": "PIARA WATERS",
-          "lat": "-32.14685200",
-          "lng": "115.92209900"
-        },
-        {
-          "price": 230.9,
-          "name": "BP Piara Waters",
-          "brand": "BP",
-          "address": "12 Erade Dr",
-          "suburb": "PIARA WATERS",
-          "lat": "-32.11625700",
-          "lng": "115.91594800"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.13155,
-      "lng": 115.91902
-    },
-    "Unleaded 91": {
-      "min": 192.9,
-      "avg": 204.4,
-      "count": 2,
-      "stations": [
-        {
-          "price": 192.9,
-          "name": "Vibe Piara Waters",
-          "brand": "Vibe",
-          "address": "386 Nicholson Rd",
-          "suburb": "PIARA WATERS",
-          "lat": "-32.14685200",
-          "lng": "115.92209900"
-        },
-        {
-          "price": 215.9,
-          "name": "BP Piara Waters",
-          "brand": "BP",
-          "address": "12 Erade Dr",
-          "suburb": "PIARA WATERS",
-          "lat": "-32.11625700",
-          "lng": "115.91594800"
         }
       ]
     }
@@ -7576,26 +7576,6 @@
     }
   },
   "Success": {
-    "Premium 95": {
-      "min": 234.9,
-      "avg": 234.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 234.9,
-          "name": "7-Eleven Success",
-          "brand": "7-Eleven",
-          "address": "660 Beeliar Dr",
-          "suburb": "SUCCESS",
-          "lat": "-32.12635600",
-          "lng": "115.83934600"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.12636,
-      "lng": 115.83935
-    },
     "Unleaded 91": {
       "min": 215.9,
       "avg": 217.9,
@@ -7620,11 +7600,31 @@
           "lng": "115.83934600"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -32.12776,
+      "lng": 115.84654
+    },
+    "Premium 95": {
+      "min": 234.9,
+      "avg": 234.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 234.9,
+          "name": "7-Eleven Success",
+          "brand": "7-Eleven",
+          "address": "660 Beeliar Dr",
+          "suburb": "SUCCESS",
+          "lat": "-32.12635600",
+          "lng": "115.83934600"
+        }
+      ]
     }
   },
   "Hammond Park": {},
-  "Treeby": {},
   "Aubin Grove": {},
+  "Treeby": {},
   "Atwell": {},
   "Banjup": {},
   "Munster": {
@@ -7913,26 +7913,6 @@
     }
   },
   "North Fremantle": {
-    "Premium 95": {
-      "min": 235.9,
-      "avg": 235.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 235.9,
-          "name": "Ampol Rous Head",
-          "brand": "Ampol",
-          "address": "Cnr North Mole Dr & Rous Head Rd",
-          "suburb": "NORTH FREMANTLE",
-          "lat": "-32.04114600",
-          "lng": "115.73884400"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.04115,
-      "lng": 115.73884
-    },
     "Unleaded 91": {
       "min": 219.9,
       "avg": 219.9,
@@ -7948,19 +7928,39 @@
           "lng": "115.73884400"
         }
       ]
-    }
-  },
-  "Beaconsfield": {},
-  "White Gum Valley": {},
-  "Hilton": {},
-  "Palmyra": {
+    },
+    "_centroid": {
+      "lat": -32.04115,
+      "lng": 115.73884
+    },
     "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+      "min": 235.9,
+      "avg": 235.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
+          "price": 235.9,
+          "name": "Ampol Rous Head",
+          "brand": "Ampol",
+          "address": "Cnr North Mole Dr & Rous Head Rd",
+          "suburb": "NORTH FREMANTLE",
+          "lat": "-32.04114600",
+          "lng": "115.73884400"
+        }
+      ]
+    }
+  },
+  "White Gum Valley": {},
+  "Beaconsfield": {},
+  "Hilton": {},
+  "Palmyra": {
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 215.9,
           "name": "Shell Reddy Express Palmyra",
           "brand": "Reddy Express",
           "address": "80 Carrington St",
@@ -7974,13 +7974,13 @@
       "lat": -32.04732,
       "lng": 115.7799
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
+          "price": 233.4,
           "name": "Shell Reddy Express Palmyra",
           "brand": "Reddy Express",
           "address": "80 Carrington St",
@@ -7992,13 +7992,13 @@
     }
   },
   "Bicton": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+    "Unleaded 91": {
+      "min": 215.9,
+      "avg": 215.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
+          "price": 215.9,
           "name": "Shell Reddy Express Bicton",
           "brand": "Reddy Express",
           "address": "394 Canning Hwy",
@@ -8012,13 +8012,13 @@
       "lat": -32.03413,
       "lng": 115.79278
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
+          "price": 233.4,
           "name": "Shell Reddy Express Bicton",
           "brand": "Reddy Express",
           "address": "394 Canning Hwy",
@@ -8052,47 +8052,6 @@
     }
   },
   "Melville": {},
-  "O Connor": {},
-  "Solomon": {},
-  "Alfred Cove": {
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 211.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 211.9,
-          "name": "Ampol Foodary Melville",
-          "brand": "Ampol",
-          "address": "585 Canning Hwy",
-          "suburb": "ALFRED COVE",
-          "lat": "-32.03121700",
-          "lng": "115.81542800"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.03122,
-      "lng": 115.81543
-    },
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
-      "count": 1,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Melville",
-          "brand": "Ampol",
-          "address": "585 Canning Hwy",
-          "suburb": "ALFRED COVE",
-          "lat": "-32.03121700",
-          "lng": "115.81542800"
-        }
-      ]
-    }
-  },
-  "Coogee": {},
   "Myaree": {
     "Unleaded 91": {
       "min": 213.9,
@@ -8167,46 +8126,49 @@
       ]
     }
   },
-  "North Coogee": {},
-  "Port Kennedy": {
+  "O Connor": {},
+  "Solomon": {},
+  "Alfred Cove": {
     "Unleaded 91": {
-      "min": 199.7,
-      "avg": 209.8,
-      "count": 3,
+      "min": 211.9,
+      "avg": 211.9,
+      "count": 1,
       "stations": [
         {
-          "price": 199.7,
-          "name": "Vibe Port Kennedy",
-          "brand": "Vibe",
-          "address": "35 Blackburn Dr",
-          "suburb": "PORT KENNEDY",
-          "lat": "-32.37157800",
-          "lng": "115.76217100"
-        },
-        {
-          "price": 213.9,
-          "name": "BP Port Kennedy",
-          "brand": "BP",
-          "address": "46 Bakewell Dr",
-          "suburb": "PORT KENNEDY",
-          "lat": "-32.37117800",
-          "lng": "115.76312700"
-        },
-        {
-          "price": 215.9,
-          "name": "EG Ampol Port Kennedy",
-          "brand": "EG Ampol",
-          "address": "12 Saltaire Way",
-          "suburb": "PORT KENNEDY",
-          "lat": "-32.37378100",
-          "lng": "115.75592000"
+          "price": 211.9,
+          "name": "Ampol Foodary Melville",
+          "brand": "Ampol",
+          "address": "585 Canning Hwy",
+          "suburb": "ALFRED COVE",
+          "lat": "-32.03121700",
+          "lng": "115.81542800"
         }
       ]
     },
     "_centroid": {
-      "lat": -32.37218,
-      "lng": 115.76041
+      "lat": -32.03122,
+      "lng": 115.81543
     },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 227.9,
+      "count": 1,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Melville",
+          "brand": "Ampol",
+          "address": "585 Canning Hwy",
+          "suburb": "ALFRED COVE",
+          "lat": "-32.03121700",
+          "lng": "115.81542800"
+        }
+      ]
+    }
+  },
+  "Coogee": {},
+  "North Coogee": {},
+  "Port Kennedy": {
     "Premium 95": {
       "min": 214.7,
       "avg": 223.5,
@@ -8240,47 +8202,47 @@
           "lng": "115.76312700"
         }
       ]
-    }
-  },
-  "Rockingham": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 232.6,
+    },
+    "_centroid": {
+      "lat": -32.37218,
+      "lng": 115.76041
+    },
+    "Unleaded 91": {
+      "min": 199.7,
+      "avg": 209.8,
       "count": 3,
       "stations": [
         {
-          "price": 227.9,
-          "name": "Ampol Foodary Rockingham",
-          "brand": "Ampol",
-          "address": "29 Dixon Rd",
-          "suburb": "ROCKINGHAM",
-          "lat": "-32.27690000",
-          "lng": "115.74981900"
+          "price": 199.7,
+          "name": "Vibe Port Kennedy",
+          "brand": "Vibe",
+          "address": "35 Blackburn Dr",
+          "suburb": "PORT KENNEDY",
+          "lat": "-32.37157800",
+          "lng": "115.76217100"
         },
         {
-          "price": 234.9,
-          "name": "BP Connect Rockingham Park",
+          "price": 213.9,
+          "name": "BP Port Kennedy",
           "brand": "BP",
-          "address": "2 Chalgrove Ave",
-          "suburb": "ROCKINGHAM",
-          "lat": "-32.28972900",
-          "lng": "115.74148400"
+          "address": "46 Bakewell Dr",
+          "suburb": "PORT KENNEDY",
+          "lat": "-32.37117800",
+          "lng": "115.76312700"
         },
         {
-          "price": 234.9,
-          "name": "7-Eleven Rockingham Central",
-          "brand": "7-Eleven",
-          "address": "2 Sepia Ct",
-          "suburb": "ROCKINGHAM",
-          "lat": "-32.29168600",
-          "lng": "115.74309100"
+          "price": 215.9,
+          "name": "EG Ampol Port Kennedy",
+          "brand": "EG Ampol",
+          "address": "12 Saltaire Way",
+          "suburb": "PORT KENNEDY",
+          "lat": "-32.37378100",
+          "lng": "115.75592000"
         }
       ]
-    },
-    "_centroid": {
-      "lat": -32.2861,
-      "lng": 115.7448
-    },
+    }
+  },
+  "Rockingham": {
     "Unleaded 91": {
       "min": 211.9,
       "avg": 217.2,
@@ -8314,6 +8276,44 @@
           "lng": "115.74309100"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -32.2861,
+      "lng": 115.7448
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 232.6,
+      "count": 3,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Rockingham",
+          "brand": "Ampol",
+          "address": "29 Dixon Rd",
+          "suburb": "ROCKINGHAM",
+          "lat": "-32.27690000",
+          "lng": "115.74981900"
+        },
+        {
+          "price": 234.9,
+          "name": "BP Connect Rockingham Park",
+          "brand": "BP",
+          "address": "2 Chalgrove Ave",
+          "suburb": "ROCKINGHAM",
+          "lat": "-32.28972900",
+          "lng": "115.74148400"
+        },
+        {
+          "price": 234.9,
+          "name": "7-Eleven Rockingham Central",
+          "brand": "7-Eleven",
+          "address": "2 Sepia Ct",
+          "suburb": "ROCKINGHAM",
+          "lat": "-32.29168600",
+          "lng": "115.74309100"
+        }
+      ]
     }
   },
   "Safety Bay": {
@@ -8338,40 +8338,40 @@
       "lng": 115.73233
     }
   },
-  "Shoalwater": {
+  "Waikiki": {
     "Unleaded 91": {
-      "min": 216.9,
-      "avg": 216.9,
+      "min": 215.9,
+      "avg": 215.9,
       "count": 1,
       "stations": [
         {
-          "price": 216.9,
-          "name": "Petro Fuels Shoalwater",
-          "brand": "Caltex",
-          "address": "113-121 Safety Bay Rd",
-          "suburb": "SHOALWATER",
-          "lat": "-32.29235800",
-          "lng": "115.71055000"
+          "price": 215.9,
+          "name": "Shell Reddy Express Waikiki",
+          "brand": "Reddy Express",
+          "address": "1-9 Gnangara Dr",
+          "suburb": "WAIKIKI",
+          "lat": "-32.31512100",
+          "lng": "115.75318300"
         }
       ]
     },
     "_centroid": {
-      "lat": -32.29236,
-      "lng": 115.71055
+      "lat": -32.31512,
+      "lng": 115.75318
     },
     "Premium 95": {
-      "min": 238.5,
-      "avg": 238.5,
+      "min": 233.4,
+      "avg": 233.4,
       "count": 1,
       "stations": [
         {
-          "price": 238.5,
-          "name": "Petro Fuels Shoalwater",
-          "brand": "Caltex",
-          "address": "113-121 Safety Bay Rd",
-          "suburb": "SHOALWATER",
-          "lat": "-32.29235800",
-          "lng": "115.71055000"
+          "price": 233.4,
+          "name": "Shell Reddy Express Waikiki",
+          "brand": "Reddy Express",
+          "address": "1-9 Gnangara Dr",
+          "suburb": "WAIKIKI",
+          "lat": "-32.31512100",
+          "lng": "115.75318300"
         }
       ]
     }
@@ -8468,45 +8468,46 @@
       ]
     }
   },
-  "Parmelia": {},
-  "Waikiki": {
-    "Premium 95": {
-      "min": 233.4,
-      "avg": 233.4,
+  "Shoalwater": {
+    "Unleaded 91": {
+      "min": 216.9,
+      "avg": 216.9,
       "count": 1,
       "stations": [
         {
-          "price": 233.4,
-          "name": "Shell Reddy Express Waikiki",
-          "brand": "Reddy Express",
-          "address": "1-9 Gnangara Dr",
-          "suburb": "WAIKIKI",
-          "lat": "-32.31512100",
-          "lng": "115.75318300"
+          "price": 216.9,
+          "name": "Petro Fuels Shoalwater",
+          "brand": "Caltex",
+          "address": "113-121 Safety Bay Rd",
+          "suburb": "SHOALWATER",
+          "lat": "-32.29235800",
+          "lng": "115.71055000"
         }
       ]
     },
     "_centroid": {
-      "lat": -32.31512,
-      "lng": 115.75318
+      "lat": -32.29236,
+      "lng": 115.71055
     },
-    "Unleaded 91": {
-      "min": 215.9,
-      "avg": 215.9,
+    "Premium 95": {
+      "min": 238.5,
+      "avg": 238.5,
       "count": 1,
       "stations": [
         {
-          "price": 215.9,
-          "name": "Shell Reddy Express Waikiki",
-          "brand": "Reddy Express",
-          "address": "1-9 Gnangara Dr",
-          "suburb": "WAIKIKI",
-          "lat": "-32.31512100",
-          "lng": "115.75318300"
+          "price": 238.5,
+          "name": "Petro Fuels Shoalwater",
+          "brand": "Caltex",
+          "address": "113-121 Safety Bay Rd",
+          "suburb": "SHOALWATER",
+          "lat": "-32.29235800",
+          "lng": "115.71055000"
         }
       ]
     }
   },
+  "Parmelia": {},
+  "Wandi": {},
   "Leda": {
     "Unleaded 91": {
       "min": 213.9,
@@ -8547,6 +8548,7 @@
   },
   "Medina": {},
   "Kwinana": {},
+  "Orelia": {},
   "Calista": {
     "Unleaded 91": {
       "min": 209.5,
@@ -8569,9 +8571,7 @@
       "lng": 115.80802
     }
   },
-  "Orelia": {},
   "Hillman": {},
-  "Wandi": {},
   "Bertram": {
     "Unleaded 91": {
       "min": 215.9,
@@ -8611,13 +8611,13 @@
     }
   },
   "Secret Harbour": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 227.9,
+    "Unleaded 91": {
+      "min": 211.9,
+      "avg": 211.9,
       "count": 1,
       "stations": [
         {
-          "price": 227.9,
+          "price": 211.9,
           "name": "Ampol Foodary Secret Harbour",
           "brand": "Ampol",
           "address": "420 Secret Harbour Bvd",
@@ -8631,13 +8631,13 @@
       "lat": -32.40701,
       "lng": 115.75942
     },
-    "Unleaded 91": {
-      "min": 211.9,
-      "avg": 211.9,
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 227.9,
       "count": 1,
       "stations": [
         {
-          "price": 211.9,
+          "price": 227.9,
           "name": "Ampol Foodary Secret Harbour",
           "brand": "Ampol",
           "address": "420 Secret Harbour Bvd",
@@ -8879,8 +8879,8 @@
       ]
     }
   },
-  "Postans": {},
   "Stakehill": {},
+  "Postans": {},
   "Mandurah": {
     "Unleaded 91": {
       "min": 213.7,
@@ -9261,37 +9261,7 @@
       ]
     }
   },
-  "Dudley Park": {},
   "Falcon": {
-    "Premium 95": {
-      "min": 227.9,
-      "avg": 229.9,
-      "count": 2,
-      "stations": [
-        {
-          "price": 227.9,
-          "name": "Ampol Foodary Falcon (Miami Beach)",
-          "brand": "Ampol",
-          "address": "2 Baroy St",
-          "suburb": "FALCON",
-          "lat": "-32.58115400",
-          "lng": "115.66148000"
-        },
-        {
-          "price": 231.9,
-          "name": "EG Ampol Falcon",
-          "brand": "EG Ampol",
-          "address": "651 Old Coast Rd",
-          "suburb": "FALCON",
-          "lat": "-32.58494300",
-          "lng": "115.66035400"
-        }
-      ]
-    },
-    "_centroid": {
-      "lat": -32.58305,
-      "lng": 115.66092
-    },
     "Unleaded 91": {
       "min": 211.9,
       "avg": 212.9,
@@ -9316,8 +9286,38 @@
           "lng": "115.66035400"
         }
       ]
+    },
+    "_centroid": {
+      "lat": -32.58305,
+      "lng": 115.66092
+    },
+    "Premium 95": {
+      "min": 227.9,
+      "avg": 229.9,
+      "count": 2,
+      "stations": [
+        {
+          "price": 227.9,
+          "name": "Ampol Foodary Falcon (Miami Beach)",
+          "brand": "Ampol",
+          "address": "2 Baroy St",
+          "suburb": "FALCON",
+          "lat": "-32.58115400",
+          "lng": "115.66148000"
+        },
+        {
+          "price": 231.9,
+          "name": "EG Ampol Falcon",
+          "brand": "EG Ampol",
+          "address": "651 Old Coast Rd",
+          "suburb": "FALCON",
+          "lat": "-32.58494300",
+          "lng": "115.66035400"
+        }
+      ]
     }
   },
+  "Dudley Park": {},
   "Dawesville": {
     "Unleaded 91": {
       "min": 211.9,
