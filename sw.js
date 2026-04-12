@@ -1,10 +1,7 @@
-const CACHE = 'fuelwatch-v2';
-const STATIC = ['/fuelwatch/', '/fuelwatch/static/manifest.json'];
+const CACHE = 'fuelwatch-v3';
 
 self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(STATIC)).then(() => self.skipWaiting())
-  );
+  e.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', e => {
@@ -18,8 +15,8 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
-  // Data files: network first (always fresh prices), fall back to cache for offline
-  if (url.pathname.includes('/data/')) {
+  // HTML shell + data files: network first, cache fallback for offline
+  if (url.pathname.endsWith('/') || url.pathname.includes('/data/') || url.pathname.endsWith('.html')) {
     e.respondWith(
       fetch(e.request).then(resp => {
         const clone = resp.clone();
@@ -30,7 +27,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Shell: cache first, fallback network
+  // Static assets (icons, manifest, sw): cache first, fallback network
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request).then(resp => {
       const clone = resp.clone();
