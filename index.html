@@ -660,86 +660,67 @@
       label.innerHTML  = '<span class="inline-spinner"></span> Locating…';
       btn.disabled     = true;
 
-      let suburb = null;
-      let userLat = null, userLng = null;
-
+      // 1 — GPS coords (only hard failure point)
+      let userLat, userLng;
       try {
-        // 1 — GPS
         const pos = await new Promise((res, rej) =>
-          navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 }));
+          navigator.geolocation.getCurrentPosition(res, rej, { timeout: 12000, enableHighAccuracy: false }));
         userLat = pos.coords.latitude;
         userLng = pos.coords.longitude;
+      } catch (err) {
+        btn.className     = 'location-pill error';
+        icon.textContent  = '⚠️';
+        label.textContent = err.code === 1 ? 'Location denied' : 'Location unavailable — tap to retry';
+        btn.disabled      = false;
+        return;
+      }
 
-        // 2 — Reverse geocode via OpenStreetMap (no API key needed)
-        label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
+      // 2 — Find nearest suburb from local data (no external API, never fails)
+      label.innerHTML = '<span class="inline-spinner"></span> Finding suburb…';
+      const lookup     = await loadSuburbData();
+      const nearestKey = findNearestSuburbWithData(userLat, userLng, lookup);
+
+      if (!nearestKey) {
+        // Outside coverage — show default
+        btn.className   = 'location-pill located';
+        icon.textContent = '📍';
+        label.textContent = 'Outside coverage';
+        document.getElementById('last-updated').textContent =
+          `📍 Outside coverage area — showing default prices`;
+        render(allData);
+        btn.disabled = false;
+        return;
+      }
+
+      liveData = buildLiveDataFromLookup(lookup, nearestKey);
+      btn.className    = 'location-pill located';
+      icon.textContent = '📍';
+      label.textContent = nearestKey;
+      detectedSuburb    = nearestKey;
+      document.getElementById('last-updated').textContent =
+        `📍 ${nearestKey} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
+      render(liveData);
+      btn.disabled = false;
+
+      // 3 — Try Nominatim in the background for a better display name (optional, non-blocking)
+      try {
         const ctrl = new AbortController();
         setTimeout(() => ctrl.abort(), 8000);
         const geo     = await fetch(
           `https://nominatim.openstreetmap.org/reverse?lat=${userLat}&lon=${userLng}&format=json`,
           { signal: ctrl.signal, headers: { 'Accept-Language': 'en-AU' } });
         const geoData = await geo.json();
-        suburb = geoData.address?.suburb
-              || geoData.address?.city_district
-              || geoData.address?.town
-              || geoData.address?.village
-              || geoData.address?.county;
-
-        if (!suburb) throw new Error('Suburb not found');
-        detectedSuburb = suburb;
-
-        btn.className    = 'location-pill located';
-        icon.textContent = '📍';
-        label.innerHTML  = `${suburb} <span class="inline-spinner"></span>`;
-
-      } catch (err) {
-        btn.className     = 'location-pill error';
-        icon.textContent  = '⚠️';
-        label.textContent = err.code === 1 ? 'Location denied' : 'Location failed — tap to retry';
-        btn.disabled      = false;
-        return;
-      }
-
-      // 3 — Look up prices from local by_suburb.json (no CORS proxy needed)
-      try {
-        label.innerHTML = `${suburb} <span class="inline-spinner"></span>`;
-        const lookup    = await loadSuburbData();
-        const key       = findSuburbKey(lookup, suburb);
-
-        if (key) liveData = buildLiveDataFromLookup(lookup, key);
-
-        // No data for exact suburb — find nearest suburb with data using GPS coords
-        if (!liveData && userLat != null) {
-          const nearestKey = findNearestSuburbWithData(userLat, userLng, lookup);
-          if (nearestKey) {
-            liveData = buildLiveDataFromLookup(lookup, nearestKey);
-            label.textContent = suburb;
-            document.getElementById('last-updated').textContent =
-              `📍 ${suburb} · Nearest prices: ${nearestKey} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
-            render(liveData);
-            btn.disabled = false;
-            return;
-          }
-        }
-
-        if (liveData) {
+        const suburb  = geoData.address?.suburb
+                     || geoData.address?.city_district
+                     || geoData.address?.town
+                     || geoData.address?.village;
+        if (suburb) {
+          detectedSuburb    = suburb;
           label.textContent = suburb;
           document.getElementById('last-updated').textContent =
             `📍 ${suburb} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
-          render(liveData);
-        } else {
-          liveData = null;
-          label.textContent = suburb;
-          document.getElementById('last-updated').textContent =
-            `📍 ${suburb} — not in coverage area, showing default prices`;
-          render(allData);
         }
-      } catch {
-        liveData = null;
-        label.textContent = suburb;
-        render(allData);
-      }
-
-      btn.disabled = false;
+      } catch { /* Nominatim failed — no problem, nearestKey is already shown */ }
     }
 
     /* ─────────────────────────────── Render ── */
