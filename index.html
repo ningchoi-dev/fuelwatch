@@ -584,11 +584,13 @@
         const extras = [];
         for (const [key, sub] of Object.entries(lookup)) {
           if (key === suburbKey) continue;
-          // Distance gate: only fill from nearby suburbs
-          if (centroid && sub._centroid) {
-            if (haversineDist(centroid.lat, centroid.lng,
-                              sub._centroid.lat, sub._centroid.lng) > FILL_KM) continue;
-          }
+          // Distance gate: only fill from nearby suburbs.
+          // If we have no centroid for the searched suburb, skip all fills
+          // (prevents showing globally cheapest stations for unknown suburbs).
+          if (!centroid) continue;
+          if (!sub._centroid) continue;
+          if (haversineDist(centroid.lat, centroid.lng,
+                            sub._centroid.lat, sub._centroid.lng) > FILL_KM) continue;
           for (const s of (sub[dataKey]?.stations || [])) {
             const id = `${s.name}|${s.address}`;
             if (!seen.has(id)) { seen.add(id); extras.push(s); }
