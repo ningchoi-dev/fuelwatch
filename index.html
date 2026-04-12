@@ -938,7 +938,7 @@
 
         const firstKey = Object.keys(allData)[0];
         document.getElementById('last-updated').textContent =
-          `Default area · Updated ${allData[firstKey]?.fetched_at || ''}`;
+          `Perth · Updated ${allData[firstKey]?.fetched_at || ''}`;
 
         render(allData);
       } catch {
@@ -1033,6 +1033,7 @@
       const lookup = suburbData || {};
       const key    = findSuburbKey(lookup, name) || name;
       liveData     = buildLiveDataFromLookup(lookup, key);
+      detectedSuburb = name;
 
       if (liveData) {
         document.getElementById('last-updated').textContent =
@@ -1076,7 +1077,36 @@
       const btn = document.getElementById('refresh-btn');
       btn.disabled = true;
       btn.classList.add('spinning');
-      await load();
+
+      try {
+        // Re-fetch prices and suburb data in parallel (no loading overlay — just spinning btn)
+        const [pricesResp] = await Promise.all([
+          fetch('data/prices.json?t=' + Date.now()),
+          fetch('data/by_suburb.json?t=' + Date.now())
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d) suburbData = d; })
+            .catch(() => {}),
+        ]);
+        if (!pricesResp.ok) throw new Error();
+        allData = await pricesResp.json();
+
+        const fetched  = Object.values(allData)[0]?.fetched_at || '';
+
+        // Rebuild liveData from fresh suburb data if a suburb was selected
+        if (detectedSuburb && suburbData) {
+          const key   = findSuburbKey(suburbData, detectedSuburb) || detectedSuburb;
+          const fresh = buildLiveDataFromLookup(suburbData, key);
+          if (fresh) liveData = fresh;
+        }
+
+        render(liveData || allData);
+
+        // Restore the correct last-updated label
+        const prefix = detectedSuburb ? `📍 ${detectedSuburb}` : 'Perth';
+        document.getElementById('last-updated').textContent = `${prefix} · Updated ${fetched}`;
+
+      } catch { /* silently ignore — existing data stays on screen */ }
+
       btn.disabled = false;
       btn.classList.remove('spinning');
     }
