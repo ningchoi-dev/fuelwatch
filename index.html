@@ -498,7 +498,7 @@
     let liveData   = null;   // location-fetched live data
     let activeTab  = null;
     let activeDay  = 'today';
-    let detectedSuburb = null;
+    let detectedSuburb = localStorage.getItem('fw-suburb') || null;
     const charts   = {};
     const showAllMap = {};
 
@@ -569,8 +569,7 @@
     }
 
     function buildLiveDataFromLookup(lookup, suburbKey) {
-      const entry = lookup[suburbKey];
-      if (!entry) return null;
+      const entry = lookup[suburbKey] || {}; // empty entry = no own stations, fill from nearby
       const result = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
       let hasAnyData = false;
@@ -592,12 +591,13 @@
           .slice(0, 5);
       }
 
-      // Recompute summary stats from the actual displayed stations
-      function recompute(raw, stations) {
-        if (!raw || !stations.length) return raw;
+      // Build summary from stations — uses raw as base if available,
+      // synthesises from filled stations if the suburb has no own data
+      function summarise(raw, stations) {
+        if (!stations.length) return null;
         const prices = stations.map(s => s.price);
         return {
-          ...raw,
+          ...(raw || {}),
           min:      Math.min(...prices),
           avg:      +(prices.reduce((a, b) => a + b) / prices.length).toFixed(1),
           max:      Math.max(...prices),
@@ -612,8 +612,8 @@
         const tomorrowRaw = entry[name + '_tomorrow'];
         const todayStations    = filledStations(todayRaw?.stations    || [], name);
         const tomorrowStations = filledStations(tomorrowRaw?.stations || [], name + '_tomorrow');
-        const today    = recompute(todayRaw,    todayStations);
-        const tomorrow = recompute(tomorrowRaw, tomorrowStations);
+        const today    = summarise(todayRaw,    todayStations);
+        const tomorrow = summarise(tomorrowRaw, tomorrowStations);
         if (today || tomorrow) hasAnyData = true;
         result[name] = {
           today,
@@ -721,6 +721,7 @@
       icon.textContent = '📍';
       label.textContent = nearestKey;
       detectedSuburb    = nearestKey;
+      localStorage.setItem('fw-suburb', nearestKey);
       document.getElementById('last-updated').textContent =
         `📍 ${nearestKey} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
       render(liveData);
@@ -740,6 +741,7 @@
                      || geoData.address?.village;
         if (suburb) {
           detectedSuburb    = suburb;
+          localStorage.setItem('fw-suburb', suburb);
           label.textContent = suburb;
           document.getElementById('last-updated').textContent =
             `📍 ${suburb} · ${allData ? Object.values(allData)[0]?.fetched_at || '' : ''}`;
@@ -964,7 +966,21 @@
         document.getElementById('last-updated').textContent =
           `Perth · Updated ${allData[firstKey]?.fetched_at || ''}`;
 
-        render(allData);
+        // Restore last selected suburb if one was saved
+        if (detectedSuburb && suburbData) {
+          const key   = findSuburbKey(suburbData, detectedSuburb) || detectedSuburb;
+          const saved = buildLiveDataFromLookup(suburbData, key);
+          if (saved) {
+            liveData = saved;
+            render(liveData);
+            document.getElementById('last-updated').textContent =
+              `🔍 ${detectedSuburb} · Updated ${allData[firstKey]?.fetched_at || ''}`;
+          } else {
+            render(allData);
+          }
+        } else {
+          render(allData);
+        }
       } catch {
         document.getElementById('error-msg').style.display = 'block';
       } finally {
@@ -1058,6 +1074,7 @@
       const key    = findSuburbKey(lookup, name) || name;
       liveData     = buildLiveDataFromLookup(lookup, key);
       detectedSuburb = name;
+      localStorage.setItem('fw-suburb', name);
 
       if (liveData) {
         document.getElementById('last-updated').textContent =
