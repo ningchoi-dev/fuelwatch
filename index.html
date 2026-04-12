@@ -672,8 +672,12 @@
         icon.textContent = '⚠️';
         label.textContent = err.code === 1 ? 'Blocked — allow in browser settings'
                           : err.code === 3 ? 'Timed out — tap to retry'
-                          : 'Unavailable — check OS Location Services';
+                          : 'Unavailable — search your suburb instead';
         btn.disabled = false;
+        // Auto-focus search so the user can immediately type their suburb
+        if (err.code !== 1) {
+          setTimeout(() => document.getElementById('search-input')?.focus(), 300);
+        }
         return;
       }
 
