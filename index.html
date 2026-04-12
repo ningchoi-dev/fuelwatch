@@ -574,9 +574,28 @@
       const result = {};
       const fuelNames = ['Unleaded 91', 'Premium 95'];
       let hasAnyData = false;
+
+      // Top up to 5 stations from other suburbs if primary suburb has fewer
+      function filledStations(primary, dataKey) {
+        if (primary.length >= 5) return primary;
+        const seen = new Set(primary.map(s => `${s.name}|${s.address}`));
+        const extras = [];
+        for (const [key, sub] of Object.entries(lookup)) {
+          if (key === suburbKey) continue;
+          for (const s of (sub[dataKey]?.stations || [])) {
+            const id = `${s.name}|${s.address}`;
+            if (!seen.has(id)) { seen.add(id); extras.push(s); }
+          }
+        }
+        extras.sort((a, b) => a.price - b.price);
+        return [...primary, ...extras].slice(0, 5);
+      }
+
       for (const name of fuelNames) {
-        const today    = entry[name]             ? { ...entry[name],             stations: entry[name].stations             || [] } : null;
-        const tomorrow = entry[name+'_tomorrow'] ? { ...entry[name+'_tomorrow'], stations: entry[name+'_tomorrow'].stations || [] } : null;
+        const todayRaw    = entry[name];
+        const tomorrowRaw = entry[name + '_tomorrow'];
+        const today    = todayRaw    ? { ...todayRaw,    stations: filledStations(todayRaw.stations    || [], name) }            : null;
+        const tomorrow = tomorrowRaw ? { ...tomorrowRaw, stations: filledStations(tomorrowRaw.stations || [], name + '_tomorrow') } : null;
         if (today || tomorrow) hasAnyData = true;
         result[name] = {
           today,
