@@ -20,6 +20,13 @@
       "avg": 212.7,
       "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-14",
+      "min": 199.9,
+      "avg": 206.9,
+      "station": "BP Highgate",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -42,6 +49,13 @@
       "min": 225.9,
       "avg": 229.2,
       "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-14",
+      "min": 214.9,
+      "avg": 223.4,
+      "station": "BP Highgate",
       "suburb": "PERTH"
     }
   ]

@@ -55,7 +55,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "14 Apr 2026 06:01 AWST",
+    "fetched_at": "14 Apr 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -76,6 +76,13 @@
         "min": 209.9,
         "avg": 212.7,
         "station": "Ampol Foodary East Perth",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-04-14",
+        "min": 199.9,
+        "avg": 206.9,
+        "station": "BP Highgate",
         "suburb": "PERTH"
       }
     ]
@@ -136,7 +143,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "14 Apr 2026 06:01 AWST",
+    "fetched_at": "14 Apr 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -157,6 +164,13 @@
         "min": 225.9,
         "avg": 229.2,
         "station": "Ampol Foodary East Perth",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-04-14",
+        "min": 214.9,
+        "avg": 223.4,
+        "station": "BP Highgate",
         "suburb": "PERTH"
       }
     ]
