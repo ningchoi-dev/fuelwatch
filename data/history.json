@@ -34,6 +34,13 @@
       "avg": 214.4,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-16",
+      "min": 204.9,
+      "avg": 208.7,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -70,6 +77,13 @@
       "min": 222.4,
       "avg": 230.9,
       "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-16",
+      "min": 220.9,
+      "avg": 225.2,
+      "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
     }
   ]
