@@ -41,6 +41,13 @@
       "avg": 208.7,
       "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-17",
+      "min": 199.9,
+      "avg": 202.4,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -83,6 +90,13 @@
       "date": "2026-04-16",
       "min": 220.9,
       "avg": 225.2,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-04-17",
+      "min": 215.9,
+      "avg": 218.9,
       "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
     }
