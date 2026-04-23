@@ -29,4 +29,10 @@ jobs:
           git pull --rebase --autostash origin main
           git add data/
           git diff --staged --quiet || git commit -m "chore: update fuel prices $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push origin main
+          # Retry push up to 3 times in case of transient GitHub server errors
+          for i in 1 2 3; do
+            git push origin main && break
+            echo "Push attempt $i failed, retrying in 15s..."
+            sleep 15
+            git pull --rebase --autostash origin main
+          done
