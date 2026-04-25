@@ -55,7 +55,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "25 Apr 2026 06:01 AWST",
+    "fetched_at": "25 Apr 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -154,6 +154,13 @@
         "avg": 184.4,
         "station": "Ampol Foodary East Perth",
         "suburb": "PERTH"
+      },
+      {
+        "date": "2026-04-25",
+        "min": 179.9,
+        "avg": 182.4,
+        "station": "Ampol Foodary East Perth",
+        "suburb": "PERTH"
       }
     ]
   },
@@ -213,7 +220,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "25 Apr 2026 06:01 AWST",
+    "fetched_at": "25 Apr 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -310,6 +317,13 @@
         "date": "2026-04-24",
         "min": 195.9,
         "avg": 200.9,
+        "station": "Ampol Foodary East Perth",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-04-25",
+        "min": 195.9,
+        "avg": 198.9,
         "station": "Ampol Foodary East Perth",
         "suburb": "PERTH"
       }
