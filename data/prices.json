@@ -55,7 +55,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "06 May 2026 06:01 AWST",
+    "fetched_at": "06 May 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -231,6 +231,13 @@
         "avg": 176.9,
         "station": "Shell Reddy Express Perth",
         "suburb": "PERTH"
+      },
+      {
+        "date": "2026-05-06",
+        "min": 177.9,
+        "avg": 188.2,
+        "station": "Shell Reddy Express Perth",
+        "suburb": "PERTH"
       }
     ]
   },
@@ -290,7 +297,7 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "06 May 2026 06:01 AWST",
+    "fetched_at": "06 May 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -464,6 +471,13 @@
         "date": "2026-05-05",
         "min": 191.4,
         "avg": 193.7,
+        "station": "Shell Reddy Express Perth",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-05-06",
+        "min": 195.4,
+        "avg": 204.9,
         "station": "Shell Reddy Express Perth",
         "suburb": "PERTH"
       }
