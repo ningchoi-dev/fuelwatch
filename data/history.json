@@ -230,6 +230,13 @@
       "avg": 187.9,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-05-14",
+      "min": 174.9,
+      "avg": 182.9,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -461,6 +468,13 @@
       "date": "2026-05-13",
       "min": 192.4,
       "avg": 204.7,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-05-14",
+      "min": 192.4,
+      "avg": 199.7,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
     }
