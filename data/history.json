@@ -391,6 +391,13 @@
       "avg": 167.9,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-06",
+      "min": 161.9,
+      "avg": 165.4,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -783,6 +790,13 @@
       "date": "2026-06-05",
       "min": 179.4,
       "avg": 184.7,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-06",
+      "min": 179.4,
+      "avg": 182.2,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
     }
