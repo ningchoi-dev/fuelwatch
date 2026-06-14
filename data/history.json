@@ -447,6 +447,13 @@
       "avg": 164.4,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-14",
+      "min": 161.9,
+      "avg": 164.4,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -893,6 +900,13 @@
     },
     {
       "date": "2026-06-13",
+      "min": 179.4,
+      "avg": 181.2,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-14",
       "min": 179.4,
       "avg": 181.2,
       "station": "Shell Reddy Express Perth",
