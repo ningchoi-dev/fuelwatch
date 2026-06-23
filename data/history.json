@@ -510,6 +510,13 @@
       "avg": 157.2,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-23",
+      "min": 145.9,
+      "avg": 152.4,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
@@ -1022,6 +1029,13 @@
       "min": 171.4,
       "avg": 173.9,
       "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-06-23",
+      "min": 162.9,
+      "avg": 169.2,
+      "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
     }
   ]
