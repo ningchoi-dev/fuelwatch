@@ -53,9 +53,66 @@
         }
       ]
     },
-    "tomorrow": null,
-    "recommendation": null,
-    "fetched_at": "24 Jun 2026 06:01 AWST",
+    "tomorrow": {
+      "min": 149.9,
+      "avg": 157.4,
+      "max": 169.9,
+      "count": 4,
+      "cheapest": {
+        "price": 149.9,
+        "name": "OTR Perth Pier Street",
+        "brand": "Shell",
+        "address": "17 Brisbane St",
+        "suburb": "PERTH",
+        "lat": "-31.94416200",
+        "lng": "115.86904000"
+      },
+      "stations": [
+        {
+          "price": 149.9,
+          "name": "OTR Perth Pier Street",
+          "brand": "Shell",
+          "address": "17 Brisbane St",
+          "suburb": "PERTH",
+          "lat": "-31.94416200",
+          "lng": "115.86904000"
+        },
+        {
+          "price": 149.9,
+          "name": "Shell Reddy Express Perth",
+          "brand": "Reddy Express",
+          "address": "480 William St",
+          "suburb": "PERTH",
+          "lat": "-31.94095300",
+          "lng": "115.86390400"
+        },
+        {
+          "price": 159.9,
+          "name": "BP Highgate",
+          "brand": "BP",
+          "address": "342 Beaufort St",
+          "suburb": "PERTH",
+          "lat": "-31.94255600",
+          "lng": "115.86735900"
+        },
+        {
+          "price": 169.9,
+          "name": "Ampol Foodary East Perth",
+          "brand": "Ampol",
+          "address": "157 Lord St",
+          "suburb": "PERTH",
+          "lat": "-31.94868900",
+          "lng": "115.86956700"
+        }
+      ]
+    },
+    "recommendation": {
+      "action": "neutral",
+      "diff": 0.0,
+      "icon": "\u2713",
+      "text": "Prices are similar \u2014 fill up whenever suits you"
+    },
+    "fetched_at": "24 Jun 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -574,6 +631,13 @@
         "avg": 152.4,
         "station": "Ampol Foodary East Perth",
         "suburb": "PERTH"
+      },
+      {
+        "date": "2026-06-24",
+        "min": 149.9,
+        "avg": 157.4,
+        "station": "OTR Perth Pier Street",
+        "suburb": "PERTH"
       }
     ]
   },
@@ -631,9 +695,66 @@
         }
       ]
     },
-    "tomorrow": null,
-    "recommendation": null,
-    "fetched_at": "24 Jun 2026 06:01 AWST",
+    "tomorrow": {
+      "min": 167.4,
+      "avg": 174.2,
+      "max": 186.9,
+      "count": 4,
+      "cheapest": {
+        "price": 167.4,
+        "name": "OTR Perth Pier Street",
+        "brand": "Shell",
+        "address": "17 Brisbane St",
+        "suburb": "PERTH",
+        "lat": "-31.94416200",
+        "lng": "115.86904000"
+      },
+      "stations": [
+        {
+          "price": 167.4,
+          "name": "OTR Perth Pier Street",
+          "brand": "Shell",
+          "address": "17 Brisbane St",
+          "suburb": "PERTH",
+          "lat": "-31.94416200",
+          "lng": "115.86904000"
+        },
+        {
+          "price": 167.4,
+          "name": "Shell Reddy Express Perth",
+          "brand": "Reddy Express",
+          "address": "480 William St",
+          "suburb": "PERTH",
+          "lat": "-31.94095300",
+          "lng": "115.86390400"
+        },
+        {
+          "price": 174.9,
+          "name": "BP Highgate",
+          "brand": "BP",
+          "address": "342 Beaufort St",
+          "suburb": "PERTH",
+          "lat": "-31.94255600",
+          "lng": "115.86735900"
+        },
+        {
+          "price": 186.9,
+          "name": "Ampol Foodary East Perth",
+          "brand": "Ampol",
+          "address": "157 Lord St",
+          "suburb": "PERTH",
+          "lat": "-31.94868900",
+          "lng": "115.86956700"
+        }
+      ]
+    },
+    "recommendation": {
+      "action": "neutral",
+      "diff": 0.0,
+      "icon": "\u2713",
+      "text": "Prices are similar \u2014 fill up whenever suits you"
+    },
+    "fetched_at": "24 Jun 2026 14:30 AWST",
     "history": [
       {
         "date": "2026-04-11",
@@ -1151,6 +1272,13 @@
         "min": 162.9,
         "avg": 169.2,
         "station": "Ampol Foodary East Perth",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-06-24",
+        "min": 167.4,
+        "avg": 174.2,
+        "station": "OTR Perth Pier Street",
         "suburb": "PERTH"
       }
     ]
