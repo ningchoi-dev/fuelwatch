@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-04-11",
-      "min": 199.7,
-      "avg": 216.4,
-      "station": "Vibe Hamilton Hill",
-      "suburb": "HAMILTON HILL"
-    },
-    {
       "date": "2026-04-12",
       "min": 211.9,
       "avg": 215.9,
@@ -629,16 +622,16 @@
       "avg": 173.7,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-10",
+      "min": 165.9,
+      "avg": 170.4,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-04-11",
-      "min": 224.7,
-      "avg": 232.6,
-      "station": "Vibe Jandakot",
-      "suburb": "JANDAKOT"
-    },
     {
       "date": "2026-04-12",
       "min": 227.9,
@@ -1259,6 +1252,13 @@
       "date": "2026-07-09",
       "min": 181.4,
       "avg": 190.4,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-10",
+      "min": 183.4,
+      "avg": 187.2,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
     }
