@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-04-13",
-      "min": 209.9,
-      "avg": 212.7,
-      "station": "Ampol Foodary East Perth",
-      "suburb": "PERTH"
-    },
-    {
       "date": "2026-04-14",
       "min": 199.9,
       "avg": 206.9,
@@ -629,16 +622,16 @@
       "avg": 167.7,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-12",
+      "min": 166.9,
+      "avg": 167.7,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-04-13",
-      "min": 225.9,
-      "avg": 229.2,
-      "station": "Ampol Foodary East Perth",
-      "suburb": "PERTH"
-    },
     {
       "date": "2026-04-14",
       "min": 214.9,
@@ -1257,6 +1250,13 @@
     },
     {
       "date": "2026-07-11",
+      "min": 183.9,
+      "avg": 184.4,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-12",
       "min": 183.9,
       "avg": 184.4,
       "station": "Ampol Foodary East Perth",
