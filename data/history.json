@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-04-14",
-      "min": 199.9,
-      "avg": 206.9,
-      "station": "BP Highgate",
-      "suburb": "PERTH"
-    },
-    {
       "date": "2026-04-15",
       "min": 204.9,
       "avg": 214.4,
@@ -629,16 +622,16 @@
       "avg": 167.7,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-13",
+      "min": 164.9,
+      "avg": 167.2,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-04-14",
-      "min": 214.9,
-      "avg": 223.4,
-      "station": "BP Highgate",
-      "suburb": "PERTH"
-    },
     {
       "date": "2026-04-15",
       "min": 222.4,
@@ -1259,6 +1252,13 @@
       "date": "2026-07-12",
       "min": 183.9,
       "avg": 184.4,
+      "station": "Ampol Foodary East Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-13",
+      "min": 181.9,
+      "avg": 183.9,
       "station": "Ampol Foodary East Perth",
       "suburb": "PERTH"
     }
