@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-05-01",
-      "min": 175.9,
-      "avg": 180.2,
-      "station": "Shell Reddy Express Perth",
-      "suburb": "PERTH"
-    },
-    {
       "date": "2026-05-02",
       "min": 175.9,
       "avg": 178.9,
@@ -629,16 +622,16 @@
       "avg": 198.7,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-30",
+      "min": 194.9,
+      "avg": 198.7,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-05-01",
-      "min": 193.4,
-      "avg": 196.7,
-      "station": "Shell Reddy Express Perth",
-      "suburb": "PERTH"
-    },
     {
       "date": "2026-05-02",
       "min": 193.4,
@@ -1258,6 +1251,13 @@
     {
       "date": "2026-07-29",
       "min": 209.4,
+      "avg": 215.4,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-07-30",
+      "min": 212.4,
       "avg": 215.4,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
