@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-06-08",
-      "min": 159.9,
-      "avg": 162.9,
-      "station": "OTR Perth Pier Street",
-      "suburb": "PERTH"
-    },
-    {
       "date": "2026-06-09",
       "min": 157.9,
       "avg": 160.4,
@@ -629,16 +622,16 @@
       "avg": 203.9,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-09-06",
+      "min": 201.9,
+      "avg": 204.9,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-06-08",
-      "min": 177.4,
-      "avg": 179.7,
-      "station": "Shell Reddy Express Perth",
-      "suburb": "PERTH"
-    },
     {
       "date": "2026-06-09",
       "min": 175.4,
@@ -1259,6 +1252,13 @@
       "date": "2026-09-05",
       "min": 217.4,
       "avg": 220.7,
+      "station": "OTR Perth Pier Street",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-09-06",
+      "min": 219.4,
+      "avg": 221.7,
       "station": "OTR Perth Pier Street",
       "suburb": "PERTH"
     }
