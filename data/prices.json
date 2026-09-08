@@ -55,15 +55,8 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "08 Sep 2026 06:01 AWST",
+    "fetched_at": "08 Sep 2026 14:30 AWST",
     "history": [
-      {
-        "date": "2026-06-10",
-        "min": 159.9,
-        "avg": 175.2,
-        "station": "Shell Reddy Express Perth",
-        "suburb": "PERTH"
-      },
       {
         "date": "2026-06-11",
         "min": 161.9,
@@ -686,6 +679,13 @@
         "avg": 204.9,
         "station": "OTR Perth Pier Street",
         "suburb": "PERTH"
+      },
+      {
+        "date": "2026-09-08",
+        "min": 199.9,
+        "avg": 201.7,
+        "station": "Shell Reddy Express Perth",
+        "suburb": "PERTH"
       }
     ]
   },
@@ -745,15 +745,8 @@
     },
     "tomorrow": null,
     "recommendation": null,
-    "fetched_at": "08 Sep 2026 06:01 AWST",
+    "fetched_at": "08 Sep 2026 14:30 AWST",
     "history": [
-      {
-        "date": "2026-06-10",
-        "min": 177.4,
-        "avg": 191.9,
-        "station": "Shell Reddy Express Perth",
-        "suburb": "PERTH"
-      },
       {
         "date": "2026-06-11",
         "min": 179.4,
@@ -1375,6 +1368,13 @@
         "min": 219.4,
         "avg": 221.7,
         "station": "OTR Perth Pier Street",
+        "suburb": "PERTH"
+      },
+      {
+        "date": "2026-09-08",
+        "min": 217.4,
+        "avg": 218.4,
+        "station": "Shell Reddy Express Perth",
         "suburb": "PERTH"
       }
     ]
