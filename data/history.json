@@ -1,13 +1,6 @@
 {
   "Unleaded 91": [
     {
-      "date": "2026-07-26",
-      "min": 186.9,
-      "avg": 188.4,
-      "station": "Ampol Foodary East Perth",
-      "suburb": "PERTH"
-    },
-    {
       "date": "2026-07-27",
       "min": 186.9,
       "avg": 189.4,
@@ -629,16 +622,16 @@
       "avg": 232.6,
       "station": "Shell Reddy Express Perth",
       "suburb": "PERTH"
+    },
+    {
+      "date": "2026-10-24",
+      "min": 229.8,
+      "avg": 230.4,
+      "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
     }
   ],
   "Premium 95": [
-    {
-      "date": "2026-07-26",
-      "min": 203.9,
-      "avg": 205.2,
-      "station": "Ampol Foodary East Perth",
-      "suburb": "PERTH"
-    },
     {
       "date": "2026-07-27",
       "min": 203.9,
@@ -1260,6 +1253,13 @@
       "min": 247.3,
       "avg": 249.3,
       "station": "Shell Reddy Express Perth",
+      "suburb": "PERTH"
+    },
+    {
+      "date": "2026-10-24",
+      "min": 244.9,
+      "avg": 247.1,
+      "station": "BP Highgate",
       "suburb": "PERTH"
     }
   ]
